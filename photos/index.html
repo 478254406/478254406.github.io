@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>朴素贝叶斯 | Hexo</title>
+  <title>相册 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="朴素贝叶斯的基本背景​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，$$p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）$$ 通过找到一个最大的标签yi，让下面这个式子最大$$\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x">
-<meta property="og:type" content="article">
-<meta property="og:title" content="朴素贝叶斯">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF&#x2F;index.html">
+  <meta name="description" content="Ins 	摄影   	图片来自instagram，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&amp;apos;script&amp;apos;)       document.getElementsByTagName(&amp;apos;body&amp;apos;)[0].appendChi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;photos&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="朴素贝叶斯的基本背景​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，$$p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）$$ 通过找到一个最大的标签yi，让下面这个式子最大$$\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x">
+<meta property="og:description" content="Ins 	摄影   	图片来自instagram，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&amp;apos;script&amp;apos;)       document.getElementsByTagName(&amp;apos;body&amp;apos;)[0].appendChi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-27T05:08:46.500Z">
+<meta property="og:updated_time" content="2017-07-28T18:51:08.000Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,32 +152,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-朴素贝叶斯" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      朴素贝叶斯
+      相册
     </h1>
   
 
-        
-        <a href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="archive-article-date">
-  	<time datetime="2019-10-27T01:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="朴素贝叶斯的基本背景"><a href="#朴素贝叶斯的基本背景" class="headerlink" title="朴素贝叶斯的基本背景"></a>朴素贝叶斯的基本背景</h1><p>​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，<br>$$<br>p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）<br>$$</p>
-<p>通过找到一个最大的标签yi，让下面这个式子最大<br>$$<br>\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x|y_{ck}))（二）<br>$$</p>
-<h2 id="频率派与贝叶斯派"><a href="#频率派与贝叶斯派" class="headerlink" title="频率派与贝叶斯派"></a>频率派与贝叶斯派</h2><p>​    频率派认为上述式子应该采用极大似然估计来估算yck，而贝叶斯派则认为参数yck应该服从某种分布，英雌可以根据某一种分布来估计鲜先验，然后再计算后验。本文采用频率派的观点，用极大似然估计计算yck</p>
-<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​    假设公式（一）中的p(x|y)xixi相互独立 则下面式子成立，其中Dc为样本空间<br>$$<br>p(x|y_{ck})=\prod_{x\in{D_c}}p(x|y_{ck})(三)<br>$$<br>对yck进行似然估计，就是对yck在标签类中取值使得p(x|yck)最大，对上述式子取对数，有<br>$$<br>LL(y_{ck})=log\ P(D_c|y_{ck})\<br>=\sum_{x\in{D_c}}log\ P(x|y_{ck})（四）<br>$$<br>我们要找到一个yck让LL(yck)最大，</p>
-<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>朴素贝叶斯分类器还有如下的假设，属性的假设相互独立<a href="相互独立的意思是属性之间没有关联，也就是说西瓜的甜与不甜与西瓜的瓜皮没有关系">^相互独立</a></p>
-<p>有了上面的基础，那么我们可以把上面的公式重写为如下的公式五，其中d为标签的种类个数<br>$$<br>h_{nb}=\mathop{argmax}\limits_{y_{ck}\in{Y}}\ P(y_{ck})\prod_{i=1}^{d}P(x_{i}|y_{ck})(五)<br>$$<br>代入计算即可，具体的计算过程见西瓜书p151</p>
+        <link rel="stylesheet" href="./ins.css">
+<div class="photos-btn-wrap">
+	<a class="photos-btn active" href="javascript:void(0)">Ins</a>
+	<a class="photos-btn" target="_blank" href="http://litten.me/gallery/">摄影</a>
+</div>
+<div class="instagram itemscope">
+	<a href="https://www.instagram.com/litten225/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
+</div>
+<script>
+  (function() {
+    var loadScript = function(path) {
+      var $script = document.createElement('script')
+      document.getElementsByTagName('body')[0].appendChild($script)
+      $script.setAttribute('src', path)
+    }
+    setTimeout(function() {
+      loadScript('./ins.js')
+    }, 0)
+  })()
+</script>
 
       
 
@@ -267,7 +277,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/photos/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,16 +289,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2019/10/26/%E7%AC%AC%E4%B8%80%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -307,47 +307,6 @@
 </aside>
 
 
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="朴素贝叶斯" data-title="朴素贝叶斯" data-url="http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/", 
-    sourceId: "朴素贝叶斯",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
-
-  
-
-  
-
-  
 
 
           </div>
@@ -370,7 +329,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
