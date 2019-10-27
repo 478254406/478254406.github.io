@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>朴素贝叶斯 | Hexo</title>
+  <title>《C++prime plus》读书笔记-C++内联函数 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="朴素贝叶斯的基本背景​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，$$p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）$$ 通过找到一个最大的标签yi，让下面这个式子最大$$\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x">
+  <meta name="description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="朴素贝叶斯">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF&#x2F;index.html">
+<meta property="og:title" content="《C++prime plus》读书笔记-C++内联函数">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="朴素贝叶斯的基本背景​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，$$p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）$$ 通过找到一个最大的标签yi，让下面这个式子最大$$\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x">
+<meta property="og:description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-27T05:08:46.500Z">
+<meta property="og:image" content="c:%5Cblog%5Csource_posts%5Cfig%5Cdygc.png">
+<meta property="og:updated_time" content="2019-10-27T13:44:16.987Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5Cblog%5Csource_posts%5Cfig%5Cdygc.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -152,32 +154,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-朴素贝叶斯" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C-内联函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      朴素贝叶斯
+      《C++prime plus》读书笔记-C++内联函数
     </h1>
   
 
         
-        <a href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="archive-article-date">
-  	<time datetime="2019-10-27T01:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
+        <a href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2019-10-27T13:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="朴素贝叶斯的基本背景"><a href="#朴素贝叶斯的基本背景" class="headerlink" title="朴素贝叶斯的基本背景"></a>朴素贝叶斯的基本背景</h1><p>​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，<br>$$<br>p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）<br>$$</p>
-<p>通过找到一个最大的标签yi，让下面这个式子最大<br>$$<br>\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x|y_{ck}))（二）<br>$$</p>
-<h2 id="频率派与贝叶斯派"><a href="#频率派与贝叶斯派" class="headerlink" title="频率派与贝叶斯派"></a>频率派与贝叶斯派</h2><p>​    频率派认为上述式子应该采用极大似然估计来估算yck，而贝叶斯派则认为参数yck应该服从某种分布，英雌可以根据某一种分布来估计鲜先验，然后再计算后验。本文采用频率派的观点，用极大似然估计计算yck</p>
-<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​    假设公式（一）中的p(x|y)xixi相互独立 则下面式子成立，其中Dc为样本空间<br>$$<br>p(x|y_{ck})=\prod_{x\in{D_c}}p(x|y_{ck})(三)<br>$$<br>对yck进行似然估计，就是对yck在标签类中取值使得p(x|yck)最大，对上述式子取对数，有<br>$$<br>LL(y_{ck})=log\ P(D_c|y_{ck})\<br>=\sum_{x\in{D_c}}log\ P(x|y_{ck})（四）<br>$$<br>我们要找到一个yck让LL(yck)最大，</p>
-<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>朴素贝叶斯分类器还有如下的假设，属性的假设相互独立<a href="相互独立的意思是属性之间没有关联，也就是说西瓜的甜与不甜与西瓜的瓜皮没有关系">^相互独立</a></p>
-<p>有了上面的基础，那么我们可以把上面的公式重写为如下的公式五，其中d为标签的种类个数<br>$$<br>h_{nb}=\mathop{argmax}\limits_{y_{ck}\in{Y}}\ P(y_{ck})\prod_{i=1}^{d}P(x_{i}|y_{ck})(五)<br>$$<br>代入计算即可，具体的计算过程见西瓜书p151</p>
+        <h1 id="内联函数的大致流程"><a href="#内联函数的大致流程" class="headerlink" title="内联函数的大致流程"></a>内联函数的大致流程</h1><p>​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图</p>
+<p><img src="C:%5Cblog%5Csource_posts%5Cfig%5Cdygc.png" alt="内敛函数调用过程"></p>
 
       
 
@@ -267,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《C++prime plus》读书笔记-C++内联函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/26/%E7%AC%AC%E4%B8%80%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇</div>
+    <a href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">朴素贝叶斯</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -320,7 +309,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="朴素贝叶斯" data-title="朴素贝叶斯" data-url="http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/"></div>
+	<div class="ds-thread" data-thread-key="C-内联函数" data-title="《C++prime plus》读书笔记-C++内联函数" data-url="http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -343,8 +332,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/", 
-    sourceId: "朴素贝叶斯",
+    url: "http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/", 
+    sourceId: "C-内联函数",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
