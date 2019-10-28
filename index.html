@@ -180,7 +180,16 @@
 <h2 id="headtotial"><a href="#headtotial" class="headerlink" title="headtotial"></a>headtotial</h2><p>假设贝叶斯网络长成这样 </p>
 <p><img src="/image/headtotial.png" alt="headtotial"></p>
 <p>则我们称这个为headtotial型，其中给定的B下A与C独立<br>$$<br>A\perp{C}|B   (三)\<br>\ \<br>\ \<br>也就是说 p(abc)=p(a)p(b|a)p(c|b)<br>$$</p>
-<h2 id="headtohead"><a href="#headtohead" class="headerlink" title="headtohead"></a>headtohead</h2>
+<h2 id="headtohead"><a href="#headtohead" class="headerlink" title="headtohead"></a>headtohead</h2><p>假设贝叶斯网络长成这样 </p>
+<p><img src="/image/headtohead.png" alt="tialtotial"></p>
+<p>则此时默认情况下a,b独立，若C被观测则a,b不独立</p>
+<h4 id="解释一下headtohead模型"><a href="#解释一下headtohead模型" class="headerlink" title="解释一下headtohead模型"></a>解释一下headtohead模型</h4><p>​    如下面的贝叶斯网络</p>
+<p><img src="/image/%E5%B0%8F%E6%98%8E%E5%96%9D%E9%86%89%E4%BA%86.png" alt="小明喝醉了"></p>
+<p>​    若小明喝醉了c没有发生，则酒量小a与心情不好b是独立的。一旦c发生，那么<br>$$<br>P(a|c)一定大于P(a|cb)<br>$$<br>因为心情不好和酒量小都影响这小明喝醉了，而当b心情不好也发生时，酒量小的概率就更加低了。</p>
+<blockquote>
+<p>以上三种模型可以想象成白板推导的亲戚关系</p>
+</blockquote>
+
       
 
       
