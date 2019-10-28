@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>《C++prime plus》读书笔记-C++内联函数 | Hexo</title>
+  <title>《C++prime plus》读书笔记-C++函数探幽 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图">
+  <meta name="description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图  ​    内联函数适用于代码量小的函数，递归函数不能内敛。 ​                                                                           内敛与宏 宏不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《C++prime plus》读书笔记-C++内联函数">
+<meta property="og:title" content="《C++prime plus》读书笔记-C++函数探幽">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图">
+<meta property="og:description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图  ​    内联函数适用于代码量小的函数，递归函数不能内敛。 ​                                                                           内敛与宏 宏不">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
-<meta property="og:updated_time" content="2019-10-28T05:11:37.045Z">
+<meta property="og:updated_time" content="2019-10-28T07:42:39.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      《C++prime plus》读书笔记-C++内联函数
+      《C++prime plus》读书笔记-C++函数探幽
     </h1>
   
 
@@ -174,8 +174,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="内联函数的大致流程"><a href="#内联函数的大致流程" class="headerlink" title="内联函数的大致流程"></a>内联函数的大致流程</h1><p>​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内敛函数则是采用代码块的复用。如下图</p>
-<p><img src="/image/dygc.png" alt="内敛函数调用过程"></p>
+        <h1 id="内联函数的大致流程"><a href="#内联函数的大致流程" class="headerlink" title="内联函数的大致流程"></a>内联函数的大致流程</h1><p>​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图</p>
+<p><img src="/image/dygc.png" alt="内联函数调用过程"></p>
+<p>​    内联函数适用于代码量小的函数，递归函数不能内敛。</p>
+<p>​                                                                           <strong>内敛与宏</strong></p>
+<p>宏不是通过参数传递来实现的，而是通过文本替换</p>
+<p>#define   SQUARE(x)  x*x</p>
+<p>a=SQUARE(5);  is replace by a=5.0*5.0</p>
+<h1 id="引用变量"><a href="#引用变量" class="headerlink" title="引用变量"></a>引用变量</h1><p>引用变量必须在声明时赋予初始值，一旦与某个变量关联起来就必须效忠于他 也就是说</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> pr=&amp;rate;</span><br><span class="line">与</span><br><span class="line"><span class="keyword">int</span> &amp;pr=rate;</span><br><span class="line">效果一致</span><br></pre></td></tr></table></figure>
+
+<p>也就是说</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> *b=&amp;a;</span><br><span class="line"><span class="keyword">int</span> &amp;c=*b;</span><br><span class="line"><span class="keyword">int</span> d=<span class="number">2</span>;</span><br><span class="line">b=&amp;d;</span><br></pre></td></tr></table></figure>
+
+<p>执行这段代码后c还是指向a;</p>
+<h2 id="临时变量、引用参数与const"><a href="#临时变量、引用参数与const" class="headerlink" title="临时变量、引用参数与const"></a>临时变量、引用参数与const</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">recube</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    这时所有的类型都可以通过构建临时对象的方式来通过编译，但是如果将里面的const去除</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">recube</span><span class="params">( <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    则只能通过int &amp;或者int 的变量，无法通过构筑临时变量的方式来传递参数。</p>
+<p>​                                                                    <strong>尽可能的使用const</strong></p>
+<p>   使用const的理由有三个</p>
+<ol>
+<li><p>使用const可以避免无意的修改</p>
+</li>
+<li><p>使用const可以使函数获得const参数和字面值</p>
+</li>
+<li><p>使用const能正确生成和使用临时对象</p>
+</li>
+</ol>
+<h2 id="关于返回const-by-refrence"><a href="#关于返回const-by-refrence" class="headerlink" title="关于返回const by refrence"></a>关于返回const by refrence</h2><p>​    返回的如果是引用的话，则此时返回值是一个左值，返回的是普通值的话就为一右值。这样这样的代码就会成立</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span>  &amp; <span class="title">recube</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br><span class="line">recube(<span class="number">12</span>)=<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>​    为了防止这种傻逼行为的发生，我们将返回refrence的函数给返回const</p>
 
       
 
@@ -309,7 +341,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="C-内联函数" data-title="《C++prime plus》读书笔记-C++内联函数" data-url="http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"></div>
+	<div class="ds-thread" data-thread-key="C-内联函数" data-title="《C++prime plus》读书笔记-C++函数探幽" data-url="http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
