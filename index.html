@@ -182,7 +182,32 @@
 <h4 id="概率生成模型"><a href="#概率生成模型" class="headerlink" title="概率生成模型"></a>概率生成模型</h4><p>​    概率生成模型不直接计算P(Y|X)而是借助了贝叶斯公式<img src="https://img-blog.csdnimg.cn/20191008161111492.png" alt="贝叶斯公式"></p>
 <p>而计算的P(x)在每个计算过程中都是一致的，所以我们有了如下的似然函数</p>
 <p><img src="https://img-blog.csdnimg.cn/20191008161543361.png" alt="生成模型似然函数"></p>
-<h2 id="高斯判别模型"><a href="#高斯判别模型" class="headerlink" title="高斯判别模型"></a>高斯判别模型</h2>
+<h2 id="高斯判别模型"><a href="#高斯判别模型" class="headerlink" title="高斯判别模型"></a>高斯判别模型</h2><p>​    假设y服从二项分布<br>$$<br>y\sim B(\phi)<br>$$<br>X|Y服从正态分布<br>$$<br>X|Y=1\sim{N(\mu_1,\Sigma)}\<br>X|Y=0\sim{N(\mu_2,\Sigma)}<br>$$<br>对采样样本进行分类</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009093219757.png" alt="">)(十四)</p>
+<p>定义似然函数为<br>$$<br>L(\theta)=log\prod_{i=1}^NP(x_i,y_i)（六）<br>$$<br>则我们可以简化这个似然函数<br>$$<br>L(\theta)=\sum_{i=1}^Nlog(P(x_i|y_i)P(y_i))\<br>=\sum_{i=1}^N[log<del>P(x_i|y_i)+log</del>P(y_i)]（六）<br>$$<br>这时候我们把Y和X|Y的分布写成一个式子，就有<br>$$<br>P(y=1或y=0)=\phi^y\phi^{1-y}\<br>P(y=0|x或y=1|x)={N(\mu_0,\Sigma)}^yN(\mu_1,\Sigma)^{1-y}(七)<br>$$<br>将七式代入六式之中、有<br>$$<br>L(\theta)=\sum_{i=1}^N<a href="八">log<del>N(\mu_1,\Sigma)^{y_i}+log</del>N(\mu_2,\Sigma)^{1-y_i}+log~\phi^{y^i}(1-\phi)^{1-y_i}</a><br>$$</p>
+<h4 id="求高斯模型中的参数"><a href="#求高斯模型中的参数" class="headerlink" title="求高斯模型中的参数"></a>求高斯模型中的参数</h4><pre><code>&gt; 后面的公式推导直接上图片了、打的太累了</code></pre><h5 id="补充几个矩阵上的定理"><a href="#补充几个矩阵上的定理" class="headerlink" title="补充几个矩阵上的定理"></a>补充几个矩阵上的定理</h5><p><img src="https://img-blog.csdnimg.cn/20191009101753581.png" alt="补充定义">)(十)</p>
+<h5 id="求phi"><a href="#求phi" class="headerlink" title="求phi"></a>求phi</h5><p><img src="https://img-blog.csdnimg.cn/20191009085315259.png" alt="phi">)(十一)</p>
+<h5 id="求u"><a href="#求u" class="headerlink" title="求u"></a>求u</h5><p><img src="https://img-blog.csdnimg.cn/20191009092622683.png" alt="u">)(十二)</p>
+<p><img src="https://img-blog.csdnimg.cn/2019100909263865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTA0Mzkz,size_16,color_FFFFFF,t_70" alt="">)(十三)</p>
+<p>令</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009093219757.png" alt="">)(十五)</p>
+<p>有</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009093933538.png" alt="">)(十六)</p>
+<h5 id="求sigma"><a href="#求sigma" class="headerlink" title="求sigma"></a>求sigma</h5><p><img src="https://img-blog.csdnimg.cn/20191009095102695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTA0Mzkz,size_16,color_FFFFFF,t_70" alt="">（十七）</p>
+<p>​    上式的左式的最后一项为一个常熟，考虑矩阵的tr(),和样本方差(我们定义的方差如下，不考虑无偏估计量)<br>$$<br>\sum_{i=1}^N\frac{(x_i-\mu)^T(x_i-\mu)}(十八)<br>$$<br>又由于tr(ABC)=tr(BCA)=tr(CAB),那么</p>
+<p>十七公式可以计算成</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009100912480.png" alt="">)(十九)</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009101302262.png" alt="">)(二十)</p>
+<p> <strong><em>这里写错了 N1那个S应该写成S1、N2的S应写成S2 因为是不同的样本的样本方差</em></strong> </p>
+<p>这个时候在求导</p>
+<p><img src="https://img-blog.csdnimg.cn/20191009102326693.png" alt="">)(二十一)</p>
+<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，<br>$$<br>p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）<br>$$</p>
+<p>通过找到一个最大的标签yi，让下面这个式子最大<br>$$<br>\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x|y_{ck}))（二）<br>$$</p>
+<h2 id="频率派与贝叶斯派"><a href="#频率派与贝叶斯派" class="headerlink" title="频率派与贝叶斯派"></a>频率派与贝叶斯派</h2><p>​    频率派认为上述式子应该采用极大似然估计来估算yck，而贝叶斯派则认为参数yck应该服从某种分布，英雌可以根据某一种分布来估计鲜先验，然后再计算后验。本文采用频率派的观点，用极大似然估计计算yck</p>
+<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​    假设公式（一）中的p(x|y)xixi相互独立 则下面式子成立，其中Dc为样本空间<br>$$<br>p(x|y_{ck})=\prod_{x\in{D_c}}p(x|y_{ck})(三)<br>$$<br>对yck进行似然估计，就是对yck在标签类中取值使得p(x|yck)最大，对上述式子取对数，有<br>$$<br>LL(y_{ck})=log\ P(D_c|y_{ck})\<br>=\sum_{x\in{D_c}}log\ P(x|y_{ck})（四）<br>$$<br>我们要找到一个yck让LL(yck)最大，</p>
+<h2 id="朴素贝叶斯分类器-1"><a href="#朴素贝叶斯分类器-1" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>朴素贝叶斯分类器还有如下的假设，属性的假设相互独立<a href="相互独立的意思是属性之间没有关联，也就是说西瓜的甜与不甜与西瓜的瓜皮没有关系">^相互独立</a></p>
+<p>有了上面的基础，那么我们可以把上面的公式重写为如下的公式五，其中d为标签的种类个数<br>$$<br>h_{nb}=\mathop{argmax}\limits_{y_{ck}\in{Y}}\ P(y_{ck})\prod_{i=1}^{d}P(x_{i}|y_{ck})(五)<br>$$<br>代入计算即可，具体的计算过程见西瓜书p151</p>
+
       
 
       
@@ -381,74 +406,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-朴素贝叶斯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">朴素贝叶斯</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/" class="archive-article-date">
-  	<time datetime="2019-10-27T01:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="朴素贝叶斯的基本背景"><a href="#朴素贝叶斯的基本背景" class="headerlink" title="朴素贝叶斯的基本背景"></a>朴素贝叶斯的基本背景</h1><p>​    朴素贝叶斯是基于概率论贝叶斯公式 来进行建模的。他的大致思路是先求出p(y)的先验概率，<br>$$<br>p(y|x)=\frac{p(y)*p(x|y)}{p(x)}                            （一）<br>$$</p>
-<p>通过找到一个最大的标签yi，让下面这个式子最大<br>$$<br>\mathop{argmax}\limits_{y_{ck}\in{Y}}p(y_{ck}*p(x|y_{ck}))（二）<br>$$</p>
-<h2 id="频率派与贝叶斯派"><a href="#频率派与贝叶斯派" class="headerlink" title="频率派与贝叶斯派"></a>频率派与贝叶斯派</h2><p>​    频率派认为上述式子应该采用极大似然估计来估算yck，而贝叶斯派则认为参数yck应该服从某种分布，英雌可以根据某一种分布来估计鲜先验，然后再计算后验。本文采用频率派的观点，用极大似然估计计算yck</p>
-<h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p>​    假设公式（一）中的p(x|y)xixi相互独立 则下面式子成立，其中Dc为样本空间<br>$$<br>p(x|y_{ck})=\prod_{x\in{D_c}}p(x|y_{ck})(三)<br>$$<br>对yck进行似然估计，就是对yck在标签类中取值使得p(x|yck)最大，对上述式子取对数，有<br>$$<br>LL(y_{ck})=log\ P(D_c|y_{ck})\<br>=\sum_{x\in{D_c}}log\ P(x|y_{ck})（四）<br>$$<br>我们要找到一个yck让LL(yck)最大，</p>
-<h2 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h2><p>朴素贝叶斯分类器还有如下的假设，属性的假设相互独立<a href="相互独立的意思是属性之间没有关联，也就是说西瓜的甜与不甜与西瓜的瓜皮没有关系">^相互独立</a></p>
-<p>有了上面的基础，那么我们可以把上面的公式重写为如下的公式五，其中d为标签的种类个数<br>$$<br>h_{nb}=\mathop{argmax}\limits_{y_{ck}\in{Y}}\ P(y_{ck})\prod_{i=1}^{d}P(x_{i}|y_{ck})(五)<br>$$<br>代入计算即可，具体的计算过程见西瓜书p151</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/27/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">展开全文 >></a>
         </p>
       
 
