@@ -349,7 +349,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/">《C++prime plus》读书笔记-C++函数探幽</a>
+      <a class="article-title" href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/">《C++prime plus》（第二遍）读书笔记-C++函数探幽、内存模式</a>
     </h1>
   
 
@@ -396,6 +396,36 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span>  &amp; <span class="title">recube</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br><span class="line">recube(<span class="number">12</span>)=<span class="number">6</span></span><br></pre></td></tr></table></figure>
 
 <p>​    为了防止这种傻逼行为的发生，我们将返回refrence的函数给返回const</p>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>​    函数重载返回值可以不同但特征标必须不同，如果有两个版本的函数能通过显示转换被调用，则这两个版本不能同时存在。</p>
+<blockquote>
+<p>类中const函数与非const函数也构成函数重载</p>
+</blockquote>
+<h4 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h4><p>​    C++11新标准，可以让一个引用指向运算结果一个运算结果，例如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; a=<span class="number">3</span>+<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样以下的重载中会调用如下的右值版本</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x=<span class="number">55.5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> y=<span class="number">1</span>;</span><br><span class="line">stov(x+y);</span><br></pre></td></tr></table></figure>
+
+<p>如果没有定义stov(double&amp;&amp; )的话，将通过转化调用stove(const double &amp;)</p>
+<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><ol>
+<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模板函数以及他们的重载版本</li>
+<li>显示具体化的原型和定义应该以template&lt;&gt;大头</li>
+<li>具体化优先于常规模板而非模板函数优先于模板函数和具体化</li>
+</ol>
+<h4 id="编译器将选择那个函数版本"><a href="#编译器将选择那个函数版本" class="headerlink" title="编译器将选择那个函数版本"></a>编译器将选择那个函数版本</h4><p>有如下代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">may(<span class="string">'B'</span>);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">may</span><span class="params">(<span class="keyword">int</span>)</span></span>;                              <span class="comment">//#!</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">may</span><span class="params">(<span class="keyword">float</span>,<span class="keyword">float</span>=<span class="number">3</span>)</span></span>;                    <span class="comment">//#2</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">may</span><span class="params">(<span class="keyword">char</span>)</span>                              <span class="comment">//#3</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span>*<span class="title">may</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>*)</span></span>;                       <span class="comment">//#4</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">may</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>*)</span>                         <span class="comment">//#5</span></span></span><br><span class="line">template&lt;classs T&gt;void may(const T &amp;);         //#6</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">void</span> <span class="title">may</span>(<span class="title">T</span>*)                 //#7</span></span><br></pre></td></tr></table></figure>
+
+<p>以下面的顺序进行匹配</p>
+<ol>
+<li>完全匹配   但是常规函数优先于模板</li>
+<li>提升转化</li>
+<li>标准转换</li>
+<li>用户定义的转换</li>
+</ol>
+<h6 id="关于提升转换与标准转换"><a href="#关于提升转换与标准转换" class="headerlink" title="关于提升转换与标准转换"></a>关于提升转换与标准转换</h6><p>​    有五种类型的标准转换，如下：A、从任何整数类型或枚举类型到其他整数类型(除了提升) B、从任何浮点类型到其他浮点类型(除了提升转换)C、从任何整数类型到浮点类型，或者反之D、整数0到指针类型、任何指针类型到 void 指针类型E、从任何整数类型、浮点类型、枚举类型、指针类型到bool </p>
+<p>这样就可以选择为函数 #3和函数# 5</p>
+<h4 id="完全匹配与最佳匹配"><a href="#完全匹配与最佳匹配" class="headerlink" title="完全匹配与最佳匹配"></a>完全匹配与最佳匹配</h4><p>​    下图展示了完全匹配允许的无关紧要的转换</p>
+<p><img src="/image/%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E8%BD%AC%E6%8D%A2.png" alt="转换"></p>
 
       
 
