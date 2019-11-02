@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>《C++prime plus》（第二遍）读书笔记-C++函数探幽、内存模式 | Hexo</title>
+  <title>C++n内存管理——从平地到万丈高楼 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图  ​    内联函数适用于代码量小的函数，递归函数不能内敛。 ​                                                                           内敛与宏 宏不">
+  <meta name="description" content="之前的内容就不再叙述了  内存管理的形式​    *前言 C++在malloc一大块内存的时候通常会使用一个指针去链接这些管理这些内存，delete时也没有将内存返回给操作系统* 内存管理的一个版本static allocator​    为了避免在每个类中都定义如上的分割、回收函数，我们把这些函数抽象出来，集种写成类 allocator 1234567891011121314151617181">
+<meta name="keywords" content="内存管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《C++prime plus》（第二遍）读书笔记-C++函数探幽、内存模式">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0&#x2F;index.html">
+<meta property="og:title" content="C++n内存管理——从平地到万丈高楼">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;01&#x2F;C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="内联函数的大致流程​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图  ​    内联函数适用于代码量小的函数，递归函数不能内敛。 ​                                                                           内敛与宏 宏不">
+<meta property="og:description" content="之前的内容就不再叙述了  内存管理的形式​    *前言 C++在malloc一大块内存的时候通常会使用一个指针去链接这些管理这些内存，delete时也没有将内存返回给操作系统* 内存管理的一个版本static allocator​    为了避免在每个类中都定义如上的分割、回收函数，我们把这些函数抽象出来，集种写成类 allocator 1234567891011121314151617181">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E8%BD%AC%E6%8D%A2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-11-01T02:54:53.483Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E4%BD%BF%E7%94%A8alloc.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;vc6%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;alloc%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png">
+<meta property="og:updated_time" content="2019-11-02T09:10:42.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E4%BD%BF%E7%94%A8alloc.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,112 +157,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-内联函数" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C-n内存管理——从平地到万丈高楼" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      《C++prime plus》（第二遍）读书笔记-C++函数探幽、内存模式
+      C++n内存管理——从平地到万丈高楼
     </h1>
   
 
         
-        <a href="/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2019-10-27T13:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
+        <a href="/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/" class="archive-article-date">
+  	<time datetime="2019-11-01T04:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="内联函数的大致流程"><a href="#内联函数的大致流程" class="headerlink" title="内联函数的大致流程"></a>内联函数的大致流程</h1><p>​    内联函数不同于不同的函数，一般的函数都有自己的内存地址，程序调用的时候首先访问函数的地址然后在调用函数、而内联函数则是采用代码块的复用。如下图</p>
-<p><img src="/image/dygc.png" alt="内联函数调用过程"></p>
-<p>​    内联函数适用于代码量小的函数，递归函数不能内敛。</p>
-<p>​                                                                           <strong>内敛与宏</strong></p>
-<p>宏不是通过参数传递来实现的，而是通过文本替换</p>
-<p>#define   SQUARE(x)  x*x</p>
-<p>a=SQUARE(5);  is replace by a=5.0*5.0</p>
-<h1 id="引用变量"><a href="#引用变量" class="headerlink" title="引用变量"></a>引用变量</h1><p>引用变量必须在声明时赋予初始值，一旦与某个变量关联起来就必须效忠于他 也就是说</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> pr=&amp;rate;</span><br><span class="line">与</span><br><span class="line"><span class="keyword">int</span> &amp;pr=rate;</span><br><span class="line">效果一致</span><br></pre></td></tr></table></figure>
-
-<p>也就是说</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> *b=&amp;a;</span><br><span class="line"><span class="keyword">int</span> &amp;c=*b;</span><br><span class="line"><span class="keyword">int</span> d=<span class="number">2</span>;</span><br><span class="line">b=&amp;d;</span><br></pre></td></tr></table></figure>
-
-<p>执行这段代码后c还是指向a;</p>
-<h2 id="临时变量、引用参数与const"><a href="#临时变量、引用参数与const" class="headerlink" title="临时变量、引用参数与const"></a>临时变量、引用参数与const</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">recube</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    这时所有的类型都可以通过构建临时对象的方式来通过编译，但是如果将里面的const去除</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">recube</span><span class="params">( <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    则只能通过int &amp;或者int 的变量，无法通过构筑临时变量的方式来传递参数。</p>
-<p>​                                                                    <strong>尽可能的使用const</strong></p>
-<p>   使用const的理由有三个</p>
-<ol>
-<li><p>使用const可以避免无意的修改</p>
-</li>
-<li><p>使用const可以使函数获得const参数和字面值</p>
-</li>
-<li><p>使用const能正确生成和使用临时对象</p>
-</li>
-</ol>
-<h2 id="关于返回const-by-refrence"><a href="#关于返回const-by-refrence" class="headerlink" title="关于返回const by refrence"></a>关于返回const by refrence</h2><p>​    返回的如果是引用的话，则此时返回值是一个左值，返回的是普通值的话就为一右值。这样这样的代码就会成立</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span>  &amp; <span class="title">recube</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a*A*A;</span><br><span class="line">&#125;</span><br><span class="line">recube(<span class="number">12</span>)=<span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-<p>​    为了防止这种傻逼行为的发生，我们将返回refrence的函数给返回const</p>
-<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><p>​    函数重载返回值可以不同但特征标必须不同，如果有两个版本的函数能通过显示转换被调用，则这两个版本不能同时存在。</p>
-<blockquote>
-<p>类中const函数与非const函数也构成函数重载</p>
+        <blockquote>
+<p>之前的内容就不再叙述了</p>
 </blockquote>
-<h4 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h4><p>​    C++11新标准，可以让一个引用指向运算结果一个运算结果，例如</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; a=<span class="number">3</span>+<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="内存管理的形式"><a href="#内存管理的形式" class="headerlink" title="内存管理的形式"></a>内存管理的形式</h1><p>​    <strong>*前言</strong> C++在malloc一大块内存的时候通常会使用一个指针去链接这些管理这些内存，delete时也没有将内存返回给操作系统*</p>
+<h3 id="内存管理的一个版本static-allocator"><a href="#内存管理的一个版本static-allocator" class="headerlink" title="内存管理的一个版本static allocator"></a>内存管理的一个版本static allocator</h3><p>​    为了避免在每个类中都定义如上的分割、回收函数，我们把这些函数抽象出来，集种写成类 allocator</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">allocator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">obj</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">obj</span>*<span class="title">next</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span>* <span class="title">allocate</span><span class="params">(<span class="keyword">size_t</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">decallocate</span><span class="params">(<span class="keyword">void</span>*,<span class="keyword">size_t</span>)</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    obj* freesStore=<span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> CHUNK=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> allocator::deallocate(<span class="keyword">void</span>*p,<span class="keyword">size_t</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将*p收回free list 前端</span></span><br><span class="line">    ((obj*)p)-&gt;next=freeStore;</span><br><span class="line">    freeStore=(obj*)p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> allocator::allocate(<span class="keyword">size_t</span> size)</span><br><span class="line">&#123;</span><br><span class="line">    obj* p;</span><br><span class="line">    <span class="keyword">if</span>(!freeStore)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">size_t</span> chunk-CHUNK*size;</span><br><span class="line">        freeStore=(obj*)<span class="built_in">malloc</span>(chunk);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;CHUNK<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next=(obj*)((<span class="keyword">char</span>*)p+size);</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">        p=freeStore;</span><br><span class="line">        freeStore=freeStore-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这样以下的重载中会调用如下的右值版本</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> x=<span class="number">55.5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> y=<span class="number">1</span>;</span><br><span class="line">stov(x+y);</span><br></pre></td></tr></table></figure>
+<pre><code>&gt; 关于allocator函数的p的用法，展示认为可以这么做把
 
-<p>如果没有定义stov(double&amp;&amp; )的话，将通过转化调用stove(const double &amp;)</p>
-<h2 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h2><ol>
-<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模板函数以及他们的重载版本</li>
-<li>显示具体化的原型和定义应该以template&lt;&gt;大头</li>
-<li>具体化优先于常规模板而非模板函数优先于模板函数和具体化</li>
-</ol>
-<h4 id="编译器将选择那个函数版本"><a href="#编译器将选择那个函数版本" class="headerlink" title="编译器将选择那个函数版本"></a>编译器将选择那个函数版本</h4><p>有如下代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">may(<span class="string">'B'</span>);</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">may</span><span class="params">(<span class="keyword">int</span>)</span></span>;                              <span class="comment">//#!</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">may</span><span class="params">(<span class="keyword">float</span>,<span class="keyword">float</span>=<span class="number">3</span>)</span></span>;                    <span class="comment">//#2</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">may</span><span class="params">(<span class="keyword">char</span>)</span>                              <span class="comment">//#3</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span>*<span class="title">may</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>*)</span></span>;                       <span class="comment">//#4</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">may</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>*)</span>                         <span class="comment">//#5</span></span></span><br><span class="line">template&lt;classs T&gt;void may(const T &amp;);         //#6</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;<span class="title">void</span> <span class="title">may</span>(<span class="title">T</span>*)                 //#7</span></span><br></pre></td></tr></table></figure>
-
-<p>以下面的顺序进行匹配</p>
+ 类需要做内存管理时需要将allocator声明为类的private静态成员，然后在重写operator new 和 delete时这么写就可以了</code></pre><p>​    <img src="/image/%E4%BD%BF%E7%94%A8alloc.png" alt=""></p>
+<p>这个写法就十分简洁了，这样所有的内存分配都由allocator去担心</p>
+<h1 id="std-allocator"><a href="#std-allocator" class="headerlink" title="std:allocator"></a>std:allocator</h1><h5 id="回忆在vc6下的malloc-所分配的内存格式"><a href="#回忆在vc6下的malloc-所分配的内存格式" class="headerlink" title="回忆在vc6下的malloc()所分配的内存格式"></a>回忆在vc6下的malloc()所分配的内存格式</h5><p><img src="/image/vc6%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E6%A0%BC%E5%BC%8F.png" alt=""></p>
+<p>​    去查看vs2015的aloccator类源码发现allocate函数没有对内存进行管理，只是简单的申请了一块内存，没有特别之处。</p>
+<blockquote>
+<p>值得一提的时在VS编译器下，STL的第二个模板参数都是alloctor模板类</p>
+</blockquote>
+<h2 id="GNU-C2-9-std-alloc"><a href="#GNU-C2-9-std-alloc" class="headerlink" title="GNU-C2.9  std::alloc"></a>GNU-C2.9  std::alloc</h2><p><img src="/image/alloc%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt=""></p>
+<p>​    例如客户端程序执行vector&lt;A,class Alloc=alloc&gt;temp时，编译器会在free_list找到对应的接口来存储这个链表。找到接口的过程如下。</p>
 <ol>
-<li>完全匹配   但是常规函数优先于模板</li>
-<li>提升转化</li>
-<li>标准转换</li>
-<li>用户定义的转换</li>
+<li><p>首先编译器计算size=sizeof(A) </p>
+</li>
+<li><p>每一个接口接管相应size的分配。例如，size=69就会到9条链表，size=96就回到11条链表</p>
+<p>找到接口之后，编译器开始分配内存，首先编译器分配2*20个size的内存，一个用于划分内存、另外一个用于”战备转台“</p>
+</li>
 </ol>
-<h6 id="关于提升转换与标准转换"><a href="#关于提升转换与标准转换" class="headerlink" title="关于提升转换与标准转换"></a>关于提升转换与标准转换</h6><p>​    有五种类型的标准转换，如下：A、从任何整数类型或枚举类型到其他整数类型(除了提升) B、从任何浮点类型到其他浮点类型(除了提升转换)C、从任何整数类型到浮点类型，或者反之D、整数0到指针类型、任何指针类型到 void 指针类型E、从任何整数类型、浮点类型、枚举类型、指针类型到bool </p>
-<p>这样就可以选择为函数 #3和函数# 5</p>
-<h4 id="完全匹配与最佳匹配"><a href="#完全匹配与最佳匹配" class="headerlink" title="完全匹配与最佳匹配"></a>完全匹配与最佳匹配</h4><p>​    下图展示了完全匹配允许的无关紧要的转换</p>
-<p><img src="/image/%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E8%BD%AC%E6%8D%A2.png" alt="转换"></p>
-<h1 id="类型模式与名称空间"><a href="#类型模式与名称空间" class="headerlink" title="类型模式与名称空间"></a>类型模式与名称空间</h1><p>头文件中应该包含一下的内容</p>
-<ol>
-<li>函数原型</li>
-<li>使用#define和const定义的符号常量</li>
-<li>结构的声明</li>
-<li>类的声明</li>
-<li>模板的声明</li>
-<li>内联函数</li>
-</ol>
-<p>C++使用四种方案来存储数据</p>
-<ol>
-<li>自动存储的：在函数内声明的</li>
-<li>静态存储，C++共有三种静态变量</li>
-<li>线程存储：使用关键字thread_local声明的变量、其周期与所属的线程一样长</li>
-<li>动态存储的： new和delete相关内容见另一篇博文 C++内存管理——从平地到万丈高楼</li>
-</ol>
-<h3 id="静态持续变量"><a href="#静态持续变量" class="headerlink" title="静态持续变量"></a>静态持续变量</h3><p>​    与C一样C++提够了三种静态持续连接性，外部链接、内部链接、无连接。三种连接性都在整个程序执行期间都存在。另外如果没有显式初始化静态变量，则默认为0。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> gloab=<span class="number">1</span>;  <span class="comment">//外部静态</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> one_file=<span class="number">50</span>; <span class="comment">//内部静态</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun1</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> count=<span class="number">0</span>;  <span class="comment">//no link</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​    count变量只在fun1函数中才能被调用，且在每次的调用中count都是同一块内存。one_file变量只在这个文件中才被调用，gloab变量在整个程序中都能被调用。</p>
-<p>​    表9.1显示了引入名称空间之前的变量存储特性。</p>
-<p><img src="/image/%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7.png" alt="储存特性"></p>
+<blockquote>
+<p>所谓的<em>战备状态</em> 其实是以防有另一个size这样的链表需要分配，就可以直接的分配到这个里面</p>
+</blockquote>
+<p>这样就能很好的实现cookie free </p>
 
       
 
@@ -301,6 +245,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -351,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,15 +320,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/28/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          概率图模型基础
-        
-      </div>
-    </a>
   
+    <a href="/2019/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习-线性分类</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -399,7 +350,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="C-内联函数" data-title="《C++prime plus》（第二遍）读书笔记-C++函数探幽、内存模式" data-url="http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/"></div>
+	<div class="ds-thread" data-thread-key="C-n内存管理——从平地到万丈高楼" data-title="C++n内存管理——从平地到万丈高楼" data-url="http://yoursite.com/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -422,8 +373,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/10/27/C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0/", 
-    sourceId: "C-内联函数",
+    url: "http://yoursite.com/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/", 
+    sourceId: "C-n内存管理——从平地到万丈高楼",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

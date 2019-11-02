@@ -151,6 +151,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-C-n内存管理——从平地到万丈高楼" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/">C++n内存管理——从平地到万丈高楼</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/" class="archive-article-date">
+  	<time datetime="2019-11-01T04:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>之前的内容就不再叙述了</p>
+</blockquote>
+<h1 id="内存管理的形式"><a href="#内存管理的形式" class="headerlink" title="内存管理的形式"></a>内存管理的形式</h1><p>​    <strong>*前言</strong> C++在malloc一大块内存的时候通常会使用一个指针去链接这些管理这些内存，delete时也没有将内存返回给操作系统*</p>
+<h3 id="内存管理的一个版本static-allocator"><a href="#内存管理的一个版本static-allocator" class="headerlink" title="内存管理的一个版本static allocator"></a>内存管理的一个版本static allocator</h3><p>​    为了避免在每个类中都定义如上的分割、回收函数，我们把这些函数抽象出来，集种写成类 allocator</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">allocator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">obj</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">obj</span>*<span class="title">next</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span>* <span class="title">allocate</span><span class="params">(<span class="keyword">size_t</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">decallocate</span><span class="params">(<span class="keyword">void</span>*,<span class="keyword">size_t</span>)</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    obj* freesStore=<span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> CHUNK=<span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> allocator::deallocate(<span class="keyword">void</span>*p,<span class="keyword">size_t</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//将*p收回free list 前端</span></span><br><span class="line">    ((obj*)p)-&gt;next=freeStore;</span><br><span class="line">    freeStore=(obj*)p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> allocator::allocate(<span class="keyword">size_t</span> size)</span><br><span class="line">&#123;</span><br><span class="line">    obj* p;</span><br><span class="line">    <span class="keyword">if</span>(!freeStore)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">size_t</span> chunk-CHUNK*size;</span><br><span class="line">        freeStore=(obj*)<span class="built_in">malloc</span>(chunk);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;CHUNK<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;next=(obj*)((<span class="keyword">char</span>*)p+size);</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">        p=freeStore;</span><br><span class="line">        freeStore=freeStore-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>&gt; 关于allocator函数的p的用法，展示认为可以这么做把
+
+ 类需要做内存管理时需要将allocator声明为类的private静态成员，然后在重写operator new 和 delete时这么写就可以了</code></pre><p>​    <img src="/image/%E4%BD%BF%E7%94%A8alloc.png" alt=""></p>
+<p>这个写法就十分简洁了，这样所有的内存分配都由allocator去担心</p>
+<h1 id="std-allocator"><a href="#std-allocator" class="headerlink" title="std:allocator"></a>std:allocator</h1><h5 id="回忆在vc6下的malloc-所分配的内存格式"><a href="#回忆在vc6下的malloc-所分配的内存格式" class="headerlink" title="回忆在vc6下的malloc()所分配的内存格式"></a>回忆在vc6下的malloc()所分配的内存格式</h5><p><img src="/image/vc6%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E6%A0%BC%E5%BC%8F.png" alt=""></p>
+<p>​    去查看vs2015的aloccator类源码发现allocate函数没有对内存进行管理，只是简单的申请了一块内存，没有特别之处。</p>
+<blockquote>
+<p>值得一提的时在VS编译器下，STL的第二个模板参数都是alloctor模板类</p>
+</blockquote>
+<h2 id="GNU-C2-9-std-alloc"><a href="#GNU-C2-9-std-alloc" class="headerlink" title="GNU-C2.9  std::alloc"></a>GNU-C2.9  std::alloc</h2><p><img src="/image/alloc%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt=""></p>
+<p>​    例如客户端程序执行vector&lt;A,class Alloc=alloc&gt;temp时，编译器会在free_list找到对应的接口来存储这个链表。找到接口的过程如下。</p>
+<ol>
+<li><p>首先编译器计算size=sizeof(A) </p>
+</li>
+<li><p>每一个接口接管相应size的分配。例如，size=69就会到9条链表，size=96就回到11条链表</p>
+<p>找到接口之后，编译器开始分配内存，首先编译器分配2*20个size的内存，一个用于划分内存、另外一个用于”战备转台“</p>
+</li>
+</ol>
+<blockquote>
+<p>所谓的<em>战备状态</em> 其实是以防有另一个size这样的链表需要分配，就可以直接的分配到这个里面</p>
+</blockquote>
+<p>这样就能很好的实现cookie free </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/01/C-n%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E4%BB%8E%E5%B9%B3%E5%9C%B0%E5%88%B0%E4%B8%87%E4%B8%88%E9%AB%98%E6%A5%BC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-机器学习-线性分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -602,6 +704,10 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
