@@ -151,6 +151,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-pytorch入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/04/pytorch%E5%85%A5%E9%97%A8/">pytorch入门</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/04/pytorch%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2019-11-04T10:55:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pytorch值保存加载模型"><a href="#pytorch值保存加载模型" class="headerlink" title="pytorch值保存加载模型"></a>pytorch值保存加载模型</h1><p>​    当提到保存和加载模型时，有三个核心功能需要熟悉：</p>
+<ol>
+<li><p><a href="https://pytorch.org/docs/stable/torch.html?highlight=save#torch.save" target="_blank" rel="noopener">torch.save</a>：将序列化的对象保存到disk。这个函数使用Python的pickle实用程序进行序列化。使用这个函数可以保存各种对象的模型、张量和字典。</p>
+</li>
+<li><p>[torch.load](<a href="https://pytorch.org/docs/stable/torch.html?highlight=torch" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torch.html?highlight=torch</a> load#torch.load)：使用pickle unpickle工具将pickle的对象文件反序列化为内存。</p>
+</li>
+<li><p><a href="https://pytorch.org/docs/stable/nn.html?highlight=load_state_dict#torch.nn.Module.load_state_dict" target="_blank" rel="noopener">torch.nn.Module.load_state_dict</a>:使用反序列化状态字典加载model’s参数字典。</p>
+</li>
+</ol>
+<h2 id="model-的STATE-DICT"><a href="#model-的STATE-DICT" class="headerlink" title="model 的STATE_DICT"></a>model 的STATE_DICT</h2><p>​    在PyTorch中，torch.nn.Module的可学习参数(即权重和偏差)，模块模型包含在model’s参数中(通过model.parameters()访问)。state_dict是个简单的Python dictionary对象，它将每个层映射到它的参数张量。</p>
+<p>​     注意，只有具有可学习参数的层(卷积层、线性层等)才有model’s state_dict中的条目。优化器对象(connector .optim)也有一个state_dict，其中包含关于优化器状态以及所使用的超参数的信息。<br> Example:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="comment"># Define model</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TheModelClass</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(TheModelClass,self).__init__()</span><br><span class="line">        self.conv1=nn.Conv2d(<span class="number">3</span>,<span class="number">6</span>,<span class="number">5</span>)</span><br><span class="line">        self.pool=nn.MaxPool2d(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">        self.conv2=nn.Conv2d(<span class="number">6</span>,<span class="number">16</span>,<span class="number">5</span>)</span><br><span class="line">        self.fc1=nn.Linear(<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>,<span class="number">120</span>)</span><br><span class="line">        self.fc2=nn.Linear(<span class="number">120</span>,<span class="number">84</span>)</span><br><span class="line">        self.fc3=nn.Linear(<span class="number">84</span>,<span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">farward</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        x=self.pool(F.relu(self.conv1(x)))</span><br><span class="line">        x=self.pool(F.relu(self.conv2(x)))</span><br><span class="line">        x=x.view(<span class="number">-1</span>,<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>)</span><br><span class="line">        x=F.relu(self.fc1(x))</span><br><span class="line">        x=F.relu(self.fc2(x))</span><br><span class="line">        x=self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"><span class="comment"># Initialize model</span></span><br><span class="line">model=TheModelClass()</span><br><span class="line"><span class="comment"># Initialize optimizer</span></span><br><span class="line">optimizer=torch.optim.SGD(model.parameters(),lr=<span class="number">1e-4</span>,momentum=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Model's state_dict:"</span>)</span><br><span class="line"><span class="comment"># Print model's state_dict</span></span><br><span class="line"><span class="keyword">for</span> param_tensor <span class="keyword">in</span> model.state_dict():</span><br><span class="line">    print(param_tensor,<span class="string">"\t"</span>,model.state_dict()[param_tensor].size())</span><br><span class="line">print(<span class="string">"optimizer's state_dict:"</span>)</span><br><span class="line"><span class="comment"># Print optimizer's state_dict</span></span><br><span class="line"><span class="keyword">for</span> var_name <span class="keyword">in</span> optimizer.state_dict():</span><br><span class="line">    print(var_name,<span class="string">"\t"</span>,optimizer.state_dict()[var_name])</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Model<span class="string">'s state_dict:</span></span><br><span class="line"><span class="string">conv1.weight     torch.Size([6, 3, 5, 5])</span></span><br><span class="line"><span class="string">conv1.bias   torch.Size([6])</span></span><br><span class="line"><span class="string">conv2.weight     torch.Size([16, 6, 5, 5])</span></span><br><span class="line"><span class="string">conv2.bias   torch.Size([16])</span></span><br><span class="line"><span class="string">fc1.weight   torch.Size([120, 400])</span></span><br><span class="line"><span class="string">fc1.bias     torch.Size([120])</span></span><br><span class="line"><span class="string">fc2.weight   torch.Size([84, 120])</span></span><br><span class="line"><span class="string">fc2.bias     torch.Size([84])</span></span><br><span class="line"><span class="string">fc3.weight   torch.Size([10, 84])</span></span><br><span class="line"><span class="string">fc3.bias     torch.Size([10])</span></span><br><span class="line"><span class="string">optimizer'</span>s state_dict:</span><br><span class="line">state    &#123;&#125;</span><br><span class="line">param_groups     [&#123;<span class="string">'lr'</span>: <span class="number">0.0001</span>, <span class="string">'momentum'</span>: <span class="number">0.9</span>, <span class="string">'dampening'</span>: <span class="number">0</span>, <span class="string">'weight_decay'</span>: <span class="number">0</span>, <span class="string">'nesterov'</span>: <span class="literal">False</span>, <span class="string">'params'</span>: [<span class="number">1310469552240</span>, <span class="number">1310469552384</span>, <span class="number">1310469552456</span>, <span class="number">1310469552528</span>, <span class="number">1310469552600</span>, <span class="number">1310469552672</span>, <span class="number">1310469552744</span>, <span class="number">1310469552816</span>, <span class="number">1310469552888</span>, <span class="number">1310469552960</span>]&#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="保存和导入模型"><a href="#保存和导入模型" class="headerlink" title="保存和导入模型"></a>保存和导入模型</h2><ul>
+<li>save</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict(), PATH)</span><br></pre></td></tr></table></figure>
+
+<p>​    在保存模型进行推理时，只需要保存训练过的模型的学习参数即可。一个常见的PyTorch约定是使用.pt或.pth文件扩展名保存模型。</p>
+<ul>
+<li>load</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = TheModelClass(*args, **kwargs)</span><br><span class="line">model.load_state_dict(torch.load(PATH))</span><br><span class="line">model.eval()</span><br></pre></td></tr></table></figure>
+
+<p>​    当然也可以这样读取和保存模型</p>
+<ul>
+<li>save</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model, PATH)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>load</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Model class must be defined somewhere</span></span><br><span class="line">  model = torch.load(PATH)</span><br><span class="line"> model.eval()</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/04/pytorch%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode-刷题大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -940,7 +1051,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
+                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +1059,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,11 +1067,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
             
             <div class="clearfix"></div>
