@@ -19,7 +19,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E8%BD%AC%E6%8D%A2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-11-03T04:18:55.764Z">
+<meta property="og:updated_time" content="2019-11-06T14:02:06.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
   
@@ -263,6 +263,15 @@
 <p>​    count变量只在fun1函数中才能被调用，且在每次的调用中count都是同一块内存。one_file变量只在这个文件中才被调用，gloab变量在整个程序中都能被调用。</p>
 <p>​    表9.1显示了引入名称空间之前的变量存储特性。</p>
 <p><img src="/image/%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7.png" alt="储存特性"></p>
+<h3 id="extern-关键字"><a href="#extern-关键字" class="headerlink" title="extern 关键字"></a>extern 关键字</h3><p>​    由于编译器只允许一次声明，所以在每次使用的同一个外部变量时需要加上extern 关键字。例如下例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//源文件1</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> a=<span class="number">3</span>;</span><br><span class="line"><span class="comment">//源文件2</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果不是const变量时，可以只在定义的地方加上extern</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//源文件1</span></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">3</span>;</span><br><span class="line"><span class="comment">//源文件2</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意： 只需要一份赋值即可</p>
+</blockquote>
 
       
 
@@ -565,11 +574,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,15 +586,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
               </li>
             
             <div class="clearfix"></div>
