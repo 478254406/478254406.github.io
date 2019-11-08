@@ -8,23 +8,26 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>概率图模型基础 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概率图模型的背景​    高维随机变量的困境，维度越高，联合概率的计算量变大$$P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）$$假设每个维度的随机变量的维度相互独立(朴素贝叶斯)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质^马尔可夫。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[^条件独立性假设">
+  <meta name="description" content="概率图模型分类 概率图模型的背景​    高维随机变量的困境，维度越高，联合概率的计算量变大$$P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）$$假设每个维度的随机变量的维度相互独立(朴素贝叶斯)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质^马尔可夫。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[">
 <meta name="keywords" content="概率图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率图模型基础">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;28&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概率图模型的背景​    高维随机变量的困境，维度越高，联合概率的计算量变大$$P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）$$假设每个维度的随机变量的维度相互独立(朴素贝叶斯)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质^马尔可夫。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[^条件独立性假设">
+<meta property="og:description" content="概率图模型分类 概率图模型的背景​    高维随机变量的困境，维度越高，联合概率的计算量变大$$P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）$$假设每个维度的随机变量的维度相互独立(朴素贝叶斯)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质^马尔可夫。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E5%88%86%E7%B1%BB.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;tialtotial.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;headtotial.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;headtohead.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%B0%8F%E6%98%8E%E5%96%9D%E9%86%89%E4%BA%86.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E8%A1%A5%E5%85%85%E8%AE%B2%E8%A7%A3headtohead.png">
-<meta property="og:updated_time" content="2019-11-03T07:33:11.544Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%85%A8%E5%B1%80%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;local%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.ong">
+<meta property="og:updated_time" content="2019-11-07T07:54:03.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E5%88%86%E7%B1%BB.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -180,7 +183,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概率图模型的背景"><a href="#概率图模型的背景" class="headerlink" title="概率图模型的背景"></a>概率图模型的背景</h1><p>​    高维随机变量的困境，维度越高，联合概率的计算量变大<br>$$<br>P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）<br>$$<br>假设每个维度的随机变量的维度相互独立(<em>朴素贝叶斯</em>)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质<a href="(一阶马尔可夫性质，在给定当前的状态下，将来与过去的状态是相互独立的，也就是说各个属性之间是前后的依赖关系">^马尔可夫</a>。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[^条件独立性假设]</p>
+        <h1 id="概率图模型分类"><a href="#概率图模型分类" class="headerlink" title="概率图模型分类"></a>概率图模型分类</h1><p><img src="/image/%E6%A6%82%E7%8E%87%E5%9B%BE%E5%88%86%E7%B1%BB.png" alt=""></p>
+<h1 id="概率图模型的背景"><a href="#概率图模型的背景" class="headerlink" title="概率图模型的背景"></a>概率图模型的背景</h1><p>​    高维随机变量的困境，维度越高，联合概率的计算量变大<br>$$<br>P(x_!,x_2,…,x_n)=\prod_{i=1}^n{p(x_i|x_1,x_2,…,x_{i-1})}（一）<br>$$<br>假设每个维度的随机变量的维度相互独立(<em>朴素贝叶斯</em>)，但是朴素贝叶斯这个假设比强强，我们放松成一阶齐次马尔可夫性质<a href="(一阶马尔可夫性质，在给定当前的状态下，将来与过去的状态是相互独立的，也就是说各个属性之间是前后的依赖关系">^马尔可夫</a>。一阶其次马尔可夫假设条件也太高了，我们引出条件独立性假设[^条件独立性假设]</p>
 <p>条件独立性假设可以简化公式一的链式过程</p>
 <h2 id="概率图模型的大致分类"><a href="#概率图模型的大致分类" class="headerlink" title="概率图模型的大致分类"></a>概率图模型的大致分类</h2><p><img src="/image/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB.png" alt="概率图模型"></p>
 <h1 id="贝叶斯网络表达条件独立性"><a href="#贝叶斯网络表达条件独立性" class="headerlink" title="贝叶斯网络表达条件独立性"></a>贝叶斯网络表达条件独立性</h1><h2 id="tialtotial"><a href="#tialtotial" class="headerlink" title="tialtotial"></a>tialtotial</h2><p>假设贝叶斯网络长成这样 </p>
@@ -207,8 +211,19 @@
 <blockquote>
 <p>所谓的被观测是指该事件要发生</p>
 </blockquote>
-<h1 id="马尔可夫随机场"><a href="#马尔可夫随机场" class="headerlink" title="马尔可夫随机场"></a>马尔可夫随机场</h1><p>​     </p>
-
+<h1 id="Markov-Network"><a href="#Markov-Network" class="headerlink" title="Markov Network"></a>Markov Network</h1><p>​    无向概率图模型</p>
+<h5 id="gloab-markov"><a href="#gloab-markov" class="headerlink" title="gloab markov"></a>gloab markov</h5><p>$$<br>X_A\perp{X_c}|X_b\ \ 用无向图表示<br>$$</p>
+<p><img src="/image/%E5%85%A8%E5%B1%80%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.png" alt=""></p>
+<p>​    在全局马尔可夫里，A到C至少要经过B、这样当阻塞B时A与C独立</p>
+<h4 id="local-markov"><a href="#local-markov" class="headerlink" title="local markov"></a>local markov</h4><p><img src="/image/local%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.ong" alt=""></p>
+<p>​    在local马尔可夫性里、在观测a的邻居是，a与其他节点独立</p>
+<h4 id="成对markov"><a href="#成对markov" class="headerlink" title="成对markov"></a>成对markov</h4><p>​    不做过多的解释。</p>
+<blockquote>
+<p> 这三个马尔可夫性是可以相互证明的 </p>
+</blockquote>
+<h3 id="因子分解"><a href="#因子分解" class="headerlink" title="因子分解"></a>因子分解</h3><pre><code>##### 团的定义</code></pre><p>​    在一个无向图中，最大团的定义为连通分量</p>
+<p>则我们定义的马尔可夫场的P（X）为<br>$$<br>P(x)=\frac{1}{Z}\prod_{i=1}^{k}\Psi(X_{C_i})<br>$$<br>其中<br>$$<br>Z=\sum_{x}\prod_{i=1}^{k}\Psi(X_{C_i})=\sum_{x_1}\sum_{x_2}…\sum_{x_p}\prod_{i=1}^{k}\Psi(X_{C_i})<br>$$<br>在上述公式中<br>$$<br>C_i表示最大团\<br>X_{C_i}表示最大团的变量集合\<br>\Psi(X_{C_i})为势函数\<br>p为x的维度<br>$$<br>势函数的定义为能量函数</p>
+<h1 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h1>
       
 
       
@@ -511,19 +526,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
