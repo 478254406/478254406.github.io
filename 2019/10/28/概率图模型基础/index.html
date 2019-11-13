@@ -25,7 +25,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E8%A1%A5%E5%85%85%E8%AE%B2%E8%A7%A3headtohead.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%85%A8%E5%B1%80%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;local%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.ong">
-<meta property="og:updated_time" content="2019-11-07T07:54:03.690Z">
+<meta property="og:updated_time" content="2019-11-08T10:20:55.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E6%A6%82%E7%8E%87%E5%9B%BE%E5%88%86%E7%B1%BB.png">
   
@@ -223,7 +223,13 @@
 </blockquote>
 <h3 id="因子分解"><a href="#因子分解" class="headerlink" title="因子分解"></a>因子分解</h3><pre><code>##### 团的定义</code></pre><p>​    在一个无向图中，最大团的定义为连通分量</p>
 <p>则我们定义的马尔可夫场的P（X）为<br>$$<br>P(x)=\frac{1}{Z}\prod_{i=1}^{k}\Psi(X_{C_i})<br>$$<br>其中<br>$$<br>Z=\sum_{x}\prod_{i=1}^{k}\Psi(X_{C_i})=\sum_{x_1}\sum_{x_2}…\sum_{x_p}\prod_{i=1}^{k}\Psi(X_{C_i})<br>$$<br>在上述公式中<br>$$<br>C_i表示最大团\<br>X_{C_i}表示最大团的变量集合\<br>\Psi(X_{C_i})为势函数\<br>p为x的维度<br>$$<br>势函数的定义为能量函数</p>
-<h1 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h1>
+<h1 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h1><p>我们先写出theta的对数似然MLE<br>$$<br>\theta_{MLE}=\mathop{argmax}_{\theta}logP(x|\theta)（一）<br>$$</p>
+<h4 id="EM算法的公式"><a href="#EM算法的公式" class="headerlink" title="EM算法的公式"></a>EM算法的公式</h4><p>$$<br>\theta^{t+1}=\mathop{argmax}<em>{\theta}\int</em>{Z}log P(x,z|\theta)*p(z|x,\theta^{(t)})dz（二）<br>$$</p>
+<p>其中EM算法的思路是让期望最大</p>
+<p>其中<br>$$<br>\theta是模型的参数 \<br>z是隐变量<br>$$</p>
+<p>​    因此在一式的每一次迭代中都有下一次的结果大于等于上一次的结果才可以、这个是我们运用一式后所能得到的结果、也就是<br>$$<br>logP(x|\theta^{t})\le{logP(x|\theta^{t+1})}(三)<br>$$</p>
+<p>当theta 已知时</p>
+
       
 
       
