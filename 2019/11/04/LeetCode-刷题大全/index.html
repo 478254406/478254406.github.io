@@ -17,7 +17,7 @@
 <meta property="og:description" content="动态规划leetcode32最长有效括号给定一个只包含 ‘(‘ 和 ‘)’ 的字符串，找出最长的包含有效括号的子串的长度。 示例 1: 输入: “(()”输出: 2解释: 最长有效括号子串为 “()” 示例 2: 输入: “)()())”输出: 4解释: 最长有效括号子串为 “()()” ​    这题思路很清晰、用dp和stack记录括号的状态。dp数组记录当前连续括号对的个数。    ( )">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;956%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-11-14T13:45:17.574Z">
+<meta property="og:updated_time" content="2019-11-17T01:48:07.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;956%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B.png">
   
@@ -263,7 +263,29 @@
 
 
 
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
+<h2 id="含有循环性质的解法"><a href="#含有循环性质的解法" class="headerlink" title="含有循环性质的解法"></a>含有循环性质的解法</h2><h3 id="957-N-天后的牢房"><a href="#957-N-天后的牢房" class="headerlink" title="957. N 天后的牢房"></a><a href="https://leetcode-cn.com/problems/prison-cells-after-n-days/" target="_blank" rel="noopener">957. N 天后的牢房</a></h3><p>8 间牢房排成一排，每间牢房不是有人住就是空着。</p>
+<p>每天，无论牢房是被占用或空置，都会根据以下规则进行更改：</p>
+<pre><code>如果一间牢房的两个相邻的房间都被占用或都是空的，那么该牢房就会被占用。
+否则，它就会被空置。</code></pre><p>（请注意，由于监狱中的牢房排成一行，所以行中的第一个和最后一个房间无法有两个相邻的房间。）</p>
+<p>我们用以下方式描述监狱的当前状态：如果第 i 间牢房被占用，则 cell[i]==1，否则 cell[i]==0。</p>
+<p>根据监狱的初始状态，在 N 天后返回监狱的状况（和上述 N 种变化）。</p>
+<p>示例 1：</p>
+<p>输入：cells = [0,1,0,1,1,0,0,1], N = 7<br>输出：[0,0,1,1,0,0,0,0]<br>解释：<br>下表概述了监狱每天的状况：<br>Day 0: [0, 1, 0, 1, 1, 0, 0, 1]<br>Day 1: [0, 1, 1, 0, 0, 0, 0, 0]<br>Day 2: [0, 0, 0, 0, 1, 1, 1, 0]<br>Day 3: [0, 1, 1, 0, 0, 1, 0, 0]<br>Day 4: [0, 0, 0, 0, 0, 1, 0, 0]<br>Day 5: [0, 1, 1, 1, 0, 1, 0, 0]<br>Day 6: [0, 0, 1, 0, 1, 1, 0, 0]<br>Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</p>
+<p>示例 2：</p>
+<p>输入：cells = [1,0,0,1,0,0,1,0], N = 1000000000<br>输出：[0,0,1,1,1,1,1,0]</p>
+<p>提示：</p>
+<pre><code>cells.length == 8
+cells[i] 的值为 0 或 1 
+1 &lt;= N &lt;= 10^9</code></pre><p>​    题解:  很明显总共有二的八次方256种状态，那么状态肯定存在循环。可以使用一个map来记录这些状态。找到合适的记录状态的方法，例如磁体我们可以采用int 对 int 的map，键为次数，值为位数+二的位数次方</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prisonAfterNDays(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cells, <span class="keyword">int</span> N) &#123;</span><br><span class="line">	 <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; intMap;</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp(<span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line">	 <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">while</span> (i &lt;= N) &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">			 tmp[i] = (cells[i - <span class="number">1</span>] == cells[i + <span class="number">1</span>]);</span><br><span class="line">		 &#125;</span><br><span class="line">		 tmp[<span class="number">0</span>] = <span class="number">0</span>; tmp[<span class="number">7</span>] = <span class="number">0</span>;</span><br><span class="line">		 swap(tmp, cells);</span><br><span class="line"></span><br><span class="line">		 <span class="comment">// judge</span></span><br><span class="line">		 <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) val = val * <span class="number">2</span> + cells[i];</span><br><span class="line">		 <span class="keyword">if</span> (intMap.find(val) == intMap.end()) &#123;</span><br><span class="line">			 intMap[val] = i;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> &#123;</span><br><span class="line">			 <span class="comment">// 出现重复,计算res</span></span><br><span class="line">			 <span class="keyword">int</span> cycle_len = i - intMap[val];</span><br><span class="line">			 i = i + (N - i) / cycle_len*cycle_len;</span><br><span class="line">		 &#125;</span><br><span class="line">		 i++;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 <span class="keyword">return</span> cells;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ol>
 <li>substr()第一个参数为起始的位置，第二个参数为字符串大小</li>
 <li>使用to_string()化为string,stoi()化为int</li>
 <li>见664奇怪的打印机，如果dp时求一轮1，2      2，3    3，4，二轮 1，3    2，4  时可以将外部循环设置为步长，内部为起始点。   </li>
@@ -571,11 +593,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,19 +609,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
             
             <div class="clearfix"></div>
