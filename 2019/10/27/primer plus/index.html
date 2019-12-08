@@ -19,7 +19,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E8%BD%AC%E6%8D%A2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%89%B9%E6%80%A7.png">
-<meta property="og:updated_time" content="2019-11-14T09:49:17.573Z">
+<meta property="og:updated_time" content="2019-12-07T07:05:38.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;dygc.png">
   
@@ -277,7 +277,22 @@
 
 <p>在Jill中添加Jill函数属性。</p>
 <p>​    现在的类库函数库的设计都是采用了名称空间的设计模式例如从math采用的是_CSTD的namespace在yvals.c的文件下</p>
-<h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1>
+<h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1><h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><p>​    在类中有以下的声明，就说明声明了转换函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">typename</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    还是typename可以是内置类型，也可以是自定义类型</p>
+<p>​    转换函数应注意下面几点要求</p>
+<ol>
+<li>转换函数必须是类方法</li>
+<li>抓换函数不能指定函数类型</li>
+<li>转化函数不能带参数</li>
+</ol>
+<p>编写实现时可以参数强制类型转化来实现，调用时以下方式调用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	A(<span class="keyword">int</span> ae):a(ae)&#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">int</span>(a);&#125;;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=A(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="类的动态分配"><a href="#类的动态分配" class="headerlink" title="类的动态分配"></a>类的动态分配</h1><h3 id="类中函数"><a href="#类中函数" class="headerlink" title="类中函数"></a>类中函数</h3><p>​    类中只能定义一个默认构造函数</p>
+<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><p>​    按值传递意味着船舰原始变量的一个副本，编译器采用拷贝构造函数生成临时的变量。具体来时当函数通过值传递或者没有返回值不是引用的时候，都将调用拷贝构造函数。而有些编译器会将类的操作结果赋予一个临时对象，此时会调用拷贝构造函数。总之，若有对象初始化另一个对象，就会调用拷贝构造函数。</p>
+
       
 
       
@@ -575,6 +590,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
@@ -583,23 +606,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
             
             <div class="clearfix"></div>

@@ -151,68 +151,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-effectivr-C-读书笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/22/effectivr-C-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">effectivr C++ 读书笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/22/effectivr-C-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2019-11-22T06:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/22/effectivr-C-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-“神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -766,6 +704,15 @@ cells[i] 的值为 0 或 1
 </blockquote>
 <p>这样就能很好的实现cookie free </p>
 <p>​    alloc会将容器发出的内存请求调整到8的整数倍。也就是容器中每个元素都要调整到8的倍数。alloc会挖出40个大小的内存来，其中20个来存储，20个备用</p>
+<h2 id="std-alloc-源码剖析"><a href="#std-alloc-源码剖析" class="headerlink" title="std::alloc 源码剖析"></a>std::alloc 源码剖析</h2><p>​    <img src="/image/alloc%E6%BA%90%E7%A0%81.png" alt=""></p>
+<p>​    注意到在这个class里面的函数全是静态函数，相当于只是把全局的函数写到类中去。</p>
+<p>​    refill函数在某一链表为空的时候进行“充值”。</p>
+<p>​    注意：在alloc中没有free操作，只是战备池中的链表拉扯，这个内存没有泄露。是没有返还给操作系统，但是内存还是落在分配器手上（通过指针）。所以内存没有泄露。</p>
+<h4 id="refill函数实现"><a href="#refill函数实现" class="headerlink" title="refill函数实现"></a>refill函数实现</h4><p> <img src="/image/refill%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0.png" alt=""></p>
+<p>refill是在但钱链表为空的时候，申请20个区块。</p>
+<p><img src="/image/%E5%88%87%E5%89%B2refill%E5%86%85%E5%AD%98.png" alt=""></p>
+<p>​    通过嵌入式指针进行切割refill分配的内存。return链表的头结点。所谓的切割事实上是将指针转化为obj(obj为嵌入式指针)，通过转char<em>+n再转obj</em>来实现。</p>
+<h4 id="chunk-alloc函数的实现源码剖析"><a href="#chunk-alloc函数的实现源码剖析" class="headerlink" title="chunk_alloc函数的实现源码剖析"></a>chunk_alloc函数的实现源码剖析</h4><p>​    </p>
 
       
 
@@ -1170,7 +1117,22 @@ cells[i] 的值为 0 或 1
 
 <p>在Jill中添加Jill函数属性。</p>
 <p>​    现在的类库函数库的设计都是采用了名称空间的设计模式例如从math采用的是_CSTD的namespace在yvals.c的文件下</p>
-<h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1>
+<h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1><h3 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h3><p>​    在类中有以下的声明，就说明声明了转换函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">typename</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>​    还是typename可以是内置类型，也可以是自定义类型</p>
+<p>​    转换函数应注意下面几点要求</p>
+<ol>
+<li>转换函数必须是类方法</li>
+<li>抓换函数不能指定函数类型</li>
+<li>转化函数不能带参数</li>
+</ol>
+<p>编写实现时可以参数强制类型转化来实现，调用时以下方式调用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	A(<span class="keyword">int</span> ae):a(ae)&#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">int</span>(a);&#125;;</span><br><span class="line">	</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=A(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="类的动态分配"><a href="#类的动态分配" class="headerlink" title="类的动态分配"></a>类的动态分配</h1><h3 id="类中函数"><a href="#类中函数" class="headerlink" title="类中函数"></a>类中函数</h3><p>​    类中只能定义一个默认构造函数</p>
+<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><p>​    按值传递意味着船舰原始变量的一个副本，编译器采用拷贝构造函数生成临时的变量。具体来时当函数通过值传递或者没有返回值不是引用的时候，都将调用拷贝构造函数。而有些编译器会将类的操作结果赋予一个临时对象，此时会调用拷贝构造函数。总之，若有对象初始化另一个对象，就会调用拷贝构造函数。</p>
+
       
 
       
@@ -1337,6 +1299,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
@@ -1345,23 +1315,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
             
             <div class="clearfix"></div>
