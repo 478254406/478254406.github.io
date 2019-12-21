@@ -417,8 +417,24 @@
 <p>我们的初始值就是s[    i    ] [ i  ]=1，没啥说的  直接上代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">strangePrinter</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">		 <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	 <span class="keyword">int</span> n = s.length();</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;dp(s.length(), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(s.length(), <span class="number">-1</span>));</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		 dp[i][i] = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; i + j &lt; n; j++)</span><br><span class="line">		 &#123;</span><br><span class="line">			 dp[j][i + j] = i + <span class="number">1</span>;</span><br><span class="line">			 <span class="keyword">for</span> (<span class="keyword">int</span> k = j; k &lt; i + j; k++)</span><br><span class="line">			 &#123;</span><br><span class="line">				 <span class="keyword">if</span> (s[k] == s[i + j])</span><br><span class="line">					 dp[j][i + j] = min(dp[j][k] + dp[k + <span class="number">1</span>][i + j] - <span class="number">1</span>, dp[j][i + j]);</span><br><span class="line">				 <span class="keyword">else</span></span><br><span class="line">					 dp[j][i + j] = min(dp[j][k] + dp[k + <span class="number">1</span>][i + j], dp[j][i + j]);</span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="keyword">return</span> dp[<span class="number">0</span>][n - <span class="number">1</span>];</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><p>二分普通模板</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> l = <span class="number">0</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">if</span> (nums[mid] &gt;= target)</span><br><span class="line">  r = mid;</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line">  l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    return的时候只用l的值具体的情况看具体的题目。注意找左端点的时候、右侧逼近、找右端点的时候左侧逼近。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; searchRange(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;res(<span class="number">2</span>, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">          <span class="keyword">return</span> res;</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">0</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (l &lt; r)</span><br><span class="line">  &#123;</span><br><span class="line">	  <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	  <span class="keyword">if</span> (nums[mid] &gt;= target)<span class="comment">//此处的大于等于就是当等于的时候右侧逼近</span></span><br><span class="line">		  r = mid;</span><br><span class="line">	  <span class="keyword">else</span></span><br><span class="line">		  l = mid + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (nums[l] != target)</span><br><span class="line">	  <span class="keyword">return</span> res;</span><br><span class="line">  res[<span class="number">0</span>] = l;</span><br><span class="line">  r = nums.size();<span class="comment">//注意、找右侧端点的时候一般要将右侧的搜索范围加一</span></span><br><span class="line">  <span class="keyword">while</span> (l &lt; r)</span><br><span class="line">  &#123;</span><br><span class="line">	  <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	  <span class="keyword">if</span> (nums[mid] &gt; target)</span><br><span class="line">		  r = mid;</span><br><span class="line">	  <span class="keyword">else</span></span><br><span class="line">		  l = mid + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  res[<span class="number">1</span>] = l<span class="number">-1</span>;<span class="comment">//右侧的搜索范围加一以后，应该在返回的l减去一</span></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
+
+
+
+<h2 id="34-在排序数组中查找元素的第一个和最后一个位置"><a href="#34-在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="34. 在排序数组中查找元素的第一个和最后一个位置"></a><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener">34. 在排序数组中查找元素的第一个和最后一个位置</a></h2><p>给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。</p>
+<p>你的算法时间复杂度必须是 O(log n) 级别。</p>
+<p>如果数组中不存在目标值，返回 [-1, -1]。</p>
+<p>示例 1:</p>
+<p>输入: nums = [5,7,7,8,8,10], target = 8<br>输出: [3,4]</p>
+<p>示例 2:</p>
+<p>输入: nums = [5,7,7,8,8,10], target = 6<br>输出: [-1,-1]</p>
+<p>​    典型的二分细节的题目、先二分找左边的端点、在二分找右边的端点。细节见代码。</p>
 <h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><p><a href="https://leetcode-cn.com/problems/132-pattern/" target="_blank" rel="noopener">456. <strong>132</strong>模式</a></p>
 <p>给定一个整数序列：a1, a2, …, an，一个132模式的子序列 ai, aj, ak 被定义为：当 i &lt; j &lt; k 时，ai &lt; ak &lt; aj。设计一个算法，当给定有 n 个数字的序列时，验证这个序列中是否含有132模式的子序列。</p>
 <p>注意：n 的值小于15000。</p>
@@ -1325,7 +1341,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,7 +1349,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1346,10 +1366,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C++读书笔记</a>
               </li>
             
             <div class="clearfix"></div>
