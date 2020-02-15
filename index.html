@@ -435,6 +435,29 @@
 <p>我们的初始值就是s[    i    ] [ i  ]=1，没啥说的  直接上代码</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">strangePrinter</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">if</span> (s.length() == <span class="number">0</span>)</span><br><span class="line">		 <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	 <span class="keyword">int</span> n = s.length();</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;dp(s.length(), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(s.length(), <span class="number">-1</span>));</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		 dp[i][i] = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; i + j &lt; n; j++)</span><br><span class="line">		 &#123;</span><br><span class="line">			 dp[j][i + j] = i + <span class="number">1</span>;</span><br><span class="line">			 <span class="keyword">for</span> (<span class="keyword">int</span> k = j; k &lt; i + j; k++)</span><br><span class="line">			 &#123;</span><br><span class="line">				 <span class="keyword">if</span> (s[k] == s[i + j])</span><br><span class="line">					 dp[j][i + j] = min(dp[j][k] + dp[k + <span class="number">1</span>][i + j] - <span class="number">1</span>, dp[j][i + j]);</span><br><span class="line">				 <span class="keyword">else</span></span><br><span class="line">					 dp[j][i + j] = min(dp[j][k] + dp[k + <span class="number">1</span>][i + j], dp[j][i + j]);</span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="keyword">return</span> dp[<span class="number">0</span>][n - <span class="number">1</span>];</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+
+
+<h2 id="790-多米诺和托米诺平铺"><a href="#790-多米诺和托米诺平铺" class="headerlink" title="790. 多米诺和托米诺平铺"></a><a href="https://leetcode-cn.com/problems/domino-and-tromino-tiling/" target="_blank" rel="noopener">790. 多米诺和托米诺平铺</a></h2><p>有两种形状的瓷砖：一种是 2x1 的多米诺形，另一种是形如 “L” 的托米诺形。两种形状都可以旋转。</p>
+<p>XX  &lt;- 多米诺</p>
+<p>XX  &lt;- “L” 托米诺<br>X</p>
+<p>给定 N 的值，有多少种方法可以平铺 2 x N 的面板？返回值 mod 10^9 + 7。</p>
+<p>（平铺指的是每个正方形都必须有瓷砖覆盖。两个平铺不同，当且仅当面板上有四个方向上的相邻单元中的两个，使得恰好有一个平铺有一个瓷砖占据两个正方形。）</p>
+<blockquote>
+<p>示例:<br>输入: 3<br>输出: 5<br>解释:<br>下面列出了五种不同的方法，不同字母代表不同瓷砖：<br>XYZ XXZ XYY XXY XYY<br>XYZ YYZ XZZ XYY XXY</p>
+</blockquote>
+<p>​    思路：根据花花的讲解，附上两张图就可以了，老规矩不总街了。</p>
+<p>先从最简单的只有一个长方形的砖块看起。</p>
+<p><img src="/image/%E9%93%BA%E6%88%BF%E5%AD%901.png" alt=""></p>
+<p>上述迭代公式是一个斐波拉且数列。再看看本题的转移方程。</p>
+<p><img src="/image/%E9%93%BA%E6%88%BF%E5%AD%902.png" alt=""></p>
+<blockquote>
+<p>值得注意的是，图上有三个状态，但是状态二和状态三的数量相等，所以就省略了一个状态的状态转移方程，同时将dp【i】【0】-…..2*dp【i=1】【1】.</p>
+</blockquote>
+<p>附上代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">numTilings</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">	 <span class="keyword">long</span> mod = <span class="built_in">pow</span>(<span class="number">10</span>, <span class="number">9</span>) + <span class="number">7</span>;</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;&gt;dp(N+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;(<span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">	 dp[<span class="number">0</span>][<span class="number">0</span>] = dp[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= N; i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 dp[i][<span class="number">0</span>] = (dp[i - <span class="number">1</span>][<span class="number">0</span>] + dp[i - <span class="number">2</span>][<span class="number">0</span>] + <span class="number">2</span> * dp[i - <span class="number">1</span>][<span class="number">1</span>]) % mod;</span><br><span class="line">		 dp[i][<span class="number">1</span>] = (dp[i - <span class="number">1</span>][<span class="number">1</span>] + dp[i - <span class="number">2</span>][<span class="number">0</span>]) % mod;</span><br><span class="line">	 &#125;</span><br><span class="line">	 <span class="keyword">return</span> dp[N][<span class="number">0</span>];</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><p>二分普通模板</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> l = <span class="number">0</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">if</span> (nums[mid] &gt;= target)</span><br><span class="line">  r = mid;</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line">  l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -564,6 +587,32 @@ cells[i] 的值为 0 或 1
 
 
 
+<h2 id="10-正则表达式匹配"><a href="#10-正则表达式匹配" class="headerlink" title="10. 正则表达式匹配"></a><a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">10. 正则表达式匹配</a></h2><p>给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。</p>
+<p>‘.’ 匹配任意单个字符<br>‘*’ 匹配零个或多个前面的那一个元素</p>
+<p>所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。</p>
+<p>说明:</p>
+<pre><code>s 可能为空，且只包含从 a-z 的小写字母。
+p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。</code></pre><p>示例 1:</p>
+<blockquote>
+<p>输入:<br>s = “aa”<br>p = “a”<br>输出: false<br>解释: “a” 无法匹配 “aa” 整个字符串。</p>
+</blockquote>
+<blockquote>
+<p>示例 2:</p>
+<p>输入:<br>s = “aa”<br>p = “a<em>“</em></p>
+<p><em>输出: true<br>解释: 因为 ‘</em>‘ 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 ‘a’。因此，字符串 “aa” 可被视为 ‘a’ 重复了一次。</p>
+</blockquote>
+<blockquote>
+<p>示例 3:</p>
+<p>输入:<br>s = “ab”<br>p = “.*”<br>输出: true<br>解释: “.*” 表示可匹配零个或多个（’*’）任意字符（’.’）。</p>
+</blockquote>
+<blockquote>
+<p>示例 4:</p>
+<p>输入:<br>s = “aab”<br>p = “c<em>a</em>b”<br>输出: true<br>解释: 因为 ‘*’ 表示零个或多个，这里 ‘c’ 为 0 个, ‘a’ 被重复一次。因此可以匹配字符串 “aab”。</p>
+</blockquote>
+<blockquote>
+<p>示例 5:</p>
+<p>输入:<br>s = “mississippi”<br>p = “mis<em>is*p</em>.”<br>输出: false</p>
+</blockquote>
 <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h3 id="leetcode55-跳跃游戏"><a href="#leetcode55-跳跃游戏" class="headerlink" title="leetcode55. 跳跃游戏"></a><a href="https://leetcode-cn.com/problems/jump-game/" target="_blank" rel="noopener">leetcode55. 跳跃游戏</a></h3><p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>
 <p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
 <p>判断你是否能够到达最后一个位置。</p>
@@ -1409,15 +1458,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程 并发控制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1429,11 +1482,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
             
             <div class="clearfix"></div>
