@@ -19,7 +19,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;956%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E9%93%BA%E6%88%BF%E5%AD%901.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;%E9%93%BA%E6%88%BF%E5%AD%902.png">
-<meta property="og:updated_time" content="2020-02-17T02:21:51.641Z">
+<meta property="og:updated_time" content="2020-04-28T04:07:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;image&#x2F;956%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B.png">
   
@@ -429,6 +429,8 @@ cells[i] 的值为 0 或 1
 1 &lt;= N &lt;= 10^9</code></pre><p>​    题解:  很明显总共有二的八次方256种状态，那么状态肯定存在循环。可以使用一个map来记录这些状态。找到合适的记录状态的方法，例如磁体我们可以采用int 对 int 的map，键为次数，值为位数+二的位数次方</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prisonAfterNDays(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cells, <span class="keyword">int</span> N) &#123;</span><br><span class="line">	 <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; intMap;</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp(<span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line">	 <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">while</span> (i &lt;= N) &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">			 tmp[i] = (cells[i - <span class="number">1</span>] == cells[i + <span class="number">1</span>]);</span><br><span class="line">		 &#125;</span><br><span class="line">		 tmp[<span class="number">0</span>] = <span class="number">0</span>; tmp[<span class="number">7</span>] = <span class="number">0</span>;</span><br><span class="line">		 swap(tmp, cells);</span><br><span class="line"></span><br><span class="line">		 <span class="comment">// judge</span></span><br><span class="line">		 <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) val = val * <span class="number">2</span> + cells[i];</span><br><span class="line">		 <span class="keyword">if</span> (intMap.find(val) == intMap.end()) &#123;</span><br><span class="line">			 intMap[val] = i;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> &#123;</span><br><span class="line">			 <span class="comment">// 出现重复,计算res</span></span><br><span class="line">			 <span class="keyword">int</span> cycle_len = i - intMap[val];</span><br><span class="line">			 i = i + (N - i) / cycle_len*cycle_len;</span><br><span class="line">		 &#125;</span><br><span class="line">		 i++;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 <span class="keyword">return</span> cells;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+
+
 <h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="124-二叉树中的最大路径和"><a href="#124-二叉树中的最大路径和" class="headerlink" title="124. 二叉树中的最大路径和"></a><a href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/" target="_blank" rel="noopener">124. 二叉树中的最大路径和</a></h2><p>给定一个非空二叉树，返回其最大路径和。</p>
 <p>本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。该路径至少包含一个节点，且不一定经过根节点。</p>
 <p>示例 1:</p>
@@ -519,12 +521,34 @@ p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。</
 </li>
 <li><p>图内的找点法、一列一列的找。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">while (board[i][j] != &apos;.&apos;)</span><br><span class="line">		  &#123;</span><br><span class="line">			  if (++j &gt;= 9)</span><br><span class="line">			  &#123;</span><br><span class="line">				  i++;</span><br><span class="line">				  j = 0;</span><br><span class="line">			  &#125;</span><br><span class="line">			  if (i &gt;= 9)</span><br><span class="line">			  &#123;</span><br><span class="line">				  return true;</span><br><span class="line">			  &#125;</span><br><span class="line">		  &#125;</span><br></pre></td></tr></table></figure>
-
-
-
+</li>
+<li><p>在C++（补码环境下）a&amp;(-a)可以得到a的最低非零位</p>
 </li>
 </ol>
+<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><h2 id="优先队列–priority-queue"><a href="#优先队列–priority-queue" class="headerlink" title="优先队列–priority_queue"></a>优先队列–<strong>priority_queue</strong></h2><p>​    使用优先队列必须包含头文件#include<queue> </p>
+<pre><code>定义：priority_queue&lt;Type, Container, Functional&gt;</code></pre><p>Type 就是数据类型，Container 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 list。STL里面默认用的是vector），Functional 就是比较的方式，当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆</p>
+<blockquote>
+<p>//升序队列 priority_queue &lt;int,vector<int>,greater<int> &gt; q; </p>
+<p>//降序队列 priority_queue &lt;int,vector<int>,less<int> &gt;q;</p>
+</blockquote>
+<p>当然当元素为一个pair时我们可以根据第一个和第二个元素的性质来设置优先队列，方法如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> D = pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">comp</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(D x, D y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x.second.size() &lt; y.second.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;,<span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;&gt;,comp&gt;d;</span><br><span class="line"><span class="comment">//这样就可以按照第二个元素升序的顺序出队列</span></span><br></pre></td></tr></table></figure>
 
+
+
+<p>和队列相同的操作</p>
+<blockquote>
+<ul>
+<li>top 访问队头元素</li>
+<li>empty 队列是否为空</li>
+<li>size 返回队列内元素个数</li>
+<li>push 插入元素到队尾 (并排序)</li>
+<li>emplace 原地构造一个元素并插入队列</li>
+<li>pop 弹出队头元素</li>
+<li>swap 交换内容</li>
+</ul>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h2>
       
 
       
@@ -831,11 +855,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,11 +875,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
             
             <div class="clearfix"></div>

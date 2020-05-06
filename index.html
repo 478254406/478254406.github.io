@@ -151,6 +151,3360 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaWeb学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/06/JavaWeb%E5%AD%A6%E4%B9%A0/">JavaWeb学习</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/06/JavaWeb%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-05-06T11:02:20.992Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h3 id="HTML-标签"><a href="#HTML-标签" class="headerlink" title="HTML 标签"></a>HTML 标签</h3><p>一个标签就是一个容器，所有的操作应该在标签中设置</p>
+<h6 id="字体标签"><a href="#字体标签" class="headerlink" title="字体标签"></a>字体标签</h6><p>&lt; font&gt; &lt; /font&gt;</p>
+<p>字体标签的选项</p>
+<p>&lt; font size=1~7, color=“#ffffff”&gt; </font></p>
+<p>其中color为三个16进制的数  第一个ff 表示0-255红色的灰度值，第二个为绿色灰度值，第三个为蓝色灰度,属性值要用字符串</p>
+<h6 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h6><br>
+
+
+
+<h6 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h6><!--   -->
+
+<p>空白地方写注释的内容</p>
+<h6 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h6><p>&lt;h 1-6&gt; </h></p>
+<p>1-6级标签</p>
+<h6 id="水平线标签‘"><a href="#水平线标签‘" class="headerlink" title="水平线标签‘"></a>水平线标签‘</h6><p>《hr 这里写属性/&gt;</p>
+<p>属性值 size:粗细  color: 颜色 与字体标签返回值一致</p>
+<h6 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h6><p>&lt;: &amp;lt ;     &gt; :&gt;使用转义字符时要使用分号  空格：kongge&amp;nbsp</p>
+<h5 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h5><p>标签《br&gt;《/br&gt;标签表示列表的范围</p>
+<p>​    在dl标签里面  《dt&gt;<dt/> 上层内容</p>
+<p>​    在dl标签里面   《dd&gt;《/dd&gt; 下层内容</p>
+<h6 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h6><p>《ol》《/ol》 ol有属性type 选择为   1，a. i</p>
+<p>《ul》《/ul》 无序符号的列表 也有title </p>
+<h6 id="pre标签"><a href="#pre标签" class="headerlink" title="pre标签"></a>pre标签</h6><p>《pre&gt;内容《/pre&gt; 原样输出   内容里面是什么格式页面显示什么格式</p>
+<h5 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h5><p>《img src=”图像的同意标识符的路径”/》</p>
+<p>​    属性值 width表示图片的宽度 height表示图片的高度 属性alt表示图片上面显示的文字</p>
+<p>同样../表示上层路径</p>
+<h6 id="超链接标签"><a href="#超链接标签" class="headerlink" title="超链接标签"></a>超链接标签</h6><ol>
+<li>链接资源 《a href=”链接资源的路径”    &gt;显示在页面的内容  </a>a target属性设置打开的方式（=_blank在空白页打开） （href=””打开文件夹，“#”不做任何事）</li>
+<li>定位资源标签《a name=”top”&gt;顶部</a>    《a href=”#top”&gt; a href=”#top”&gt; 回到顶部&lt;/a》</li>
+</ol>
+<h6 id="表格标签-重要"><a href="#表格标签-重要" class="headerlink" title="表格标签  重要"></a>表格标签  重要</h6><p>《table&gt;</table>表格的范围</p>
+<p>*table标签里面有一个《tr&gt;</tr>标签</p>
+<p>**在tr标签里面有个《td&gt;</td>标签</p>
+<p>定义一行用《tr&gt;</tr>       在tr里面操作每一个单元格用《td&gt;</td></p>
+<p>​    table border标签设置表格的边界 bordercolor属性边界的颜色  cellspacing属性单元格的间隔 width表格的宽  height表格的高度</p>
+<p>tr标签属性值 align(left center right)表示这一行单元格内的文字的排版方式</p>
+<p>td标签属性值 align(left center right)表示某个单元格内的文字的排版方式</p>
+<p>《caption&gt;表格的标题</caption></p>
+<h6 id="跨行-跨列"><a href="#跨行-跨列" class="headerlink" title="跨行 跨列"></a>跨行 跨列</h6><p>​    ，td标签里面有两个属性值 rowspan和colspan表示跨行和跨列，（参数为数字，表示跨了几行几列），画表格的时候先数有几行每行有几个单元格，跨行的单元格按第一次出现的地方算。</p>
+<h5 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h5><p>*把数据提交给服务器，这个过程用表单标签实现</p>
+<p>《form&gt;</form>定义一个表单的范围</p>
+<p>**输入项：可以输入内容和选择内容的部分</p>
+<p>***大部分的输入项标签《input type=”输入项的类型”/&gt;  </p>
+<p>****普通的输入项type=”text”</p>
+<p>****密码输入项 type=”password” 页面为黑点</p>
+<p>****单选输入项 type=”radiio”</p>
+<p>​            使用单选输入项需要加属性name 例如选男选女 《input type=”radio” name=”sex”/&gt; 男 《input type=”radio” name=”sex”/&gt;女 这两个name属性必须一样</p>
+<p>****复选输入项 type=”checkbox”/</p>
+<p>​    name 例如选男选女 《input ty pe=”radio” name=”sex”/&gt; 男 《input type=”radio” name=”sex”/&gt;女 这两个name属性必须一样</p>
+<p>****文件输入项 type=”file”</p>
+<p>****下拉选择项</p>
+<p>《select  name=”定义下拉的名称”&gt;</p>
+<p>​        《option value=”值”&gt;页面显示</option></p>
+<p>​        《option value=”值”&gt;页面显示</option></p>
+<p>​          《option value=”值”&gt;页面显示</option></p>
+<p>   《/select&gt;</p>
+<p>****文本域标签</p>
+<p>《textarea cols=”数” rows=”数”&gt; 文本类容&lt;。textarea&gt;</p>
+<p>****提交注册表 type=”submit”  name=”页面信息”，只有在输入项里写上name属性，才能提交该输入</p>
+<h5 id="div和span"><a href="#div和span" class="headerlink" title="div和span"></a>div和span</h5><ul>
+<li>div：每一个div占一行，块级标签</li>
+<li>span： 文本信息在一行展示，行内标签</li>
+</ul>
+<h5 id="语义化标签：HTML5中为了提高程序的可读性，提供的一些标签"><a href="#语义化标签：HTML5中为了提高程序的可读性，提供的一些标签" class="headerlink" title="语义化标签：HTML5中为了提高程序的可读性，提供的一些标签"></a>语义化标签：HTML5中为了提高程序的可读性，提供的一些标签</h5><p>《header》 《footer》   </p>
+<h2 id="juint测试"><a href="#juint测试" class="headerlink" title="juint测试"></a>juint测试</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li><p>定义一个测试类</p>
+<ol>
+<li>测试类名 Test+被测试的类名</li>
+<li>包名 xxx.xxx.xxx.test</li>
+</ol>
+</li>
+<li><p>定义测试的方法、可以独立运行</p>
+<ol>
+<li>方法名为test+需要测试的方法</li>
+<li>返回值 void</li>
+<li>参数 空</li>
+</ol>
+</li>
+<li><p>给参数加@test</p>
+</li>
+<li><p>导入@test环境</p>
+</li>
+</ul>
+<p>通过Assert类断言来判断</p>
+<p>@before     @after</p>
+<p>@before在测试方法执行之前执行，一般用于资源申请</p>
+<p>@after在测试方法执行之后执行，一般用于资源的释放</p>
+<p>即使出现异常，这两个方法也会执行</p>
+<h1 id="反射：框架设计的灵魂"><a href="#反射：框架设计的灵魂" class="headerlink" title="反射：框架设计的灵魂"></a>反射：框架设计的灵魂</h1><ul>
+<li><p>框架 ：半成品的软件,可以简化编码</p>
+</li>
+<li><p>反射： 将类的各个组成部分分装为其他的对象</p>
+</li>
+<li><p>class对象功能：</p>
+<p>首先建立class对象 Class PersonClass=Person.class;auto p=new Person();</p>
+<ol>
+<li><p>获取成员变量</p>
+<p>Filed getFileds();获取public修饰的成员变量</p>
+<p>Filed getDecleredFiled();获取所有修饰符的成员变量</p>
+</li>
+<li><p>获取构造方法</p>
+<p>PersonClass.getConstrure(Person所对应的构造方法的类型名)</p>
+</li>
+<li><p>获取成员方法</p>
+<p>auto a=PersonClass.getMethon(String 方法名,可选参数：方法参数列表)</p>
+<p>执行方法 a.invoke(p);</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><ul>
+<li>注解：用一种代码级别的说明，用来对包、类、字段、方法的说明</li>
+</ul>
+<ul>
+<li><p>作用分类</p>
+<ol>
+<li>编译检查</li>
+<li>通过代码注解生成文档 </li>
+<li>代码分析</li>
+</ol>
+</li>
+<li><p>JDK预定义的一些注解</p>
+<ul>
+<li>@Override 检测注解方法是否继承父类</li>
+<li>@Depercated 该注解标注的内容表示已经过时，已经弃用</li>
+<li>@SuppressWarning 压制警告， @SupressWarning(“all”)</li>
+</ul>
+</li>
+<li><p>自定义注解</p>
+<pre><code>* public @interface 注解名{}</code></pre><ul>
+<li>本质 </li>
+</ul>
+</li>
+<li><p>public interface 注解名 extends java.lang.annotation.Annotation{}</p>
+</li>
+<li><p>属性： 接口中定义的抽象方法</p>
+<ul>
+<li><p>要求</p>
+<ol>
+<li><p>属性的返回类型</p>
+<ul>
+<li>基本数据类型</li>
+<li>String</li>
+<li>枚举</li>
+<li>注解<ul>
+<li>以上数据类型的数组</li>
+</ul>
+</li>
+</ul>
+<p>写属性的时候加上int a(),表示属性定义了属性需要在使用注解的时候加上赋值 @属性名(复制)。数组取值用{}。</p>
+</li>
+</ol>
+</li>
+<li><p>元注解，写在自定义注解的前面</p>
+<ul>
+<li>@Target: 描述注解能够作用的位置。TYPE作用域类，Methon作用方法，FIELD作用域成员变量</li>
+<li>@Retention: 描述注解保留的阶段，三个阶段，一般为RUNTIME</li>
+<li>@Decumented: 描述注解是否被抽取到api文档中 </li>
+</ul>
+</li>
+<li><p>@Inherited: 描述注解是否被子类继承</p>
+</li>
+</ul>
+</li>
+<li><p>程序中使用注解:获取注解的属性值，假设自定义注解为pro,由</p>
+<ol>
+<li><p>获取注解定义位置的字节码文件对象</p>
+</li>
+<li><p>获取注释对象</p>
+<ul>
+<li>getAnnptation（class）</li>
+</ul>
+</li>
+<li><p>获取注解抽象方法的属性值</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="数据库的基本概念"><a href="#数据库的基本概念" class="headerlink" title="数据库的基本概念"></a>数据库的基本概念</h1><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><ol>
+<li><p>配置</p>
+<ul>
+<li><p>MySQL服务启动 以管理员身份运行cmd net start/stop mysql</p>
+</li>
+<li><p>MySQL登录和退出（127.0.0.1表示本机）</p>
+<p>mysql -uroot -p123456</p>
+<p>mysql -hip地址 -uroot -p密码</p>
+</li>
+<li><p>MySQL的目录结构</p>
+<ol>
+<li>MySQL安装目录</li>
+<li>MySQL数据目录</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p>sql 结构化查询语言，定义了操作所有关系型数据库的的规则。每一种数据库都存在不一样的地方</p>
+<ol>
+<li><p>SQL语法</p>
+<ol>
+<li>SQL语句可以单行或者多啊很难过书写，以分号结尾</li>
+<li>MySQL sql语句不区分大小写</li>
+<li>3种注释<ul>
+<li>–或者#单行注释</li>
+<li>多行注释/* 注释 */</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>SQL分类</p>
+<ol>
+<li>DDL数据定义语言</li>
+<li>DML数据操作语言</li>
+<li>DQL数据查询语言</li>
+<li>DCL数据控制语言</li>
+</ol>
+</li>
+</ol>
+<p><img src="/image/sql%E5%88%86%E7%B1%BB.png" alt="sql分类.png"></p>
+<h3 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h3><h4 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h4><pre><code>1. C(Creat):创建
+* create database 数据库名
+* create database if not exist db2 cahracter set 字符集名称 #创建数据库并用指定的字符集
+2. R():查询
+* 查询数据库名称
+  * show 数据库
+* 查询某个数据库的字符集
+  * SHOW CREAT DATABASE</code></pre><ol start="3">
+<li><p>U：修改</p>
+<ul>
+<li>修改数据库的字符集<ul>
+<li>alter database 数据库名 character set 字符集名；#改变数据库的字符集</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>D：删除</p>
+<ul>
+<li>删除数据库<ul>
+<li>drop 数据库名;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用数据库</p>
+<ul>
+<li>查询正在使用的数据库名称</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>select database()</p>
+</li>
+<li><p>使用数据库</p>
+<p>   use 数据库名;</p>
+</li>
+</ul>
+<h4 id="操作表"><a href="#操作表" class="headerlink" title="操作表"></a>操作表</h4><ol>
+<li><p>C 创建</p>
+<ol>
+<li><p>语法</p>
+<ul>
+<li><p>Creat table 表名(</p>
+<p>​    列名1 数据类型1，</p>
+<p>​    列名2 数据类型，</p>
+<p>​    。。。</p>
+<p>​    列明n  数据类型</p>
+<p>);</p>
+</li>
+<li><p>注意最后一列不需要都好</p>
+<p>数据库类型</p>
+<ol>
+<li>int</li>
+<li>double</li>
+<li>date: 日期，只包含年月日</li>
+<li>datetime  包含时分秒的日期</li>
+<li>timestamp： 如果将来不给这个字段赋值或者复制为null，系统自动填充系统时间</li>
+<li>varchar：字符串<ul>
+<li>vachar(20)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>复制表 create table like 原表</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>R 查询</p>
+<ul>
+<li>查询数据库的名称<ul>
+<li>show tables</li>
+</ul>
+</li>
+<li>查询表结构<ul>
+<li>desc 表明</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>U 修改</p>
+<ol>
+<li>修改表名</li>
+</ol>
+<ul>
+<li>alter table 表名 rename to 新的表明；</li>
+</ul>
+<ol start="2">
+<li><p>修改表的字符集</p>
+<p>​    alter table 表名 character set 新的表名；</p>
+</li>
+<li><p>添加一列</p>
+<p>alter table 表名 add 列名 数据类型；</p>
+</li>
+<li><p>修改列名称、类型</p>
+<p>alter table 表名 change 列名 新列名 数据类型</p>
+<p>alter table 表名 modify 列名 新数据类型</p>
+</li>
+<li><p>删除列</p>
+<p>alter table 表名 drop 列名；</p>
+</li>
+</ol>
+</li>
+<li><p>D 删除</p>
+</li>
+</ol>
+<ul>
+<li>drop table if exists 表明。</li>
+</ul>
+<p>create table ‘student’(</p>
+<p>​    id int,</p>
+<p>​    name varchar(32)</p>
+<p>);</p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><p>增删改表中的记录</p>
+<ol>
+<li><p>增加数据</p>
+<ul>
+<li>insert into 表名（列名1，列名2,…,列名n）values（值1，…，值n）;</li>
+<li>insert into 表名 values(值1，值2 ，…,值m，null,null);</li>
+</ul>
+</li>
+<li><p>删除数据</p>
+<p>delete from 表名 [where 条件]    </p>
+<p>删除表的所有数据 TRUNCATE TABLE 表名</p>
+</li>
+<li><p>修改数据</p>
+<ul>
+<li><p>update 表名 set 列名1=值1，列名2=值2 where 条件</p>
+<p>update student set  age=117 where id=3;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h2><ol>
+<li><p>排序查询</p>
+<p>order by 排序字段 排序方式1，排序字段2 排序方式2;</p>
+<ul>
+<li>升序方式  asc 升序 desc 降序</li>
+</ul>
+<p>如果有多个排序条件，则当前边条件一样时，才会判断第二条件</p>
+</li>
+<li><p>聚合函数 将一列数据作为一个整体，进行纵向计算</p>
+<ol>
+<li>count 计算个数</li>
+<li>max 计算最大值</li>
+<li>min 最小</li>
+<li>sum 和</li>
+<li>avg 平均</li>
+</ol>
+<p>举例：select count（name）from student</p>
+<p>count会略过null</p>
+</li>
+<li><p>分组查询</p>
+<p>group by  </p>
+<ul>
+<li>注意分组之后查询的字段：分组字段、聚合函数 select后面查询的字段：分组字段、聚合函数</li>
+</ul>
+<p>select  sex ,avg(math) from student/*  可以在这里写where */ group by sex;//查询男女同学的数学平均分，结果会如下图</p>
+<table>
+<thead>
+<tr>
+<th>sex</th>
+<th>avg(math)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>女</td>
+<td>91.000</td>
+</tr>
+<tr>
+<td>男</td>
+<td>72.600</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：where和having的区别</p>
+<ol>
+<li>where在分组前进行限定，如果不满足条件，则不进行分组，having在分组后判断，如果不满足条件，则不会查询</li>
+<li>where后不可加聚合函数，having后可加聚合函数</li>
+</ol>
+</blockquote>
+</li>
+<li><p>分页操作</p>
+<p>select * from 表名 limit 开始页码，页数；</p>
+<p>开始页码=（当前页码-1）*每页的数据，也就是说开始页码是表中当前记录的前一条记录</p>
+</li>
+</ol>
+<h2 id="DQL-1"><a href="#DQL-1" class="headerlink" title="DQL"></a>DQL</h2><ol>
+<li><p>语法</p>
+<p>select 字段列表 from 表名 where 条件列表 group by 分组字段 having 分组之后的条件 order by 排序 limit 分页限定</p>
+</li>
+<li><p>条件查询</p>
+<p> where子句后跟条件</p>
+<p> 不等于！= 或者&lt;&gt;</p>
+<p> between and 相当于  age&lt;=30&amp;&amp;age&gt;=20 相当于 age between 20 and 30;</p>
+<p> in 集合 age in (22,15,10)</p>
+<p> LIKE 模糊查询 比如查询姓马的记录 _单个任意字符  %多个任意字符 select * from student where name like ‘马%’</p>
+<p> IS NULL 判断为空 </p>
+<p>and</p>
+<p>or</p>
+<p>not</p>
+<p>// *表示全部记录</p>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>对表的数据进行限定，保证数据的正确性、有效性，完整性。</p>
+<ul>
+<li>分类<ol>
+<li>主键约束：primary key</li>
+<li>非空 not null</li>
+<li>唯一约束 unique</li>
+<li>外键约束 foreign</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>非空约束</p>
+<p>在创建表的时候创建 后面加not null</p>
+</li>
+<li><p>唯一约束</p>
+<p>删除唯一约束</p>
+<p>ALTER TABLE STU DROP INDEX 唯一约束的字段</p>
+<p>添加唯一约束</p>
+<p>alter table 表名 modify  字段名 类型 unique</p>
+</li>
+<li><p>主键约束</p>
+<p>区别于其他记录的唯一标识，非空且唯一</p>
+<p>删除主键约束 ALTER TABLE STU DROP PRIMARY KEY;</p>
+<p>添加主键</p>
+<p>Atter table stu modify id INT primary key</p>
+<p>可以为主键添加自动增长</p>
+<p>id int primary key AUTO_INCREMENT</p>
+<p>主键自动增长在添加数据会按1、2、3 的顺寻增加</p>
+</li>
+<li><p>外键约束</p>
+<p>语法 在需要外键约束的表中最后加上constraint 这个链接的名称 foreign key (该表需要外键约束的字段) REFERENCE 外部约束表（他的主键）</p>
+<p>CONSTRAINT emp_dept_fk FOREIGN KEY (DEP_ID) REFERENCES department(id)</p>
+<ol>
+<li><p>删除外键</p>
+<p>ALTER TABLE EMPLOYEE DROP FOREIGN KEY 创建的外键名 emp_dept_fk </p>
+</li>
+<li><p>添加外键</p>
+<p>ALTER TABLE 表名 ADD CONSTRAINT 外键名 FOREIGN KEY (外键名) REFERENCES 主表名称（主表列）</p>
+</li>
+<li><p>级联更新</p>
+<p>ALTER TABLE 表名 ADD CONSTRAINT 外键名 FOREIGN KEY (外键名) REFERENCES 主表名称（主表列） ON UPDATE CASCADE ON DELETE /UPDATE CASCADE</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="数据库的设计"><a href="#数据库的设计" class="headerlink" title="数据库的设计"></a>数据库的设计</h2><p>多表的关系</p>
+<ol>
+<li><p>一对一</p>
+<p>在任意地方添加外键，指向另一个的主键，并且将这个外键添加唯一约束</p>
+</li>
+<li><p>多对一</p>
+<p>设置外键约束，例如员工表加一个部门的外键表</p>
+</li>
+<li><p>多对多</p>
+<p>再建一个表，这个表有两个外键分别指向多对多关系的主键</p>
+<p><img src="/image/%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB.png" alt="多对多关系.png"></p>
+</li>
+</ol>
+<h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><ol>
+<li>第一范式：每一列都是不可分割的原子数据项</li>
+<li>第二范式： 在第一范式的基础上，非码属性都完全依赖于码属性（消除了第一范式非主属性对码的部分依赖），也就是说，消除了冗余，让表中的属性值都可以由主属性得到</li>
+<li>在二范式的基础上，任何非主属性不依赖于其他非主属性 消除了传递依赖</li>
+</ol>
+<h2 id="数据库的备份和还原"><a href="#数据库的备份和还原" class="headerlink" title="数据库的备份和还原"></a>数据库的备份和还原</h2><ol>
+<li><p>命令行</p>
+<p>mysqldump -u -p &gt;保存的路径 ,sql</p>
+<p>还原 在use database 之后用source a.sql</p>
+</li>
+<li><p>图形界面，各个图形界面软件不一样.大概都是右键备份和导出</p>
+</li>
+</ol>
+<h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><ul>
+<li><p>select 列名 from 表名 1 表名 2 where 条件</p>
+</li>
+<li><p>笛卡尔积：有两个集合，取这两个集合的所有组合情况</p>
+</li>
+</ul>
+<ol>
+<li><p>内连接查询</p>
+<ul>
+<li><p>隐式内连接查询 查询员工表所对应的员工和部门信息</p>
+<p>select * from emp,dept where emp.’dep_id’=dept.id;</p>
+<p>以后写SQL会这样写</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	t1.name,</span><br><span class="line">	t2.gender,</span><br><span class="line">	t2.name<span class="comment">#先不写，先写from</span></span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	emp t1,</span><br><span class="line">	dept t2<span class="comment">#对emp和dept表取别名</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	t1.<span class="string">'dept_id'</span>=te.<span class="string">'id'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li><p>显示内连接</p>
+<p>select  * from emp join dept on emp.’dep_id’=dept.id.与select * from emp,dept where emp.’dep_id’=dept.id;显示的结果一致</p>
+</li>
+<li><p>外连接查询</p>
+<ol>
+<li><p>左外链接</p>
+<p>select 字段列表 from 表1 left join 表2 on 条件</p>
+<p>坐外连接查询的是表1的所有记录以及两表的笛卡尔满足条件的交集</p>
+</li>
+</ol>
+</li>
+<li><p>子查询</p>
+<p>在查询中嵌套查询</p>
+<p>比如查询工资最高的员工信息</p>
+<p>#1 查询最高的员工工资</p>
+<p>select max（salary） from emp;</p>
+<p>#2 查询最高的工资的员工信息</p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	*</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	emp t</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	t.<span class="string">'salary'</span>=(<span class="keyword">select</span></span><br><span class="line">                	<span class="keyword">max</span>(salary)</span><br><span class="line">                <span class="keyword">from</span></span><br><span class="line">                	emp</span><br><span class="line">               );</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>子查询的不同情况</p>
+<ol>
+<li><p>子查询的结果是单行单列的</p>
+<p>子查询可以作为条件去判断，例如上述代码</p>
+</li>
+<li><p>子查询的结果是多行单列的</p>
+<p>使用in来判断</p>
+</li>
+<li><p>子查询的结果是多行多列的</p>
+<p>使用子查询作为虚拟表</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ol>
+<li><p>事务的概念</p>
+<p>​    如果一个包含多个步骤的业务操作，都被事务管理，则这些操作要么同时成功。</p>
+</li>
+<li><p>事务基本操作</p>
+<ol>
+<li><p>开启事务 start transaction</p>
+</li>
+<li><p>回滚 rollbac</p>
+</li>
+<li><p>提交 commit</p>
+</li>
+<li><p>在MYSQL数据库中事务默认自动提交</p>
+<ul>
+<li>一条增删改语句MySQL会自动提交事务</li>
+<li>开启事务需要手动提交</li>
+</ul>
+</li>
+<li><p>关闭打开自动提交事务</p>
+<p>查询默认事务提交方式</p>
+<p>select @@autocommit 1代表默认 0代表手动</p>
+<p>修改事务默认提交方式</p>
+<p>set @@autommit=0</p>
+<p>如果手动提交事务没有提交事务，则在关闭数据库程序，系统会默认回滚，不会该表表中数据</p>
+</li>
+<li><p>事务的四大特性</p>
+<ol>
+<li>原子性： 是不可分割的最小单位，要么同时成功</li>
+<li>持久性： 当事务提交或者回滚后，数据库会持久化的保存数据</li>
+<li>隔离性： 多个事务之间相互独立</li>
+<li>一致性： 事务操作前后，数据总量不变</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="管理用户DCL"><a href="#管理用户DCL" class="headerlink" title="管理用户DCL"></a>管理用户DCL</h2><ol>
+<li><p>管理用户</p>
+<ul>
+<li><p>添加用户</p>
+<p>create user ‘用户名’ @ ‘主机名’ IDENTIFIED BY ‘密码’；</p>
+</li>
+<li><p>删除用户</p>
+<p>drop user ‘用户名’ @ ‘主机名’</p>
+</li>
+<li><p>查询用户</p>
+<ol>
+<li>use MySQL数据库</li>
+</ol>
+</li>
+<li><p>修改用户密码</p>
+<p>update user set password=password(‘新密码’) where user =‘用户名’；</p>
+</li>
+<li><p>管理权限</p>
+<p>GRANT  权限列表 ON 数据库名.表名 to ‘用户名’ @ ‘主机名’；</p>
+<p>GRANT SELECT ON DB3.STUDENT TO ‘LISI’@’%’;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><ul>
+<li>JAVA 数据库连接，Java语言操作数据库</li>
+</ul>
+<p>JDBC的本质：其实是官方定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包，我们可以使用这套接口编程，真正执行的代码是执行jar包的实现类。</p>
+<ol start="2">
+<li><ol>
+<li>快速入门：<ul>
+<li>步骤：<ol>
+<li>导入驱动jar包 mysql-connector-java-5.1.37-bin.jar<br> 1.复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下<br> 2.右键–&gt;Add As Library</li>
+<li>注册驱动</li>
+<li>获取数据库连接对象 Connection</li>
+<li>定义sql</li>
+<li>获取执行sql语句的对象 Statement</li>
+<li>执行sql，接受返回结果</li>
+<li>处理结果</li>
+<li>释放资源</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>详解各个对象：</p>
+<ol>
+<li><p>DriverManager：驱动管理对象</p>
+<ul>
+<li>功能：<ol>
+<li>注册驱动：告诉程序该使用哪一个数据库驱动jar<br> static void registerDriver(Driver driver) :注册与给定的驱动程序 DriverManager 。<br> 写代码使用：  Class.forName(“com.mysql.jdbc.Driver”);<br> 通过查看源码发现：在com.mysql.jdbc.Driver类中存在静态代码块</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>获取数据库连接：</p>
+<pre><code>        * 方法：static Connection getConnection(String url, String user, String password) 
+                * 参数：
+                          * url：指定连接的路径
+                                    * 语法：jdbc:mysql://ip地址(域名):端口号/数据库名称
+                                          * 例子：jdbc:mysql://localhost:3306/db3
+                                                * 细节：如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称
+                                                  * user：用户名
+                                                        * password：密码 
+
+3.  Connection：数据库连接对象
+                   1. 功能：
+                     1. 获取执行sql 的对象
+                   * Statement createStatement()
+                                     * PreparedStatement prepareStatement(String sql)  
+               2. 管理事务：
+                   * 开启事务：setAutoCommit(boolean autoCommit) ：调用该方法设置参数为false，即开启事务
+                                     * 提交事务：commit() 
+                                                                * 回滚事务：rollback()
+
+   1. boolean execute(String sql) ：可以执行任意的sql 了解 
+                       2. int executeUpdate(String sql) ：执行DML（insert、update、delete）语句、DDL(create，alter、drop)语句
+                   * 返回值：影响的行数，可以通过这个影响的行数判断DML语句是否执行成功 返回值&gt;0的则执行成功，反之，则失败。
+
+               3. ResultSet executeQuery(String sql)  ：执行DQL（select)语句
+
+                  返回值就是一个查询表
+
+                  * boolean next(): 游标向下移动一行，判断当前行是否是最后一行末尾(是否有数据)，如果是，则返回false，如果不是则返回true
+                                      * getXxx(参数):获取数据
+                                                                        * Xxx：代表数据类型   如： int getInt() ,    String getString()
+                                                                      * 参数：
+                                1. int：代表列的编号,从1开始   如： getString(1)
+                                                                      2. String：代表列名称。 如： getDouble(&quot;balance&quot;)
+
+       ​                         注意光标最开始在第一条记录的上边，也就是属性值的那一行
+
+       ​                    最后可以这样打印查询表。
+
+       <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">* 注意：</span><br><span class="line">             	   			* 使用步骤：</span><br><span class="line">			<span class="number">1</span>. 游标向下移动一行</span><br><span class="line">             	   				<span class="number">2</span>. 判断是否有数据</span><br><span class="line">                                       	   				<span class="number">3</span>. 获取数据</span><br><span class="line">	   </span><br><span class="line">		   <span class="comment">//循环判断游标是否是最后一行末尾。</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                <span class="comment">//获取数据</span></span><br><span class="line">                <span class="comment">//6.2 获取数据</span></span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="number">1</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                <span class="keyword">double</span> balance = rs.getDouble(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">                System.out.println(id + <span class="string">"---"</span> + name + <span class="string">"---"</span> + balance);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></code></pre></li>
+</ol>
+</li>
+</ol>
+<h2 id="抽取JDBC工具类JDBCUtils"><a href="#抽取JDBC工具类JDBCUtils" class="headerlink" title="抽取JDBC工具类JDBCUtils"></a>抽取JDBC工具类JDBCUtils</h2><ul>
+<li><p>目的：简化书写</p>
+</li>
+<li><p>分析：</p>
+<ol>
+<li><p>注册驱动也抽取</p>
+</li>
+<li><p>抽取一个方法获取连接对象</p>
+<ul>
+<li><p>需求：不想传递参数（麻烦），还得保证工具类的通用性。</p>
+</li>
+<li><p>解决：配置文件<br>  jdbc.properties</p>
+<pre><code>url=
+user=
+password=</code></pre><p>  ​    driver=</p>
+</li>
+<li><p>使用配置文件</p>
+<p>将配置文件的内容使用静态代码块读取，可以使用properties集合类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在JDBCutils下</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String url;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String user;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String password;</span><br><span class="line">   <span class="keyword">static</span>&#123;</span><br><span class="line">        <span class="comment">//读取资源文件，获取值。</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//1. 创建Properties集合类。</span></span><br><span class="line">            Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取src路径下的文件的方式---&gt;ClassLoader 类加载器</span></span><br><span class="line">            ClassLoader classLoader = JDBCUtils.class.getClassLoader();</span><br><span class="line">            URL res  = classLoader.getResource(<span class="string">"jdbc.properties"</span>);</span><br><span class="line">            String path = res.getPath();</span><br><span class="line">           <span class="comment">// System.out.println(path);///D:/IdeaProjects/itcast/out/production/day04_jdbc/jdbc.properties</span></span><br><span class="line">            <span class="comment">//2. 加载文件</span></span><br><span class="line">           <span class="comment">// pro.load(new FileReader("D:\\IdeaProjects\\itcast\\day04_jdbc\\src\\jdbc.properties"));</span></span><br><span class="line">            pro.load(<span class="keyword">new</span> FileReader(path));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3. 获取数据，赋值</span></span><br><span class="line">            url = pro.getProperty(<span class="string">"url"</span>);</span><br><span class="line">            user = pro.getProperty(<span class="string">"user"</span>);</span><br><span class="line">            password = pro.getProperty(<span class="string">"password"</span>);</span><br><span class="line">            driver = pro.getProperty(<span class="string">"driver"</span>);</span><br><span class="line">            <span class="comment">//4. 注册驱动</span></span><br><span class="line">            Class.forName(driver);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//注意在静态代码块中只能处理异常，不能抛异常，并且获取src路径文件需要使用ClassLoader类加载器</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="preparedStetement-执行sql的对象"><a href="#preparedStetement-执行sql的对象" class="headerlink" title="preparedStetement:执行sql的对象"></a>preparedStetement:执行sql的对象</h4></li>
+</ul>
+<ol>
+<li><p>SQL注入的问题：用String拼接sql时，有一些sql的特殊关键字参与字符串的拼接。会造成安全性的问题</p>
+<ol>
+<li>输入用户名随便，输入密码： a’ or ‘a’=’a</li>
+<li>sql:select * from user where username=’dasdasfge’ and  password=a’ or ‘a’=’a</li>
+</ol>
+</li>
+<li><p>解决sql注入的问题：使用PreparedStatement对象来解决</p>
+<p>sql参数使用？作为占位符</p>
+</li>
+<li><p>步骤</p>
+<ol>
+<li>注册驱动，获取Connect对象</li>
+<li>定义sql：如select * from user where user=? and password=?;</li>
+</ol>
+</li>
+<li><p>获取执行sql语句的对象 Connection.prepareStatement(String sql)    </p>
+</li>
+<li><p>给?赋值</p>
+<p>方法： setxxx(参数1，参数2)</p>
+<ul>
+<li>参数1：？的位置编号 从1开始<ul>
+<li>参数2 ： ？的值</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>执行sql，接受返回的结果</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="JDBC事务"><a href="#JDBC事务" class="headerlink" title="JDBC事务"></a>JDBC事务</h2><ol>
+<li><p>事务：一个 包含u东哥步骤的业务操作，如果这个业务操作被事务管理，则这多个步骤要么同时成功，要么同时失败。</p>
+</li>
+<li><ol>
+<li>开启事务</li>
+<li>提交事务</li>
+<li>回滚事务</li>
+</ol>
+</li>
+<li><p>使用Connection对象来管事务</p>
+<ul>
+<li><p>开启事务：setAutoCommit(boolean autoCommit):参数设置为false，即开启事务</p>
+<p>在sql之前开启</p>
+</li>
+<li><p>提交事务：commit();在sql之后开启</p>
+</li>
+<li><p>回滚事务：rollback();回滚在catch里面做</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h2><ol>
+<li><p>实现</p>
+<ol>
+<li><p>标准接口：DataSource javax.sql包</p>
+<ol>
+<li>方法：<ul>
+<li>获取连接：getConnection()</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>一般我们不去实现它，由数据库的厂商来实现</p>
+<ol>
+<li>C3P0:数据库连接池技术</li>
+<li>归还连接：如果连接对象Connection是从连接池中获取的，那么调用close()方法，则不会再关闭连接了，而是归还连接</li>
+</ol>
+</li>
+</ol>
+<p>C3P0：数据库连接池技术</p>
+<ul>
+<li>步骤：<ol>
+<li>导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，<ul>
+<li>不要忘记导入数据库驱动jar包</li>
+<li>定义配置文件：</li>
+<li>名称： c3p0.properties 或者 c3p0-config.xml</li>
+<li>路径：直接将文件放在src目录下即可。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>创建核心对象 数据库连接池对象 ComboPooledDataSource</p>
+</li>
+<li><p>获取连接： getConnection</p>
+</li>
+<li><p>Druid：</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>定义配置文件</p>
+<ul>
+<li>是properties形式的</li>
+<li>可以叫任意名称，可以放在任意的目录</li>
+</ul>
+</li>
+<li><p>获取数据库连接池对象：通过工厂类获取</p>
+<p>DruidDataSoruceFactory</p>
+</li>
+<li><p>获取连接</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">* 代码：</span><br><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">	    <span class="comment">//1.定义成员变量 DataSource</span></span><br><span class="line">	    <span class="keyword">private</span> <span class="keyword">static</span> DataSource ds ;</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">static</span>&#123;</span><br><span class="line">	        <span class="keyword">try</span> &#123;</span><br><span class="line">	            <span class="comment">//1.加载配置文件</span></span><br><span class="line">	            Properties pro = <span class="keyword">new</span> Properties();</span><br><span class="line">	            pro.load(JDBCUtils.class.getClassLoader().getResourceAsStream(<span class="string">"druid.properties"</span>));</span><br><span class="line">	            <span class="comment">//2.获取DataSource</span></span><br><span class="line">	            ds = DruidDataSourceFactory.createDataSource(pro);</span><br><span class="line">	        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">	            e.printStackTrace();</span><br><span class="line">	        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">	            e.printStackTrace();</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	     * 获取连接</span></span><br><span class="line"><span class="comment">	     */</span></span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">	        <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">	    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><ul>
+<li><p>Spring框架对JDBC的简单封装。提供了一个JDBCTemplate对象简化JDBC的开发</p>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>创建JdbcTemplate对象。依赖于数据源DataSource</p>
+<ul>
+<li>JdbcTemplate template = new JdbcTemplate(ds);</li>
+</ul>
+</li>
+<li><p>调用JdbcTemplate的方法来完成CRUD的操作</p>
+<ul>
+<li>update():执行DML语句。增、删、改语句</li>
+<li>queryForMap():查询结果将结果集封装为map集合，将列名作为key，将值作为value 将这条记录封装为一个map集合<ul>
+<li>注意：这个方法查询的结果集长度只能是1</li>
+</ul>
+</li>
+<li>queryForList():查询结果将结果集封装为list集合<ul>
+<li>注意：将每一条记录封装为一个Map集合，再将Map集合装载到List集合中</li>
+</ul>
+</li>
+<li>query():查询结果，将结果封装为JavaBean对象<ul>
+<li>query的参数：RowMapper<ul>
+<li>一般我们使用BeanPropertyRowMapper实现类。可以完成数据到JavaBean的自动封装</li>
+<li>new BeanPropertyRowMapper&lt;类型&gt;(类型.class)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>queryForObject：查询结果，将结果封装为对象<ul>
+<li>一般用于聚合函数的查询</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Web概念"><a href="#Web概念" class="headerlink" title="Web概念"></a>Web概念</h2><ul>
+<li><p>Javaweb</p>
+</li>
+<li><p>使用Java语言开发基于互联网的项目</p>
+</li>
+<li><p>软件架构</p>
+<p>c\s  b\s</p>
+</li>
+</ul>
+<h2 id="CSS：页面美化和布局控制"><a href="#CSS：页面美化和布局控制" class="headerlink" title="CSS：页面美化和布局控制"></a>CSS：页面美化和布局控制</h2><ol>
+<li>含义层叠样式表</li>
+</ol>
+<ul>
+<li>多个样式可以作用到同一个HTML元素上，同时生效</li>
+</ul>
+<ol start="2">
+<li><p>CSS使用：CSS与HTML结合方式</p>
+<ol>
+<li>内联样式</li>
+<li>内部样式：在head标签内，定义style标签，style标签的标签体内容就是css代码</li>
+<li>外部样式<ol>
+<li>定义css资源文件</li>
+<li>在head标签内，定义link标签，引入外部的资源文件，一般定义一个css文件夹</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>css语法</p>
+<ul>
+<li><p>格式：</p>
+<p>选择器{</p>
+<p>​    属性名1：属性值1；</p>
+<p>​    属性名2：属性值2；</p>
+<p>​    …</p>
+<p>}</p>
+<p>选择器：筛选具有相似特征的元素</p>
+</li>
+</ul>
+<ol>
+<li><p>基础选择器</p>
+<ul>
+<li><p>id选择器：选择具体的id属性值的元素</p>
+<ul>
+<li>语法  在style中#id属性值{}在《div id=”id”&gt;内容《》</li>
+<li>元素选择器<ul>
+<li>语法：标签名称</li>
+<li>注意：id选择器优先级高于元素选择器</li>
+</ul>
+</li>
+<li>类选择器：选择具有相同的class属性值的元素<ul>
+<li>语法： .class属性值</li>
+</ul>
+</li>
+<li>id&gt;元素&gt;类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>扩展选择器</p>
+<ol>
+<li>选择所有的元素<ul>
+<li>语法： *{}</li>
+</ul>
+</li>
+<li>并集选择器<ul>
+<li>选择器1，选择器2{}</li>
+</ul>
+</li>
+<li>子选择器<ul>
+<li>语法：选择器1，选择器2{}</li>
+</ul>
+</li>
+<li>父选择器<ul>
+<li>语法：选择器1&gt;选择器2{}</li>
+</ul>
+</li>
+<li>属性选择器：选择元素的名称，属性名=属性值的元素<ul>
+<li>语法：元素名称[属性名=“属性值”]{}</li>
+</ul>
+</li>
+<li>伪选择器<ul>
+<li>语法：元素：状态{}</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>属性</p>
+<ol>
+<li><p>字体文本</p>
+<ul>
+<li>font-size:字体大小</li>
+<li>color：文本颜色</li>
+<li>text-align：对齐方式</li>
+<li>line-height：行高</li>
+</ul>
+</li>
+<li><p>背景</p>
+<ul>
+<li>background：</li>
+</ul>
+</li>
+<li><p>边框</p>
+<ul>
+<li>border：设置边框</li>
+</ul>
+</li>
+<li><p>尺寸</p>
+<ul>
+<li>width：宽度</li>
+</ul>
+</li>
+<li><p>盒子模型：控制布局</p>
+<ul>
+<li>margin 外边距 从本元素看，在里边的叫内，在外边的叫外 </li>
+<li>padding 内边距<ul>
+<li>默认情况下内边距会影响整个盒子的大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ul>
+<li><p>概念：一门客户端脚本语言</p>
+<p>运行在客户端浏览器的，每一个浏览器都有JavaScript的解析引擎</p>
+<p>脚本语言，不需要编译，直接就可以被浏览器解析</p>
+</li>
+<li><p>功能</p>
+<p>可以来增强用户和html页面的交互，可以控制html的元素，让页面有一些动态的效果</p>
+</li>
+<li><p>客户端脚本语言的标准</p>
+<ol>
+<li><p>基本语法</p>
+<ol>
+<li><p>与HTML结合方式</p>
+<ol>
+<li>内部js<ul>
+<li>定义《script》，标签体就是js代码</li>
+</ul>
+</li>
+<li>外部js<ul>
+<li>定义《script》，通过src属性引入外部的js文件</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>注意<ol>
+<li>script标签可以定义在页面的任意的位置。但是定义的位置影响执行的顺序</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>注释 // 和 /*</p>
+</li>
+<li><p>数据类型</p>
+<ol>
+<li>number 正数/小数/nan</li>
+<li>string 字符串</li>
+<li>Boolean  </li>
+<li>null</li>
+<li>undefined 未定义</li>
+</ol>
+</li>
+<li><p>变量</p>
+<p>var 变量名=值</p>
+<p>typeof 判断对象的类型，null的结果是object</p>
+</li>
+<li><p>用var和不用var声明变量的区别</p>
+<p>使用var声明的是局部变量，不使用var声明的是全局变量</p>
+</li>
+<li><p>流程控制语句</p>
+<p>if switch while for</p>
+</li>
+<li><p>函数</p>
+<ol>
+<li><p>创建方法</p>
+<ol>
+<li>function fun2(a,b){}</li>
+<li>var fun3=function(a,b){}</li>
+</ol>
+</li>
+<li><p>函数的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">9</span>;i&lt;<span class="built_in">arguments</span>.length;i++)</span><br><span class="line">        sum+=<span class="built_in">arguments</span>[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以这样使用该代码计算和</p>
+<p>add(1,2,3,5);</p>
+<p>add(2,5,9,6,2,1,2);</p>
+</li>
+<li><p>Array:数组对象</p>
+<ol>
+<li>创建<ol>
+<li>var arr=new Array(元素列表);</li>
+<li>var arr=new Array(长度)；</li>
+<li>var arr=[元素列表]；</li>
+</ol>
+</li>
+<li>属性 length</li>
+<li>特点<ol>
+<li>类型可变</li>
+<li>长度可变</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>RegExp正则表达式对象</p>
+<p>\d:单个数字字符</p>
+<p>\w:单个单词字符</p>
+<p>?:表示出现0次或1次</p>
+<p>*：表示出现0次或多次</p>
+<p>+：出现1次或多次</p>
+<p>{m,n}：表示出现次数在m到n之间</p>
+</li>
+<li><p>正则对象</p>
+<ol>
+<li><p>创建</p>
+<p>var reg=new RegExp(“正则表达式”)；</p>
+<p>var reg=/正则表达式/；</p>
+<p>^表示正则表达式的开始，$表示正则表达式的结束</p>
+</li>
+</ol>
+</li>
+<li><p>Gloab</p>
+<ol>
+<li>特点：全局对象，这个Gloab中封装的方法不需要对象可以直接调用</li>
+<li>方法<ol>
+<li>encodeURI():url编码</li>
+<li>decodeURI();url解码</li>
+<li>encodeURIComponent():url编码</li>
+<li>decodeURIComponent():url解码 3、4比1、2编码更多，utf-8编码是一个汉字会对应三个字节，少部分对应两个字节</li>
+<li>parseInt();将字符串转为数字</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="DOM简单学习"><a href="#DOM简单学习" class="headerlink" title="DOM简单学习"></a>DOM简单学习</h3><ul>
+<li><p>功能：控制HTML文档的内容</p>
+</li>
+<li><p>代码：获取页面标签（元素）对象 Element</p>
+<ul>
+<li>document.getElementById(“Id值”)：通过元素的id获取元素对象</li>
+</ul>
+</li>
+<li><p>操作element对象：</p>
+<ol>
+<li>修改属性值 src</li>
+<li>修改标签体内容： innerHTML</li>
+</ol>
+</li>
+<li><p>HTML与dom树</p>
+<p><img src="/img/HTML%E4%B8%8EDOM%E6%A0%91.png" alt="HTML与DOM树.png"></p>
+</li>
+<li><p>核心dom模型</p>
+</li>
+<li><p>HTMLdom模型</p>
+</li>
+<li><p>Node：节点对象</p>
+<ul>
+<li>特点：所有dom对象都可以被认为是一个节点</li>
+<li>方法：<ul>
+<li>appendchild():向子节点列表的结尾添加子节点</li>
+<li>removechild();删除并返回当前节点的指定子节点</li>
+<li>replacechild();用新节点替换一个子节点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTML DOM</p>
+<ul>
+<li>标签体的设置和获取 ：innerHTML  获取标签内HTML的源码</li>
+<li>使用HTML元素对象的属性</li>
+<li>控制样式</li>
+</ul>
+</li>
+</ul>
+<h4 id="事件监听机制"><a href="#事件监听机制" class="headerlink" title="事件监听机制"></a>事件监听机制</h4><ul>
+<li>概念：某些组件被执行了某些操作后，触发某些代码的执行 如单击 双击  等<ul>
+<li>事件源 如 按钮 图片等</li>
+<li>监听器 代码</li>
+<li>注册监听：将事件，事件源结合在一起</li>
+</ul>
+</li>
+<li>常见的事件<ol>
+<li>点击事件 onclick 单击事件<ol>
+<li>ondblclick：双击事件</li>
+</ol>
+</li>
+<li>焦点事件<ol>
+<li>onblur失去焦点 一般用于表单的验证</li>
+<li>onfocus 获得焦点</li>
+</ol>
+</li>
+<li>加载事件<ol>
+<li>onload 页面或图像完成加载</li>
+</ol>
+</li>
+<li>鼠标事件<ol>
+<li>onmousedown 鼠标按钮被按下</li>
+<li>onmouse什么</li>
+</ol>
+</li>
+<li>键盘事件<ol>
+<li>onkey什么 </li>
+</ol>
+</li>
+<li>选择和改变<ol>
+<li>onchange 改变   一边用于下拉列表</li>
+<li>onselect 选择</li>
+</ol>
+</li>
+<li>表单事件<ol>
+<li>onsubmit 确认按钮被点击</li>
+<li>onreset重置按钮并点击</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="事件的简单学习"><a href="#事件的简单学习" class="headerlink" title="事件的简单学习"></a>事件的简单学习</h3><p>功能 某些组件被执行了某些操作后，触发某些代码的执行</p>
+<p>通过js获取元素对象，指定时间属性，设置一个函数</p>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><ol>
+<li>概念 浏览器对象模型<ol>
+<li>将浏览器各个组件部分封装为对象</li>
+</ol>
+</li>
+</ol>
+<p><img src="/image/bom%E5%8C%85%E5%90%AB%E7%9A%84%E5%AF%B9%E8%B1%A1.png" alt="bom包含的对象.png"></p>
+<ol>
+<li>window 窗口    </li>
+<li>Navigator 浏览器</li>
+<li>screen screen</li>
+<li>history 历史记录</li>
+<li>location 地址栏</li>
+</ol>
+<h4 id="window窗口"><a href="#window窗口" class="headerlink" title="window窗口"></a>window窗口</h4><ol>
+<li><p>特点</p>
+<ol>
+<li>window对象不需要创建可以直接使用window，window.方法名();</li>
+<li>window引用可以省略。方法名();</li>
+</ol>
+</li>
+<li><p>方法</p>
+<ol>
+<li><p>与弹出框有关的方法</p>
+<p>alert(“”);显示一段消息和确认按钮的对话框</p>
+<p>confirm(“”);显示带有一段消息以及确认取消按钮的对话框</p>
+<ul>
+<li>如果用户点击确认，则返回true</li>
+<li>如果点击取消，则返回false</li>
+</ul>
+</li>
+<li><p>与开关闭有关的方法</p>
+<p>close()关闭浏览器窗口</p>
+<p>open()；打开一个新窗口，返回window对象</p>
+</li>
+<li><p>与定时器有关的方法</p>
+<p>setTimeout();//一次性的定时器 有两个参数，第一个参数是封装好的js函数，第二个是毫秒值 返回id</p>
+<p>setInterval();//循环定时器 返回id</p>
+<p>clearInterval(id);//关闭定时器</p>
+</li>
+<li><p>获取DOM对象，获取bom对象</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="location对象-地址栏对象"><a href="#location对象-地址栏对象" class="headerlink" title="location对象 地址栏对象"></a>location对象 地址栏对象</h3><ol start="2">
+<li>reload();重新加载文档    href属性 当前页面的地址 </li>
+</ol>
+<h2 id="Bootstrap-一个前端开发的框架"><a href="#Bootstrap-一个前端开发的框架" class="headerlink" title="Bootstrap:一个前端开发的框架"></a>Bootstrap:一个前端开发的框架</h2><h3 id="这个框架总结一句话、样式、插件太多，去看离线文档"><a href="#这个框架总结一句话、样式、插件太多，去看离线文档" class="headerlink" title="这个框架总结一句话、样式、插件太多，去看离线文档"></a>这个框架总结一句话、样式、插件太多，去看离线文档</h3><ol>
+<li>好处 定义了很多css样式和js插件。我们开发人员可以直接使用这些样式和插件得到丰富的页面效果</li>
+<li>响应式布局<ol>
+<li>同一个页面可以适用于不同分辨率的设备</li>
+<li>实现：依赖于栅格该系统：将一行平均分为12个格子，可以指定元素占几个格子</li>
+<li>步骤<ol>
+<li>定义容器 相当于以前的table<ul>
+<li>容器的分类<ul>
+<li>container 两边留白</li>
+<li>container-fluid 每一种设备都是100%宽度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>定义行 相当于tr 样式：row</li>
+<li>定义元素。指定该元素在不同设备上所占的格子的数目 样式 col-设备代号-格子数目<ul>
+<li>设备代码<ol>
+<li>xs超小屏幕 手机&lt;768px col-xs-12</li>
+<li>sm 小屏幕 平板 &gt;=768pc</li>
+<li>md 中等屏幕 笔记本显示器 &gt;=992px</li>
+<li>lg:大屏幕 &gt;=1200px</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>注意<ol>
+<li>一行中如果格子数目超过12，则超出的部分紫红换行</li>
+<li>栅格类属性可以向上兼容。栅格类适用于与屏幕宽度大于或等于分界点大小的设备</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="css样式和js插件"><a href="#css样式和js插件" class="headerlink" title="css样式和js插件"></a>css样式和js插件</h3><h5 id="全局CSS样式"><a href="#全局CSS样式" class="headerlink" title="全局CSS样式"></a>全局CSS样式</h5><ul>
+<li>按钮：class=”btn btn-default” default可选择</li>
+<li>图片：class=”img-responsive”图片任意尺寸都占100%；class=”img-circle” 改变图片的形状</li>
+<li>表格和表单</li>
+</ul>
+<h5 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h5><ol>
+<li>下载bootstrap</li>
+<li>在项目中将三个文件夹复制</li>
+<li>创建html页面，引入必要的文件</li>
+</ol>
+<p>基本模板</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.2.1.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其他例如轮播图的框架查看本地api</p>
+<h3 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h3><ol>
+<li><p>概念：可扩展标记语言</p>
+<ul>
+<li>可扩展：标签都是自定义的</li>
+</ul>
+</li>
+<li><p>功能</p>
+<ol>
+<li>存储数据<ol>
+<li>配置文件</li>
+<li>在网络中传输</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>与html的区别</p>
+<ol>
+<li>xml标签是自定义的，html是预定义的</li>
+<li>xml语法严格，html松散</li>
+<li>xml用于存储数据</li>
+</ol>
+</li>
+<li><p>语法</p>
+<ul>
+<li><p>基本语法</p>
+<ol>
+<li>.xml</li>
+<li>第一行必须是文档声明</li>
+<li>xml文档中有且仅有一个根标签&lt;users》&lt;/users》</li>
+<li>标签必须正确关闭、区分大小写</li>
+</ol>
+</li>
+<li><p>组成部分</p>
+<ol>
+<li>文档说明<ol>
+<li>格式《?xml version=’1.0’       ?&gt;</li>
+<li>属性<ul>
+<li>version：版本号 必须的属性</li>
+<li>encoding：编码方式。告知解析引擎当前文档使用的编码字符集</li>
+<li>standalone：是否独立</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>指令</li>
+<li>标签</li>
+<li>属性</li>
+<li>文本<ul>
+<li>CDATA区：在该区域中的数据会被原样展示</li>
+<li>格式 <![CDATA[]]></li>
+</ul>
+</li>
+<li>约束 规定xml文档的书写规则<ol>
+<li>能够在xml中引入约束文档</li>
+<li>能够简单读懂约束文档</li>
+</ol>
+</li>
+</ol>
+<p><img src="/image/%E6%A1%86%E6%9E%B6%E7%BA%A6%E6%9D%9F%E7%94%A8%E6%88%B7%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="框架约束用户的关系.png"></p>
+</li>
+<li><p>DTD约束</p>
+<ul>
+<li>引入DTD文档到xml中</li>
+<li>外部DTD<ul>
+<li>本地 &lt;!DOCTYPE 根标签名 SYSTEM “DTD文件的位置”》</li>
+<li>网络 &lt;!DOCTYPE 根标签名 public “DTD文件名” “dtd文件位置url”》</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解析：操作xml文档，将文档中的数据读取到内存中</p>
+<ol>
+<li>解析xml的方式<ol>
+<li>DOM 将xml文件一次性的加载到内存中</li>
+<li>sax 逐行读取，基于事件驱动的</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="jsoup快速入门"><a href="#jsoup快速入门" class="headerlink" title="jsoup快速入门"></a>jsoup快速入门</h3><ul>
+<li>步骤<ol>
+<li>导入jar包</li>
+<li>获取对象</li>
+<li>获取对应的标签</li>
+</ol>
+</li>
+</ul>
+<p>Joup对象 parse方法获取xml文件</p>
+<p>document对象  获取element对象</p>
+<ul>
+<li>快捷查询方式<ol>
+<li>selector:选择器 参考文档<ol>
+<li>使用的方法：Element</li>
+</ol>
+</li>
+<li>XPath:</li>
+</ol>
+</li>
+</ul>
+<h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><ul>
+<li><p>可能遇到的问题</p>
+<ol>
+<li><p>黑窗口一闪而过</p>
+<p>配置JAVA_HOME环境变量</p>
+</li>
+<li><p>启动报错： 占用了端口号</p>
+<ol>
+<li><p>暴力 使用netstat -ano去找到8080的进程然后在任务管理器上干掉</p>
+</li>
+<li><p>温柔 在conf/server.xml找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<p>修改port，一般会将tomcat默认端口号修改为80.80端口号是http协议的端口号</p>
+</li>
+<li><p>部署</p>
+<ol>
+<li><p>部署项目的方式</p>
+<ol>
+<li><p>直接将项目放在webapps目录下即可</p>
+<p>/hello叫项目的访问路径</p>
+<p>简化部署：将项目打成一个war包，再将war包放置在webapps目录下war包会自动解压缩</p>
+</li>
+<li><p>配置config/server文件</p>
+<p>在《host&gt;标签体中配置</p>
+<p>《Context docBase=”D:\hello” path=”/hehe” /&gt; </p>
+<p>其中docbase项目路径 path为虚拟路径</p>
+</li>
+<li><p>在config\Catalina\localhost创建任意名称的xml文件，在文件中编写《Context docBase=”D:\hello” /&gt;  虚拟目录：xml文件的名称 </p>
+<ul>
+<li><p>静态项目于动态项目</p>
+<ul>
+<li><p>Java动态项目的目录结构</p>
+<p>–项目的根目录</p>
+<p>​    – WEB-INF目录</p>
+<p>​        —web.xml:web项目的核心配置文件</p>
+<p>​        – classes目录：放置字节码文件的目录</p>
+<p>​        –lib目录：防止引来的jar包</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>将tomcat集成到IDEA中，并且创建JavaEE的项目，部署项目</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><ul>
+<li><p>概念：运行在服务器端的程序</p>
+<ul>
+<li>servlet就是一个接口 定义了Java类被浏览器访问到（tomcat识别）的规则。</li>
+<li>将来我们自己定义一个类，实现servlet接口，复写方法</li>
+</ul>
+</li>
+<li><p>快速入门</p>
+<ol>
+<li><p>创建JavaEE项目</p>
+</li>
+<li><p>定义一个类，实现servlet接口</p>
+</li>
+<li><p>实现接口中的抽象方法</p>
+</li>
+<li><p>配置servlet</p>
+<p>在web.xml中配置</p>
+<p>《servlet&gt;</p>
+<p>​    《servlet-name&gt;demo1&lt;/servlet-name》</p>
+<p>​     《servlet-class&gt;cn.itcast.web.servlet.ServletDemo1《/servlet-class&gt;</p>
+<p>《/servlet&gt;</p>
+<p>《servlet-mapping&gt;</p>
+<p>​    《servlet-name&gt;demo1《servlet-name&gt;</p>
+<p>​    《url-pattern&gt;/demo1《url-pattern&gt;</p>
+<p>《servlet-mapping&gt;</p>
+</li>
+<li><p>servlet的执行原理</p>
+<p><img src="/image/serclet%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86.png" alt="serclet执行原理"></p>
+</li>
+<li><p>servlet执行方法</p>
+<ol>
+<li><p>init 初始化方法 在servlet创建时调用，只会调用一次</p>
+<ul>
+<li><p>默认情况下，第一次被访问时，servlet被创建</p>
+</li>
+<li><p>可以指定创建事件</p>
+<ul>
+<li><p>《load-on-start-up&gt;a《/load-on-start-up&gt;</p>
+<p>a为负数，访问时创建 其他情况服务器启动时被创建</p>
+</li>
+</ul>
+</li>
+<li><p>为了线程安全，尽量不要创建成员变量，要创建也不要赋值</p>
+</li>
+</ul>
+</li>
+<li><p>service方法每一次Servlet被访问，执行。</p>
+</li>
+<li><p>destroy 在服务器正常关闭时执行。执行一次</p>
+<ul>
+<li>在servlet被销毁之前执行</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>在servlet3.0之后可以在实现类上写@WebServlet(urlPatterns = “/demo2”)注解来配置servlet  /demo2为资源路径</li>
+</ul>
+<h3 id="IDEA于tomcat的相关配置"><a href="#IDEA于tomcat的相关配置" class="headerlink" title="IDEA于tomcat的相关配置"></a>IDEA于tomcat的相关配置</h3><ol>
+<li>IDEA会为每一个tomcat部署的项目单独建立一份配置文件<ul>
+<li>查看控制台的log：Using CATALINA_BASE:   “C:\Users\朱明明.IntelliJIdea2019.3\system\tomcat_thirdtime”</li>
+</ul>
+</li>
+</ol>
+<h2 id="Servlet的两个抽象实现类"><a href="#Servlet的两个抽象实现类" class="headerlink" title="Servlet的两个抽象实现类"></a>Servlet的两个抽象实现类</h2><ul>
+<li><p>GenericServlet</p>
+<p>将servlet接口中将其他方法做了默认的空实现，之间service方法抽象</p>
+</li>
+<li><p>HTTPservlet 对Http协议的一种分组</p>
+<ol>
+<li>定义类继承Httpseervlet</li>
+<li>复写 doget();dopost()</li>
+</ol>
+</li>
+<li><p>servlet的相关配置</p>
+<ol>
+<li>urlpartten:Servlet访问路径<ul>
+<li>一个servlet可以定义多个访问路径 @WebServlet({“/d4”,”/dd4”,”/ddd4”})</li>
+</ul>
+</li>
+<li>路径的定义规则<ol>
+<li>/xxx</li>
+<li>/xxx/xxx</li>
+<li>*.do</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li><p>概念  超文本传输协议</p>
+<ul>
+<li>传输协议：定义了，客户端和服务器端通信时，发送信息的格式</li>
+<li>特点<ol>
+<li>基于TCP/IP的高级协议</li>
+<li>默认端口号为80</li>
+<li>基于请求/响应模式 一次请求对应一次响应</li>
+<li>无状态的  每次请求之间相互独立 不能交互数据</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>请求消息数据格式</p>
+<ol>
+<li><p>请求行</p>
+<p>请求方式  请求url 请求协议/版本</p>
+<p>GET /login.html HTTP/1.1</p>
+<ul>
+<li>HTTP有其中请求方式 <ul>
+<li>GET：<ol>
+<li>请求行在url中</li>
+<li>请求的url长度有限制</li>
+<li>不太安全</li>
+</ol>
+</li>
+<li>POST<ol>
+<li>请求的参数在请求体中</li>
+<li>请求url长度没有显示</li>
+<li>相对安全</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求头</p>
+<p>请求头名称： 请求头值</p>
+<ul>
+<li>常见的请求头<ol>
+<li>User-Agent:浏览器告诉服务器，浏览器的版本信息。可以在服务器端获取头信息，解决解决兼容问题</li>
+<li>Reference<ul>
+<li>告诉服务器当前请求从哪里来<ol>
+<li>防盗链</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>请求空行</p>
+<p>空行</p>
+</li>
+<li><p>请求体(正文)</p>
+<p>username=zhangsan</p>
+</li>
+</ol>
+</li>
+<li><p>响应消息数据格式</p>
+</li>
+</ul>
+<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><ol>
+<li>request对象和response对象的原理<ol>
+<li>request和response对象是由服务器创建的。我们来使用他们</li>
+<li>request对象时来获取请求消息、response对象来设置响应消息</li>
+</ol>
+</li>
+</ol>
+<p><img src="/image/request%E5%92%8Crespond.png" alt="request和respond.png"></p>
+<ol start="2">
+<li><p>request 对象的继承关系</p>
+<p>ServletRequest   –接口</p>
+<p>​        | 继承</p>
+<p>HttpServletRequest  –接口</p>
+<p>​        | 实现</p>
+<p>org.apache.catalina.connector.RequestFacade   类tomcat实现  </p>
+</li>
+<li><p>request功能</p>
+<ol>
+<li><p>获取请求头</p>
+<p>GET /day14/demo1?name=zhangsan HTTP/1.1</p>
+<ol>
+<li><p>获取虚拟目录 </p>
+<p>getContextPath()</p>
+</li>
+<li><p>获取请求URI</p>
+<p>getRequestURI()</p>
+<p>getRequestURL()</p>
+</li>
+</ol>
+</li>
+<li><p>获取请求行</p>
+<ul>
+<li>方法<ul>
+<li>string getHeader(String name)；用过请求头的名称获取请求头的值</li>
+<li>Enumeration&lt;String》 getHeaderName()获取所有的请求头的名称，类似于迭代器访问</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取请求体</p>
+<ul>
+<li><p>只有post方式，采用请求体，在请求体中封装了POST请求参数</p>
+</li>
+<li><p>步骤</p>
+<ol>
+<li><p>获取流对象</p>
+<ul>
+<li><p>BufferedReader getReader()//获取字符输入流，只能操作字符数据</p>
+</li>
+<li><p>ServletInputStream getInputStream() 获取字符输入流,可以操作所有类型的数据</p>
+<blockquote>
+<p>注意form表单action选项要从虚拟目录写起 《    form action=”/day18_tomcat/demo2” method=”post”&gt;</p>
+</blockquote>
+</li>
+<li><p>再从流对象中拿去数据</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>其他方法</p>
+<ol>
+<li><p>获取请求参数通用方法：不论get还是post，这些方法都能用</p>
+<ol>
+<li><p>String getParameter(String name)：根据参数获取参数值  username=zs 获取密码</p>
+</li>
+<li><p>String getParameterValues(String name)</p>
+<p>根据参数获取参数值数组 hobby=””&amp;&amp;hobby=””</p>
+</li>
+<li><p>getParameterNames（）获取所有请求的参数名称</p>
+</li>
+<li><p>getParameterMap() 湖片区所有参数的map集合</p>
+</li>
+</ol>
+<ul>
+<li>中文乱码问题<ul>
+<li>get方式：tomcat8已经将乱码方式解决了</li>
+<li>post方式：设置流的编码 req.setCharacterEncoding(“utf-8”);但是在tomcat9中文乱码已经解决</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求转发：一种在服务器内部的资源跳转方式</p>
+<ol>
+<li>步骤<ol>
+<li>通过request对象获取请求转发器对象 getRequestDispatcher(String path)</li>
+<li>使用 这个对象的forward方法转发</li>
+</ol>
+</li>
+<li>特点<ol>
+<li>浏览器地址栏路径不发生变化</li>
+<li>只能转发到当前服务前内部资源里</li>
+<li>转发时一次请求</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>3. 共享数据
+
+4. 获取ServletContext
+
+   &gt; form  表单中的action路径写法
+   &gt;
+   &gt; 虚拟目录+servlet的资源路径</code></pre><h4 id="封装数据BeanUtils的使用"><a href="#封装数据BeanUtils的使用" class="headerlink" title="封装数据BeanUtils的使用"></a>封装数据BeanUtils的使用</h4><ol>
+<li><p>获取所有的参数</p>
+<p>map=getParameterMap();</p>
+</li>
+<li><p>创建需要填充数据的对象</p>
+<p>User=new User();</p>
+</li>
+<li><p>使用BeanUtils填充</p>
+<p>BeanUtils.populate(user map);</p>
+</li>
+</ol>
+<h4 id="响应格式"><a href="#响应格式" class="headerlink" title="响应格式"></a>响应格式</h4><ol>
+<li>数据格式<ol>
+<li>响应行<ol>
+<li>组成：协议/版本 响应状态码</li>
+<li>响应状态码：故武器告诉浏览器本次请求响应的一个状态<ol>
+<li>状态码都是三位数字<ol>
+<li>分类<ol>
+<li>1xx：服务器接受客户端消息但是没有接受完成，等待一段事件，发送状态码</li>
+<li>2xx：成功</li>
+<li>3xx：重定向302，访问缓存304</li>
+<li>4xx：客户端错误    404请求路径没有资源   405：请求方式没有对应额doxxx</li>
+<li>5xx：服务器端错误  500：服务器端出现异常</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>响应头<ol>
+<li>格式：头名称：值</li>
+<li>常见的响应头<ol>
+<li>Content-Type：服务器告诉客户端本次响应体数据格式以及编码格式</li>
+<li>Content-disposition:服务器告诉客户端以什么格式打开响应体数据<ul>
+<li>值：<ul>
+<li>in-line默认值，在当前页面内打开</li>
+<li>attachment：以附件形式打开响应体。文件下载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>响应体：传输的数据</li>
+</ol>
+</li>
+</ol>
+<h3 id="response对象"><a href="#response对象" class="headerlink" title="response对象"></a>response对象</h3><ul>
+<li><p>功能：设置响应消息</p>
+<ol>
+<li>设置相应行<ol>
+<li>格式 HTTP/1.1 200 ok</li>
+<li>设置状态码 setStatus(int sc)</li>
+</ol>
+</li>
+<li>设置响应头<ol>
+<li>setHeader(String name,String value)</li>
+</ol>
+</li>
+<li>设置响应体:<ul>
+<li>使用步骤、<ol>
+<li>获取输出流<ul>
+<li>PrintWritter getWriter()</li>
+<li>字节 ServletOutStream getOutputStream()</li>
+</ul>
+</li>
+<li>使用输出流，将数据输出到客户端浏览器</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>案例</p>
+<ol>
+<li><p>完成重定向</p>
+<ol>
+<li><p>response.sendRedirect(“虚拟路径/资源名”)</p>
+</li>
+<li><p>重定向特点</p>
+<ol>
+<li>地址栏放生变化</li>
+<li>重定向可以访问其他站点（服务器）的资源</li>
+<li>重定向是两次请求。不能request对象来共享数据</li>
+</ol>
+</li>
+<li><p>转发特点 </p>
+<ol>
+<li>转发地址栏不变</li>
+<li>转发只能访问当前服务器下的资源</li>
+<li>转发是一次请求。可以使用request对象来共享数据</li>
+</ol>
+</li>
+<li><p>路径的写法：</p>
+<ol>
+<li><p>路径的分类</p>
+<ol>
+<li><p>相对路径：通过相对路径不能确定唯一资源</p>
+<ul>
+<li>如./idnex.html</li>
+<li>不以/开头，以.开头</li>
+<li>规则：找到方位的当前资源和目标资源之间的对应为hi关系     ./当前路径    ../后退一级目录  不推荐使用相对路径</li>
+</ul>
+</li>
+<li><p>绝对路径：通过绝对路径可以确定唯一的资源</p>
+<ul>
+<li>如：<a href="http://localhost/day15/demo2" target="_blank" rel="noopener">http://localhost/day15/demo2</a> 可以简化为/day15/demo2 以/开始的路径</li>
+<li>规则：判断定义的路径是给谁用的<ul>
+<li>给客户端浏览器使用：需要加虚拟目录<ul>
+<li>建议虚拟目录动态获取 request.getContextPath()</li>
+</ul>
+</li>
+<li>给服务器使用：不需要加虚拟目录</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意servlet的类实在src下的，在资源里src里的文件是在虚拟路径下一级的</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>输出字符数据到浏览器</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li>获取字符输出流</li>
+<li>输出数据</li>
+</ol>
+</li>
+<li><p>乱码问题</p>
+<ul>
+<li><p>告诉浏览器响应体使用的编码</p>
+<p>response.setContentType(“text/html;charset=utf-8”);</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>输出字节数据到浏览器</p>
+</li>
+<li><p>步骤</p>
+<ol>
+<li>获取字节输出流</li>
+<li>输出数据</li>
+</ol>
+</li>
+<li><p>验证码</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Servletcontext对象"><a href="#Servletcontext对象" class="headerlink" title="Servletcontext对象"></a>Servletcontext对象</h3><ol>
+<li><p>盖帘：代表整个web应用，可以和程序的容器来通信</p>
+</li>
+<li><p>获取</p>
+<ol>
+<li><p>通过request对象来获取</p>
+<p>request.getServletContext();</p>
+</li>
+<li><p>通过HTTPservlet获取</p>
+<ol>
+<li>getServltContext();</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>功能</p>
+<ol>
+<li>获取MIME类型<ul>
+<li>在互联网同行过程中定义的一种文件数据类型<ul>
+<li>格式  大类型/小类型     text/html    image/jpeg</li>
+</ul>
+</li>
+<li>getMimeType(String file)</li>
+</ul>
+</li>
+<li>域对象：共享数据 和require对象一样可以使用setAttribute和getAttribute，但是Servletcontext域对象的作用域是整个tomcat</li>
+<li>获取文件的真实（服务器）路径 getRealPath()</li>
+</ol>
+</li>
+</ol>
+<h3 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h3><ol>
+<li>会话：一次会话中包含多次请求和响应<ul>
+<li>一次会话：浏览器第一次给服务器发送请求，会话建立，知道有一方断开为止</li>
+</ul>
+</li>
+<li>功能：在一次会话的范围内的多次请求间，共享数据</li>
+<li>方式<ol>
+<li>客户端会话技术   Cookie</li>
+<li>服务器端会话技术：Session</li>
+</ol>
+</li>
+</ol>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><ol>
+<li>概念：将数据保存在客户端的技术</li>
+<li>快速入门<ul>
+<li>使用步骤<ol>
+<li>创建Cookie对象，绑定数据<ul>
+<li>new Cookie(String name,String vvalue)</li>
+</ul>
+</li>
+<li>发送Cookie对象，<ul>
+<li>response.addCookie(Cookie cookie)</li>
+</ul>
+</li>
+<li>获取Cokkie，拿到数据<ul>
+<li>Cookie[] request.getCookies()</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Cookie原理分析<ol>
+<li>响应头会设置一个键值对   set-cookie:msg=hello</li>
+<li>请求头会获得一个键值对 cookie:msg=hello</li>
+</ol>
+</li>
+<li>Cookie的细节<ol>
+<li>一次可不可以发送多个cookies<ul>
+<li>可以</li>
+<li>可以创建多个Cookie 调用多次addCookie方法</li>
+</ul>
+</li>
+<li>cookie在浏览器中保存多长事件<ul>
+<li>当浏览器关闭，cookie对象销毁</li>
+<li>持久化存储<ul>
+<li>setMaxAge(int sseconds)<ol>
+<li>正数，把Cookie数据写道硬盘的文件中，cookie的存活事件</li>
+<li>负数：默认值</li>
+<li>0：删除cookie</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cookie能不能存中文<ol>
+<li>在tomcat8之后，cookie支持中文数据</li>
+</ol>
+</li>
+<li>cookie的共享问题<ul>
+<li>假设在一个tomcat服务器中，部署了对各web项目，那么在这些web项目里cookie不能共享</li>
+<li>setPath(“”)；设置虚拟目录可以调整cookie的共享范围，如果要共享可以将字符串写上”/“</li>
+</ul>
+</li>
+<li>Cookie的特点和作用<ol>
+<li>cookie数据存储在浏览器</li>
+<li>浏览器对于单个cookie的大小有限制，对于同一域名下的总cookie数量也有限制</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><ol>
+<li><p>概念</p>
+<p>JAVA 服务器端页面</p>
+<ul>
+<li>可以理解为一个特殊的页面，既可以定义HTML标签，又可以写Java代码</li>
+<li>简化书写</li>
+</ul>
+</li>
+<li><p>JSP原理</p>
+<ol>
+<li>JSP本质上就是一个servlet</li>
+</ol>
+</li>
+<li><p>JSP的脚本：JSP定义的Java代码的方式</p>
+<ol>
+<li>《% 代码￥》 定义的Java代码，在service方法中，service方法中可以定义什么</li>
+<li>《%！ 代码%》定义的Java代码，在jsp转换后的Java类的成员位置</li>
+<li>《%=  代码%》定义的Java代码会输出到页面上</li>
+</ol>
+</li>
+<li><p>jsp的内置对象</p>
+<ol>
+<li>request</li>
+<li>response</li>
+<li>out</li>
+</ol>
+<ul>
+<li>response.getWriter()和out.writer()<ul>
+<li>在tomcat服务器真正的给客户端做出响应之前，会先找response缓冲区数据，再去找out缓冲区数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><ol>
+<li><p>概念：服务器端会话技术，再一次的会话键共享数据</p>
+</li>
+<li><p>快速入门</p>
+<p>HttpSession对象：</p>
+<p>​    Object getAttribute(String name)</p>
+<p>​    void setAttribute(name,value)</p>
+<p>​    void romove();</p>
+</li>
+<li><p>Session原理</p>
+<ul>
+<li>Session的实现是依赖于Cookie的</li>
+</ul>
+</li>
+</ol>
+<p><img src="/image/Session%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86.png" alt="Session基本原理.png"></p>
+<ol start="4">
+<li>细节：<ol>
+<li>当客户端关闭后卖服务器不关闭，两vi获取session是否为同一个<ul>
+<li>默认不是</li>
+<li>如果想要相同，可以创建Cookie 键为JSESSIONID 值为session.getId()</li>
+</ul>
+</li>
+<li>客户端不关闭，服务器关闭后，两次获取的session是同一个么<ul>
+<li>不是</li>
+<li>session的钝化<ul>
+<li>在服务器正常关闭之前，将session对象系列化到硬盘上</li>
+</ul>
+</li>
+<li>session的活化<ul>
+<li>在服务器启动后，将session文件转化到内存的session对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>session什么收呗销毁<ol>
+<li>服务器关闭</li>
+<li>session对象调用invalidate（）</li>
+<li>session默认失效事件30分钟</li>
+</ol>
+</li>
+<li>session的特点<ol>
+<li>session用于存储一次会话多次请求的数据，存在服务器端</li>
+<li>session可以存储任意类型，任意大小的数据</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="JSP-1"><a href="#JSP-1" class="headerlink" title="JSP"></a>JSP</h3><ol>
+<li><p>指令</p>
+<ul>
+<li>作用：用于配置JSP页面，导入资源文件</li>
+<li>格式《%@ 指令名称  属性名=属性值 %》<ul>
+<li>分类<ol>
+<li>page 配置JSP页面<ul>
+<li>contentType 等同于response.setContentType()<ol>
+<li>设置响应体的mime类型以及字符集</li>
+<li>设置当前页面的编码</li>
+</ol>
+</li>
+<li>import  导包</li>
+<li>errorpage：但钱页面发生异常后，会自动跳转到指定的错误页面</li>
+<li>isErrorPage 标识但钱页面是不是错误页面    是的话可以使用内置对象exception</li>
+</ul>
+</li>
+<li>include 页面包含</li>
+<li>taglib 导入资源<ul>
+<li>格式&lt;%@taglib prefix=”c” uri=”<a href="http://java,sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java,sun.com/jsp/jstl/core&quot;</a> %&gt;</li>
+<li>prefix 前缀，自定义的，以后使用采用《c 使用</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ol>
+<li><p>html注释</p>
+<p>《！– –》只能注释HTML代码片段</p>
+</li>
+<li><p>jsp注释</p>
+<p>《%– –%》可以注释所有</p>
+</li>
+<li><p>内置对象</p>
+<p>​        变量名                                                                                作用</p>
+<ul>
+<li>pqgeContext                                    当前页面共享数据   setAttribute（）还可以获取八个内置对象    </li>
+<li>request                                                                  一次请求访问多次资源</li>
+<li>session                                                                   一次会话的多个请求</li>
+<li>application                                                             所有用户间共享数据</li>
+<li>response                                                                响应</li>
+<li>page                                                                       当前页面（servlet）对象     this</li>
+<li>out                                                                           输出对象，数据输出到页面</li>
+<li>config                                                                      servlet的配置对象</li>
+<li>exception 只有声明iserrorpage                          异常对象</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="mvc开发模式"><a href="#mvc开发模式" class="headerlink" title="mvc开发模式"></a>mvc开发模式</h2><ol>
+<li>mvc   模型    视图        控制器<ol>
+<li>模型   完成具体的业务操作，如：查询数据库，封装数据      JavaBean</li>
+<li>试图    展示数据     JSP</li>
+<li>控制器                Servlet<ul>
+<li>获取用户的输入</li>
+<li>调用模型</li>
+<li>将数据交给试图进行展示</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h3><ol>
+<li><p>概念   表达式语言</p>
+</li>
+<li><p>作用   替换和简化Java代码的编写</p>
+</li>
+<li><p>语法：${表示式}</p>
+</li>
+<li><p>注意事项</p>
+<ol>
+<li>jsp默认支持el表达式，忽略el表达式可以在表达式前写\</li>
+</ol>
+</li>
+<li><p>使用</p>
+<ol>
+<li>el表达式只能从与对象里获取值</li>
+<li>语法：${域名，键名}<ul>
+<li>${域名称.键名}<ol>
+<li>pageScope          -》pageContext</li>
+<li>requsetScopde          -》request</li>
+<li>sessionScope             -》session</li>
+<li>applicationScope            -》application</li>
+</ol>
+</li>
+<li>${键名}：会按照1、2、3、4的顺序查找键</li>
+<li>获取对象  <ol>
+<li>对象： ${域名.键名.属性名}<ul>
+<li>本质上调用getter方法</li>
+</ul>
+</li>
+<li>List对象：${域名成.键名[索引]}</li>
+<li>map集合 ${域名.键名.key}</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h3><ol>
+<li><p>概念：JSP标准标签库</p>
+<ul>
+<li>是由Apache组织提供的开源的免费jsp标签</li>
+</ul>
+</li>
+<li><p>用于简化一环jsp页面上的java代码</p>
+</li>
+<li><p>使用步骤</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>引入标签库 taglib:指令  《%@  taglib %&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if test=&quot;true&quot;&gt;范德萨&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>常见的JSTL标签</p>
+<ol>
+<li><p>if</p>
+<ul>
+<li>test为必须的属性，接受bollean表达式，一般情况下，test属性值会结合el表达式一起使用</li>
+</ul>
+</li>
+<li><p>choose</p>
+</li>
+<li><p>foreach</p>
+<ol>
+<li><p>重复操作</p>
+<ul>
+<li><p>属性</p>
+<p>begin  开始 。end  结束。  var  临时变量  。step  步长。</p>
+</li>
+</ul>
+</li>
+<li><p>便利容器</p>
+<p>items：容器对象</p>
+<p>var：容器中元素的临时变量</p>
+</li>
+</ol>
+<blockquote>
+<p>注意：每个对象都需要el表达式获取</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="三层架构：软件设计架构"><a href="#三层架构：软件设计架构" class="headerlink" title="三层架构：软件设计架构"></a>三层架构：软件设计架构</h3><ol>
+<li><p>界面层（表示层）：用户看得到的界面。用户可以通过界面上的组件和服务器进行交互</p>
+</li>
+<li><p>业务逻辑层：处理业务逻辑的</p>
+</li>
+<li><p>数据访问层：操作数据存储文件</p>
+<p><img src="/image/%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84.png" alt="三层架构.png"></p>
+</li>
+</ol>
+<h3 id="综合案列总结"><a href="#综合案列总结" class="headerlink" title="综合案列总结"></a>综合案列总结</h3><ol>
+<li><p>超链接跳转到servlet是href标签，并且要用${pageContext.request.contextPath}/servlet名称来跳转</p>
+</li>
+<li><p>jstl的uri为”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> 导入方式为 &lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;</p>
+</li>
+<li><p>验证码的写法,因为超链接本来就可以点击   所以不需要绑定单击事件</p>
+<ul>
+<li>在checkCode上应该把验证码存入session</li>
+</ul>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">         &lt;label for="vcode"&gt;验证码：&lt;/label&gt;</span><br><span class="line">         &lt;input type=<span class="string">"text"</span> name=<span class="string">"verifycode"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"verifycode"</span> placeholder=<span class="string">"请输入验证码"</span> style=<span class="string">"width: 120px;"</span>/&gt;</span><br><span class="line">         &lt;a href=<span class="string">"javascript:refreshCode()"</span>&gt;</span><br><span class="line">             &lt;img src=<span class="string">"$&#123;pageContext.request.contextPath&#125;/checkCodeServlet"</span> title=<span class="string">"看不清点击刷新"</span> id=<span class="string">"vcode"</span>/&gt;</span><br><span class="line">         &lt;/a&gt;</span><br><span class="line">&lt;%-- refreshCode的写法--%&gt;</span><br><span class="line">        <span class="function">function <span class="title">refreshCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> vcode = document.getElementById(<span class="string">"vcode"</span>);</span><br><span class="line">         vcode.src=<span class="string">"$&#123;pageContext.request.contextPath&#125;/checkCodeServlet?time="</span>+<span class="keyword">new</span> Date().getTime();</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在form表单里提交的名字为name 只要是提交了数据，就要设置reques.setCharacter(“utf-8”);</p>
+</li>
+<li><p>在路径上传id   ${pageContext.request.contextPath}/servlet?${user.id}</p>
+</li>
+<li><p>在提交表单的时候使用隐藏域提交id 本鞥</p>
+</li>
+<li><p>当某些请求在前端不可获取或者想设置默认值时，可以在servlet 获取参数的时候判断为不为空</p>
+</li>
+</ol>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ul>
+<li>概念：当访问服务器资源时，过滤器可以截下请求，完成一些操作</li>
+<li>过滤器的作用<ul>
+<li>一般用于通用操作。如登录验证，同一编码、敏感字符验证</li>
+</ul>
+</li>
+<li>快速入门<ol>
+<li>步骤<ol>
+<li>定义一个类，实现接口Filter</li>
+<li>重写方法<ol>
+<li>放行：filterChain.doFilter(require,response)</li>
+</ol>
+</li>
+<li>配置拦截路径<ol>
+<li>xml</li>
+<li>注解</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>过滤器的配置<ol>
+<li>web.xml的配置</li>
+<li>过滤器执行流程<ol>
+<li>执行过滤器</li>
+<li>执行放行后的资源</li>
+<li>回来执行过滤器放行下边的代码</li>
+</ol>
+</li>
+<li>过了不起的周期问题</li>
+<li>过滤器的配置<ol>
+<li>拦截路径的配置<ol>
+<li>具体资源路径： /index.jsp 只有访问idex.jsp资源时，过滤器才会被执行</li>
+<li>目录拦截： /user/* 访问/user 下的所有资源时，过滤器都会被拦截</li>
+<li>后缀名拦截： *.jsp   访问所有后缀名为jsp的资源时，过滤器都会执行</li>
+<li>拦截所有资源： /*    访问所有资源时过滤器都会执行</li>
+</ol>
+</li>
+<li>拦截方式配置：资源被访问的方式<ul>
+<li>注解配置<ul>
+<li>设置dispatcherTypes属性<ol>
+<li>REQUEST  浏览器直接请求资源</li>
+<li>FOWOED 转发访问资源</li>
+<li>INCLUDE 包含访问资源</li>
+<li>ERROR  错误跳转资源</li>
+<li>ASYNC 异步方位资源</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>web.xml配置</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>过滤器链<ul>
+<li>执行顺序 如果有两个过滤器 1和2<ol>
+<li>1</li>
+<li>2</li>
+<li>资源执行</li>
+<li>2</li>
+<li>1</li>
+</ol>
+</li>
+<li>过滤器先后顺序问题<ol>
+<li>注解配置：按照类名自负床比较规则标胶，值小的先执行</li>
+<li>web.xml配置：谁定义在上面，谁先执行</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><ul>
+<li>简介：一个JavaScript框架，简化开发，本质上就是就是文件，封装了js的原生代码而已</li>
+</ul>
+<ol>
+<li><p>jQuery快速入门</p>
+<ol>
+<li><p>步骤</p>
+<ol>
+<li><p>下载jQuery</p>
+</li>
+<li><p>导入jQuery的js文件 导入xxxmin.js</p>
+<blockquote>
+<p>注意在引入js文件的时候，一定要加上字符集charset=”UTF-8”,要不然js文件上的英文也会报乱码错误的问题</p>
+</blockquote>
+</li>
+<li><p>使用</p>
+</li>
+</ol>
+</li>
+<li><p>jQuery对象与js对象的转换</p>
+<ol>
+<li>jQuery对象与js对象方法不通用</li>
+<li>两者之间的转换<ul>
+<li>jq –&gt;js: jq对象[索引] 或者 jq对象.get(索引)</li>
+<li>js  –&gt;jq: $(js对象)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>选择器</p>
+<ol>
+<li><p>基本操作</p>
+<ol>
+<li><p>事件绑定</p>
+<p>$(“#b1”).click(function(){alert(“abc”)})</p>
+<blockquote>
+<p>写#表示用id绑定事件   不写#表示绑定整个所有的div</p>
+<p>src的写法”./js/jquery.js” </p>
+</blockquote>
+</li>
+<li><p>入口函数</p>
+<p>不同于JavaScript的windows.onload,jQuery采用$(function(){函数的内容})  并且这个入口函数可以写多次，而JavaScript的onload只能写一次</p>
+</li>
+<li><p>样式的控制：css方法</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>分类</p>
+<ol>
+<li><p>基本选择器</p>
+<ol>
+<li>元素选择器<ul>
+<li>语法：$(“html标签名”)获取所有匹配标签名称的元素</li>
+</ul>
+</li>
+<li>id选择器<ul>
+<li>语法：$(“#id的属性值”)获取与指定id属性匹配的元素</li>
+</ul>
+</li>
+<li>类选择器<ul>
+<li>语法：$(“.class的属性值”)获取与指定的class属性值匹配的元素</li>
+</ul>
+</li>
+<li>并集选择器<ul>
+<li>语法：$(“选择器1,选择器2…”)获取多个选择器选中元素</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>层级选择器</p>
+<ol>
+<li>后代选择器<ul>
+<li>语法$(“A B “)选择A元素内部的所有B元素</li>
+</ul>
+</li>
+<li>子选择器<ul>
+<li>语法：$(“A &gt; B”)选择A元素内部所有的B子元素</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>属性选择器</p>
+<ol>
+<li><p>选择div下的title</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#b1&quot;).click(function () &#123;</span><br><span class="line">    $(&quot;div[title]&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择div下的title=test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#b2&quot;).click(function () &#123;</span><br><span class="line">    $(&quot;div[title=&apos;test&apos;]&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>过滤选择器</p>
+<ol>
+<li><p>选择第一个div #div:first</p>
+</li>
+<li><p>选择最后一个第一个div #div:last</p>
+</li>
+<li><p>选择class不为one的所有div</p>
+<p>#div:not(.one)</p>
+</li>
+<li><p>选择div序列为偶数的div  奇数从0开始</p>
+<p>#div:odd</p>
+</li>
+<li><p>选择标题  ：head</p>
+</li>
+</ol>
+</li>
+<li><p>表单过滤选择器</p>
+<ol>
+<li>可用元素选择器<ul>
+<li>语法：：enable 获取可用元素</li>
+</ul>
+</li>
+<li>不可用元素选择器<ul>
+<li>语法： ：disable获取不可用元素</li>
+</ul>
+</li>
+<li>选中选择器<ul>
+<li>语法： ：checked获取单选/复选框里的元素</li>
+</ul>
+</li>
+<li>选中选择器<ul>
+<li>语法： ：selected 获取下拉框选中元素</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>DOM操作</p>
+<ol>
+<li><p>内容操作</p>
+<ol>
+<li>html()：获取/设置元素的标签体内容 &lt;a》&lt;font》内容《/font&gt;&lt;/a》 会获得&lt;font》内容《/font&gt;&lt;/a》</li>
+<li>获取/设置元素的标签体的纯文本内容 &lt;a》&lt;font》内容《/font&gt;&lt;/a》 获得  内容</li>
+<li>val()：获取value的属性值</li>
+</ol>
+</li>
+<li><p>属性操作</p>
+<ol>
+<li><p>通用属性操作</p>
+<ol>
+<li>atr():获取/设置元素属性</li>
+<li>removeAttr():删除属性</li>
+<li>prop():获取/设置元素的属性</li>
+<li>removeProp():删除属性</li>
+</ol>
+<ul>
+<li><p>attr和prop的区别 </p>
+<p>如果是固有的属性，建议使用prop 如果是自定义属性，建议使用attr</p>
+</li>
+</ul>
+</li>
+<li><p>对class属性操作</p>
+<ol>
+<li>addClass():添加class属性值</li>
+<li>removeClass():删除class属性值 </li>
+<li>toggleClass():切换class属性<ul>
+<li>toggleClass(“one”)如果元素对象上存在class=”one”,则将属性one删除，如果元素对象不存在class=”one”，则添加</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>CRUD操作</p>
+<ol>
+<li>append():父元素将子元素最佳到末尾<ol>
+<li>对象1.append(对象2)：将对象2添加到对象1元素内部，并且在末尾。</li>
+</ol>
+</li>
+<li>prepend():父元素将子元素最佳到开头<ul>
+<li>对象1.prepend(对象2).将对象2添加到对象1元素内部，并且在开头。</li>
+</ul>
+</li>
+<li>appendTo():<ul>
+<li>对象1.append(对象2)：将对象1添加到对象2元素内部，并且在末尾。</li>
+</ul>
+</li>
+<li>prependTo<ol>
+<li>对象1.prepend(对象2).将对象1添加到对象2元素内部，并且在开头。</li>
+</ol>
+</li>
+<li>after():添加元素到元素后边<ul>
+<li>对象1.after(对象2)：将对象2添加到对象1后边，对象1和对象2是兄弟关系</li>
+</ul>
+</li>
+<li>before()<ul>
+<li>对象1.after(对象2)：将对象2添加到对象1前面，对象1和对象2是兄弟关系</li>
+</ul>
+</li>
+<li>insertafter()</li>
+<li>insertBefore()</li>
+<li>remove（）</li>
+<li>empty()</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="jQuery高级"><a href="#jQuery高级" class="headerlink" title="jQuery高级"></a>jQuery高级</h3><ol>
+<li><p>动画</p>
+<ol>
+<li>默认显示和隐藏方式<ol>
+<li>show([speed,[easing],[fn]])</li>
+<li>hide([speed,[easing],[fn]])</li>
+<li>toggle([speed,[easing],[fn]])</li>
+</ol>
+</li>
+<li>滑出显示和隐藏方式<ol>
+<li>slideDown([speed,[easing],[fn]])</li>
+<li>slideUp([speed,[easing],[fn]])</li>
+<li>slideToggle([speed,[easing],[fn]])</li>
+</ol>
+</li>
+<li>嵌入淡出显示隐藏方式<ol>
+<li>fadeIN([speed,[easing],[fn]])</li>
+<li>fadeOut([speed,[easing],[fn]])</li>
+<li>fadeToggle([speed,[easing],[fn]])</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>js遍历</p>
+<ol>
+<li>js遍历方式<ul>
+<li>for(; ;)</li>
+</ul>
+</li>
+<li>jq遍历方式<ol>
+<li>jQ对象.each(callback)</li>
+<li>$.each(obj1,[callback])</li>
+<li>for..of</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>事件绑定</p>
+<ol>
+<li><p>jQuery标准的绑定方式</p>
+<p>jq对象.事件方法(“回调函数”)</p>
+</li>
+<li><p>onoff绑定事件/解除绑定</p>
+<p>jq对象.on(“事件名称”，回调函数)</p>
+<p>jq对象.off(“事件名称”)</p>
+</li>
+</ol>
+</li>
+<li><p>插件：增强jQuery的功能</p>
+<ol>
+<li><p>实现方式</p>
+<ol>
+<li><p>$.fn.extend(object)</p>
+<ul>
+<li><p>增强通过jQuery获取的对象的功能  如$(“#mid”)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.fn.extend(</span><br><span class="line">	方法名:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    写方法体</span><br><span class="line">&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. $.extend(obj)
+
+   * 增强jQuery对象的功能  $/jQuery</code></pre><h3 id="Ajax：异步的JavaScript和xml"><a href="#Ajax：异步的JavaScript和xml" class="headerlink" title="Ajax：异步的JavaScript和xml"></a>Ajax：异步的JavaScript和xml</h3><ol>
+<li>概念<ol>
+<li>异步和同步：客户端和服务器端相互通性的基础上,在不加载整个页面的基础上，实现部分内容的数据交互</li>
+</ol>
+</li>
+</ol>
+<p><img src="../image/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%BC%82%E6%AD%A5.png" alt=""></p>
+<ol start="2">
+<li><p>实现方式</p>
+<ol>
+<li><p>原生js的实现方式</p>
+</li>
+<li><p>jQuery的实现方法</p>
+<ol>
+<li><p>$.ajax()</p>
+<ul>
+<li><p>语法$.ajax{键值对}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:<span class="string">""</span>,</span><br><span class="line">    type:<span class="string">""</span>,</span><br><span class="line">    data:&#123;<span class="string">"username"</span>:<span class="string">"jack"</span>&#125; <span class="comment">//发送给服务器的信息</span></span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    alert(data);&#125;;<span class="comment">//服务器端的回调函数</span></span><br><span class="line">	error:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="comment">//出错的回调信息</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. $.get()发送get请求
+
+   * 语法$.get(url, *[data]*,  *[callback]*, *[type]*)其他参数键上方
+
+3. $.post()发送post请求
+
+   &gt; 注  最后的type指定类型为&quot;json&quot;,这样servlet传回来的数据就不会是字符串了</code></pre><h3 id="JSON-JavaScript对象表示法"><a href="#JSON-JavaScript对象表示法" class="headerlink" title="JSON JavaScript对象表示法"></a>JSON JavaScript对象表示法</h3><ol>
+<li><p>json现在多用于存储和交换文本信息进行数据的传输</p>
+</li>
+<li><p>语法</p>
+<ol>
+<li><p>基本规则</p>
+<p>数据在名称/值对中：json数据是由键值对构成，键为字符串,值为数字 字符串 逻辑值 数组   json对象 null</p>
+<p>数据有逗号分割</p>
+<p>花括号保存对象：{}定义json格式</p>
+<p>方括号保存数组：[] 一般将两种括号组合使用</p>
+</li>
+<li><p>获取数据</p>
+<ol>
+<li>json对象.键名</li>
+<li>json对象[“键名”]</li>
+<li>数组对象[“索引”]</li>
+</ol>
+</li>
+<li><p>json数据和Java对象</p>
+<ol>
+<li><p>json转为Java对象</p>
+<ul>
+<li><p>导入Jackson的相关jar 包</p>
+</li>
+<li><p>创建Jackson的核心对象 objectMapper</p>
+</li>
+<li><p>调用objectMapper的相关方法进行转化</p>
+<p>mapper.read(字符串，object.class)</p>
+</li>
+</ul>
+</li>
+<li><p>Java对象转为json </p>
+<ol>
+<li><p>使用步骤</p>
+<ol>
+<li><p>导入Jackson的相关jar 包</p>
+</li>
+<li><p>创建Jackson的核心对象 objectMapper</p>
+</li>
+<li><p>调用objectMapper的相关方法进行转化</p>
+<ol>
+<li><p>转化方法</p>
+<ul>
+<li>write(参数1,obj) 参数重载流对象</li>
+<li>writeValueAsString(obj)</li>
+</ul>
+</li>
+<li><p>注解 在private Date 属性那里写</p>
+<ol>
+<li>@ JsonIgnore:排除属性</li>
+<li>@JsonFormat:属性值格式化</li>
+</ol>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setContentType(<span class="string">"application/json;charset=utf-8"</span>);</span><br><span class="line">response.getWriter().write(s);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><p>nosql非关系型数据库</p>
+<ol>
+<li><p>命令操作</p>
+<ol>
+<li>redis的数据结构<ul>
+<li>redis存储的是：key:value格式的数据，其中key都是字符串，value有5种2不同的数据格式<ol>
+<li>字符串类型  String</li>
+<li>哈希类型  hash: map格式</li>
+<li>列表类型  list:  linkList 格式</li>
+<li>集合类型  set</li>
+<li>有序集合类型  sortedset</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>字符串类型 String<ol>
+<li>存储 set key  value</li>
+<li>获取  get key</li>
+<li>删除  del key</li>
+</ol>
+</li>
+<li>hash类型<ol>
+<li>存储：hset  key field value</li>
+<li>获取   hget key filed 获取指定filed   hgetall key</li>
+<li>删除   hdel   key field</li>
+</ol>
+</li>
+<li>列表类型 可以添加一个元素到列表的头部（左边）或者尾部（右边）。<ol>
+<li>添加<ol>
+<li>lpush key value 将元素加入列表左边</li>
+<li>rpush key value 将元素加入列表右边</li>
+</ol>
+</li>
+<li>获取<ul>
+<li>lrange key start end:范围获取</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>lpop key 删除列表最左边的元素，并将元素返回r</li>
+<li>rpop key 删除列表最右边的元素，并将元素返回</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>集合类型set 不允许重复元素<ol>
+<li>存储：sadd key value</li>
+<li>获取    smembers  key:获取set集合所有元素</li>
+<li>删除     srem  key  value   删除某个元素</li>
+</ol>
+</li>
+<li>有序集合类型  sortedset  不允许重复元素，且元素有顺序<ol>
+<li>存储：zadd key score value 将来会对分数进行排序</li>
+<li>获取    zrange  key start end</li>
+<li>删除    zrem  key  value</li>
+</ol>
+</li>
+<li>通用命令<ol>
+<li>keys * 查询所有键</li>
+<li>type  key  获取键对应的value类型</li>
+<li>del key  删除指定的key  value</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>持久化</p>
+<ol>
+<li><p>redis是一个内存数据库  当redis服务器重启，获取电脑重启，数据会丢失，可以将数据写入硬盘</p>
+</li>
+<li><p>redis持久化机制</p>
+<ol>
+<li><p>RDB：默认方式，不需要进行配置，默认使用这种机制</p>
+<ul>
+<li>在一定的间隔时间种，检测key的变化情况，然后持久化数据</li>
+</ul>
+<ol>
+<li><p>编辑redis.windows.conf文件</p>
+<p>save 900 1</p>
+<p>after 900 sec (15 min) if at least 1 key changed</p>
+<p>save 300 10</p>
+<p>after 300 sec (5 min) if at least 10 keys changed</p>
+<p>save 60  10000</p>
+<p>after 60 sec if at least 10000 keys changed</p>
+</li>
+<li><p>重启服务器，并配置文件名称</p>
+<p>在cmd下redis-server.exe redis.windows.conf</p>
+</li>
+</ol>
+</li>
+<li><p>AOF:日志记录的方式，可以记录每一条命令的操作，可以每一次命令操作后，持久化数据</p>
+<ol>
+<li><p>编辑redis.windows.conf文件</p>
+<p>appendonly no 关闭aof   yes开启</p>
+<p>#appendfsync always 每一次操作都进行持久化</p>
+<p>appendfsync  everysec  每隔一秒进行一次持久化</p>
+<p>#appendfsync no   不进行持久化</p>
+</li>
+</ol>
+</li>
+<li><p>Java客户端jedis</p>
+<ul>
+<li><p>jedis 一款java操作redis数据库工具</p>
+</li>
+<li><p>jedis操作数据结构</p>
+<ol>
+<li><p>字符串类型</p>
+<p>set    get</p>
+</li>
+<li><p>hash类型  </p>
+<p>hset    hget</p>
+</li>
+<li><p>列表类型 </p>
+<p>lpush /rpush</p>
+<p>lpop/rpop</p>
+<p>ltange start end 范围获取</p>
+</li>
+<li><p>集合类型</p>
+<p>sadd</p>
+<p>smemmber获取所有元素</p>
+</li>
+<li><p>有序集合类型 </p>
+<p>zadd</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>jedis连接池 jedisPool</p>
+<ol>
+<li>使用   <ol>
+<li>创建jedispool连接池对象</li>
+<li>调用getResource()方法获取jedis连接</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><ol>
+<li><p>maven的概念 maven可以用在java项目的各个阶段，最主要的就是maven可以集中的管理jar包，提高代码重用,减少项目对jar包的依赖</p>
+<p><img src="../image/maven%E5%AF%B9jar%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86.png" alt="maven对jar包的管理.png"></p>
+</li>
+<li><p>maven仓库的种类和依赖关系</p>
+<p><img src="../image/%E4%BB%93%E5%BA%93%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E5%85%B3%E7%B3%BB.png" alt="仓库的种类和关系.png"></p>
+</li>
+</ol>
+<p>maven默认的仓库位置在   想要修改默认的本地仓库地址，只需要修改 <localRepository>/path/to/local/repo&lt;/localRepository》标签的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- localRepository</span><br><span class="line"> | The path to the local repository maven will use to store artifacts.</span><br><span class="line"> |</span><br><span class="line"> | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="line">&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>maven的目录结构</p>
+<ul>
+<li>src/main/java目录   核心代码部分</li>
+<li>src/main/resource   配置文件部分</li>
+<li>src/test/java              测试代码部分</li>
+<li>src/test/resoource    测试配置文件</li>
+<li>src/main/webapp     页面资源 js css 图片等</li>
+</ul>
+</li>
+<li><p>maven常用命令</p>
+<ol>
+<li><p>mvn clean 清空当前编译的信息   target文件夹</p>
+</li>
+<li><p>mvn compile  编译核心代码</p>
+</li>
+<li><p>mvn test   编译测试代码   同时也编译了核心代码</p>
+</li>
+<li><p>mvn package  打包  同时编译了核心  测试代码</p>
+</li>
+<li><p>mvn install  完成上面操作以后  将项目打包到了本地仓库</p>
+</li>
+<li><p>mvn  deploy  部署</p>
+<p>这六个过程又叫maven的生命周期   叫默认生命周期</p>
+</li>
+</ol>
+</li>
+<li><p>maven概念模型图</p>
+<p><img src="../image/maven%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%9B%BE.png" alt="maven概念模型图"></p>
+</li>
+</ol>
+<p>在pom.xml里面可以写&lt;depends》依赖项导入需要的jar包</p>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><h3 id="旅游项目的总结"><a href="#旅游项目的总结" class="headerlink" title="旅游项目的总结"></a>旅游项目的总结</h3><ol>
+<li><p>在使用ajax+json进行数据交互，and 在JDBCUTIL写druid 的配置文件时 不需要加  /</p>
+</li>
+<li><p>在跳转页面的时候  例如href=’<a href="http://localhost:8080/travel/activeUserServlet?code=a" target="_blank" rel="noopener">http://localhost:8080/travel/activeUserServlet?code=a</a> 相当于将code存入request域对象，可以在servlet中使用request.getParameter(“code”)方法获取值a</p>
+</li>
+<li><p>使用JDBCtemplate做查找没找到会抛异常</p>
+</li>
+<li><p>baseServlet的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class baseServlet extends HttpServlet &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</span><br><span class="line">        String uri=req.getRequestURI();</span><br><span class="line">        String methonName=uri.substring(uri.lastIndexOf(&apos;/&apos;)+1);</span><br><span class="line">        try &#123;</span><br><span class="line">            Method method = this.getClass().getDeclaredMethod(methonName, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">            method.invoke(this,req,resp);</span><br><span class="line">        &#125; catch (NoSuchMethodException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在继承类里 写@WebServlet(“/usr/*”) 然后直接写方法  前端Ajax请求的时候写  /usr/方法名</p>
+</li>
+</ol>
+<h3 id="旅游项目的实现细节"><a href="#旅游项目的实现细节" class="headerlink" title="旅游项目的实现细节"></a>旅游项目的实现细节</h3><ol>
+<li><p>技术选型</p>
+<ol>
+<li>web层</li>
+<li>service层</li>
+<li>dao层</li>
+</ol>
+</li>
+<li><p>基础的注册工序</p>
+<p><img src="../image/%E5%9F%BA%E7%A1%80%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD.png" alt="基础注册功能.png"></p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><img src="../image/tar%E5%91%BD%E4%BB%A4.png" alt="tar命令.png"></p>
+<p>chomd 改变权限   4表示r  2表示x   1表示w 相加</p>
+<p>如果要持久化修改主机名   修改/etc/sysconfig/network 将HOSTNAME=zmm</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>Linux安装软件的方式</p>
+<ol>
+<li><p>二进制发布包</p>
+<p>软件已经针对具体平台编译打包，只要解压修改配置即可</p>
+</li>
+<li><p>RPM包</p>
+<p>获得响应的软件包  没有对应的依赖包</p>
+</li>
+<li><p>yum在线安装</p>
+<p>需要网络支撑，的Rpm包</p>
+<p>yum install 包名</p>
+</li>
+<li><p>源码编译安装</p>
+<p>rpm -qa |grep mysql 查看有没有mysql的安装</p>
+<p>rpm -e –nodeps mysql  卸载mysql</p>
+<p>rpm -ivh 包名  安装软件</p>
+</li>
+<li><p>systemctl stop firewalld 关闭防火墙</p>
+</li>
+<li><p>访问端口时  去看看阿里云安全组把  哪里有答案</p>
+</li>
+<li><p><a href="https://blog.csdn.net/whdxjbw/article/details/80681191" target="_blank" rel="noopener">https://blog.csdn.net/whdxjbw/article/details/80681191</a></p>
+</li>
+<li><p>netstat  -anp  |grep  端口号看进程</p>
+</li>
+<li><p>ps -ef |grep tomca</p>
+</li>
+</ol>
+<blockquote>
+<p>当启动tomcat时应该有三个端口被打开 8080 8009 8005 如果8005没打开首先看是不是有端口号冲突  没有冲突的话看 /usr/local/jdk/jdk1.7.0_75/security.policy文件 将  securerandom.source=file:/dev/random  修改为：  securerandom.source=file:/dev/urandom（网上查询的结果，我改完这个就可以了，下面的未测试）  如果，仍然不生效，则修改为： file:/dev/./urandom</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><p>在/usr/local/nginx/sbin/下操作    </p>
+<p>./nginx -s stop 关闭nginx</p>
+<p>./nginx -s reload 重新加载配置文件</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/06/JavaWeb%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaSE学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/28/javaSE%E5%AD%A6%E4%B9%A0/">java学习</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/28/javaSE%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-03-28T07:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><p>jvm：java虚拟机，是运行java程序的虚拟的计算机，是Java程序的运行环境</p>
+<p><img src="./%E4%B8%8D%E5%90%8C%E7%9A%84jdk.jpg" alt="2"></p>
+<h3 id="Java常量"><a href="#Java常量" class="headerlink" title="Java常量"></a>Java常量</h3><ol>
+<li>字符串常量 例如 “dsdsa”,”dasdsad”</li>
+<li>整数常量 例如 1 5 8</li>
+<li>浮点数常量  2.02  8.36</li>
+<li>字符常量    ‘d’  ‘\a’</li>
+<li>布尔常量 true    false</li>
+<li>空常量    null</li>
+</ol>
+<h3 id="java-打印输出"><a href="#java-打印输出" class="headerlink" title="java 打印输出"></a>java 打印输出</h3><p>Java 在两行System.out.println(“a”)与System.out.println(“b”)两行之间会有换行，例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"dad"</span>);</span><br><span class="line">System.out.println(<span class="string">"da"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>结果会输出</p>
+<p>dad</p>
+<p>da</p>
+<blockquote>
+<p>注意：空常量不能打印输出</p>
+</blockquote>
+<h3 id="Java基本数据类型"><a href="#Java基本数据类型" class="headerlink" title="Java基本数据类型"></a>Java基本数据类型</h3><p>整数型 byte short int long</p>
+<p>浮点类型  float double</p>
+<p>字符型  char</p>
+<p>布尔型 bolean</p>
+<p><img src="/image/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8D%A0%E5%A4%A7%E5%B0%8F.png" alt="rf"></p>
+<h3 id="java数据类型转换"><a href="#java数据类型转换" class="headerlink" title="java数据类型转换"></a>java数据类型转换</h3><p>和c++一致，Java有显示和隐式转换，但是从大范围到小范围的隐式数据转化，Java不在支持，必须为显示转换，当然，Java中不存在static_cast&lt;&gt;()这种转换</p>
+<blockquote>
+<p>注意</p>
+<ol>
+<li>强制类型转换最好不要使用，会有精度损失</li>
+</ol>
+</blockquote>
+<p>相加操作例如 byte+byte 两个byte都会隐式转换为int，必须加上强制类型转换。</p>
+<p>但是对于short/int/byte而言，如果右值没有超过范围，则编译器会进行隐式的转换，例如</p>
+<p>short a=20;</p>
+<p>不会报错，如果右侧大于范围，例如，char a=555;则编译器报错</p>
+<p>但是加上操作符之后会有类型的提升，例如，short+short应该用int来接。但是右侧表达式为常量，则不会报错。short a =1+5;不会报错</p>
+<blockquote>
+<p>注意 java死循环后面不能再加上语句</p>
+</blockquote>
+<h3 id="IDEA的项目结构"><a href="#IDEA的项目结构" class="headerlink" title="IDEA的项目结构"></a>IDEA的项目结构</h3><p><img src="/image/idea%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png" alt="idea项目结构"></p>
+<p><img src="/image/Java%E5%88%9D%E5%A7%8B%E7%9B%AE%E5%BD%95.png" alt="javamulu"></p>
+<p>所有开发的源代码需要在src下，EL代表外部依赖项。最细致的管理代码的单位叫做包。其中包是一个多层级文件夹的嵌套例如我创建cn.a.b的包，系统会创建cn的文件夹，在cn文件夹下创建a文件夹，在a文件夹下创建b文件夹。</p>
+<p><img src="/image/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg" alt="快捷键"></p>
+<h2 id="Java函数的调用与函数的重载与c-一致"><a href="#Java函数的调用与函数的重载与c-一致" class="headerlink" title="Java函数的调用与函数的重载与c++一致"></a>Java函数的调用与函数的重载与c++一致</h2><p>java内存可以分为以下几类</p>
+<p><img src="/image/Java%E5%86%85%E5%AD%98%E7%9A%84%E5%88%86%E7%B1%BB.png" alt="java内存分类"></p>
+<h3 id="Java使用类操作"><a href="#Java使用类操作" class="headerlink" title="Java使用类操作"></a>Java使用类操作</h3><ol>
+<li>导包</li>
+</ol>
+<blockquote>
+<p>import 包名.类名</p>
+<p>如果两个文件属于同一个包，则不需要import操作</p>
+</blockquote>
+<ol start="2">
+<li>使用类</li>
+</ol>
+<blockquote>
+<p>Student s=new Student();</p>
+</blockquote>
+<ol start="3">
+<li>使用</li>
+</ol>
+<p>注意：只有java.lang下的包不需要导包，其他的包都需要导入</p>
+<h3 id="IDEA-生成简单代码"><a href="#IDEA-生成简单代码" class="headerlink" title="IDEA 生成简单代码"></a>IDEA 生成简单代码</h3><p>选择最上方code，然后选择generate.如果需要选择多个功能的生成，可以按住shift键</p>
+<h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><p>键盘输入</p>
+<p>Scanner在java.util下，使用键盘输入写为 Scanner sc=new Scanner(System.in);获取输入的int 为</p>
+<p>int a=sc.nextInt();字符串为 String s=sc.next();</p>
+<h3 id="Random"><a href="#Random" class="headerlink" title="Random"></a>Random</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Random R=new Random();</span><br><span class="line">int a=R.nextInt();//随机生成一个int值</span><br><span class="line">int b=R。nextInt(9);//生成[0,9)的随机int数</span><br></pre></td></tr></table></figure>
+
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>如同vector</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;<span class="keyword">int</span>&gt;a=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">a.add(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>方法列举</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add</span><br><span class="line">get(int index);</span><br><span class="line">int remove(int index);//删除idnex下的元素，返回该元素</span><br></pre></td></tr></table></figure>
+
+
+
+<p>list.fori遍历ArrayList</p>
+<p>如果ArrayList里面装的是基本类型，则需要在左边模型参数中写入下面代码</p>
+<p><img src="/image/java%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB.jpg" alt="java基本类型包装类.jpg"></p>
+<h3 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h3><p>对于String类，例如”dsadasds”字符串被当作一个实例，不像c++当成字面值，而是一个String类的对象，也有内存。这也就意味着java不像C++是通过char*来构建String，而是把String当作一个对象。这也就意味着不能通过[]操作来访问String 元素。但是都可以使用char[]创建String</p>
+<ol>
+<li><p>字符串的内容不可改变</p>
+</li>
+<li><p>每一个”   “字符串不认为是一个字符串常量，而是一个有地址的</p>
+</li>
+</ol>
+<h3 id="String方法"><a href="#String方法" class="headerlink" title="String方法"></a>String方法</h3><p>,equal(String)如果两个字符串内容相同，不管地址相不相同，都返回true.</p>
+<p>推荐常量字符串调用方法</p>
+<p>.equalIsIgonreCase()；equals方法的增强版，忽略大小写</p>
+<p>.indexOf(string);//返回参数字符串在字符串的位置</p>
+<p>.concat(String s);//将调用字符串与s拼接，并返回</p>
+<p>.charAt(char);//charAt(char);//返回字符在字符串中的位置</p>
+<p>.substring(int begin);//从begin开始到末尾的字符子串</p>
+<p>.substring(int begin,int end);//[begin,end)dgin,end)的字符子串</p>
+<p><img src="string%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95.jpg" alt="string其他方法.jpg"></p>
+<p>String[] spilt(string a);//按照规则a切分字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String a=<span class="string">"aaa,bbb,ccc"</span>;</span><br><span class="line">String[] b=&#123;<span class="string">"aaa"</span>,<span class="string">"bbb"</span>,<span class="string">"ccc"</span>&#125;;</span><br><span class="line"><span class="comment">//规则a是个正则表达式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>并且和c++一致，所有对象共享用同一份static。和c++完全yi’zhi</p>
+<h4 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h4><p>当第一次用到本类时就会调用静态代码块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span></span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>Arrays.sort(数组)//对数组排序。如果是结构化数组，需要指出Comporable或Comporator接口</p>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><p>Math.abs();</p>
+<p>Math.ceil();向上取整</p>
+<p>Math.flood();向下取整</p>
+<p>Math.PI;</p>
+<h3 id="子类与基类"><a href="#子类与基类" class="headerlink" title="子类与基类"></a>子类与基类</h3><p>public class 子类 extends 父类</p>
+<p>{</p>
+<p>}</p>
+<p>和c++规则一致，并且还没有虚函数</p>
+<h1 id="忘记保存了-从继承到内部类的内容全没了"><a href="#忘记保存了-从继承到内部类的内容全没了" class="headerlink" title="忘记保存了 从继承到内部类的内容全没了"></a>忘记保存了 从继承到内部类的内容全没了</h1><h1 id="干"><a href="#干" class="headerlink" title="干"></a>干</h1><h1 id="算了-从匿名内部类开始把"><a href="#算了-从匿名内部类开始把" class="headerlink" title="算了   从匿名内部类开始把"></a>算了   从匿名内部类开始把</h1><h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><blockquote>
+<p>如果接口的实现类或者父类的子类只需要实现一次，则可以使用匿名内部类</p>
+</blockquote>
+<p>例如可以在mainh函数内部写上</p>
+<p>接口名称 对象名=new  接口名称(){里面覆盖重写接口的方法};</p>
+<h4 id="匿名内部类的注意事项"><a href="#匿名内部类的注意事项" class="headerlink" title="匿名内部类的注意事项"></a>匿名内部类的注意事项</h4><ol>
+<li>创建匿名内部类的对象是，只能创建一次</li>
+</ol>
+<h3 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h3><ol>
+<li><p>System.currentTimeMillis();//返回程序现在的毫秒值</p>
+</li>
+<li><p>array copy函数</p>
+</li>
+</ol>
+<p><img src="/image/arraycopy%E5%87%BD%E6%95%B0.png" alt="arraycopy函数.png"></p>
+<h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h3><ol>
+<li>StringBuilder原理</li>
+</ol>
+<p><img src="/image/StringBulider%E5%8E%9F%E7%90%86.png" alt="StringBulider原理.png"></p>
+<p>StringBuilder 有参数为String的构造方法</p>
+<p>对象.append(任意的基本类型和字符串);返回this,并将任意的类型转化为StringBuilder里的bytes数组,该类比String的效率高，因为采用了缓冲区。</p>
+<ol start="2">
+<li>toString方法，将StringBuilder对象转化为String对象</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>将基本数据类型包装成类，可以调用成员方法</p>
+<p><img src="/image/%E5%8C%85%E8%A3%85%E7%B1%BB.png" alt="包装类.png"></p>
+<h4 id="装箱与拆箱"><a href="#装箱与拆箱" class="headerlink" title="装箱与拆箱"></a>装箱与拆箱</h4><p>将int装箱  Integer a=new Integer(int string);</p>
+<p>拆箱    a.intVal()</p>
+<p>自动装箱        Interger a=11;</p>
+<p>自动拆箱         a+=2；</p>
+<h5 id="将字符串变为int-double"><a href="#将字符串变为int-double" class="headerlink" title="将字符串变为int double"></a>将字符串变为int double</h5><p>Integer类里面有static int parse(String a);</p>
+<h2 id="Collection-集合"><a href="#Collection-集合" class="headerlink" title="Collection 集合"></a>Collection 集合</h2><p><img src="/image/Collect%E7%B1%BB.png" alt="Collect类.png"></p>
+<h3 id="Iterator-迭代器"><a href="#Iterator-迭代器" class="headerlink" title="Iterator 迭代器"></a>Iterator 迭代器</h3><p>迭代器的使用</p>
+<ol>
+<li><p>使用集合中的方法iterator()获取迭代器的实现类对象</p>
+</li>
+<li><p>使用迭代器的hasNext();方法判断有没有下一个元素</p>
+</li>
+<li><p>使用next();获取下一个元素</p>
+</li>
+</ol>
+<p>创建迭代器</p>
+<p>Collection <int>a=new ArrayLisr&lt;&gt;();</p>
+<p>Iterator<int>a=a.iterator(); </p>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><p>与c++一致，定义泛型的方法如下 public class 类名 &lt;模板参数&gt;{}</p>
+<p><img src="/image/%E6%B3%9B%E5%9E%8B%E5%AE%9A%E4%B9%89%E6%96%B9%E6%B3%95.png" alt="泛型定义方法.png"></p>
+<p>泛型接口与泛型类一致，接口向右写，并且模板参数可以默认</p>
+<p>含有泛型的方法</p>
+<p>修饰符 &lt;模板参数&gt; 返回值 名称(参数){}</p>
+<h3 id="Colleciton类"><a href="#Colleciton类" class="headerlink" title="Colleciton类"></a>Colleciton类</h3><h5 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h5><p>要想在自己写的类实现Collection.sort()方法，必须将该类实现一个接口Compareable&lt;类名&gt;并重写方法compaeTo方法。升序用this-对象。</p>
+<p>也可以这样重写函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(aa, <span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h3><p>两个模板参数，也是键值对</p>
+<h4 id="hashmap"><a href="#hashmap" class="headerlink" title="hashmap"></a>hashmap</h4><p>hashmap通过put方法插入，get方法通过键获得值</p>
+<p>remove(键)。删除键所对应的值，并放回</p>
+<p>keyset 将map中的所有键返回为一个集合。然后y可以通过key找到value</p>
+<p>Entry对相当于C++的pair对象，map对象可以调用EntrySet对象返回</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashMap与HashTable的区别</span><br><span class="line">map允许键值为空，table不允许键值为空</span><br></pre></td></tr></table></figure>
+
+
+
+<p>of方法一次性添加LIST SET MAP接口，一旦一次性添加了元素，便不能再put元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;s=List.of(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Set使用of方法如果有重复的参数，会抛出异常</p>
+<h3 id="调试跟踪"><a href="#调试跟踪" class="headerlink" title="调试跟踪"></a>调试跟踪</h3><p>f8逐行执行程序<br>f7进入方法体;<br>shift+f8调处方法体<br>f9跳到下一个断点，没有就推出<br>CTRL+f2调处程序<br>Console 切换到控制台</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>Java中异常是个类，产生异常会抛出一个异常的类</p>
+<p>throwable下面有两个子类   error和excepions类，该包再lang包下<br>使用try catch代码块可以捕获异常，并且后续代码可以实现<br>try<br>        {}<br>catch(Exception e)<br>        {}</p>
+<h4 id="异常处理的过程"><a href="#异常处理的过程" class="headerlink" title="异常处理的过程"></a>异常处理的过程</h4><p><img src="/image/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B.png" alt="异常处理过程.png"></p>
+<h3 id="异常的处理"><a href="#异常的处理" class="headerlink" title="异常的处理"></a>异常的处理</h3><h4 id="throw关键字"><a href="#throw关键字" class="headerlink" title="throw关键字"></a>throw关键字</h4><p>使用俄式 throw  new xxxException(“长生异常原因”);</p>
+<p>注意事项</p>
+<ol>
+<li>throw关键字必须写在方法的内部</li>
+<li>throw后面new的对象必须是Exception或者Exception类的子类对象</li>
+<li>throw关键字抛出异常后我们必须处理这个异常<pre><code>throw关键字抛出的RunTimeException或者其子类的对象可以不用处理
+ 编译异常要么使用throws要么使用try  catch 代码段</code></pre></li>
+</ol>
+<p>Object.requireNonNull(T obj,String 打印信息);如果对象obj为空，会抛出一个异常，叫做空指针异常</p>
+<p>如果有多个异常，并且两个异常有继承关系，那么，在抛出异常的时候只需要抛出父类的异常例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    fun(<span class="string">"C://a.txt"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(String add)</span><span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(add.equals(<span class="string">"C://a.txt"</span>))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(<span class="string">"没找到文件"</span>);</span><br><span class="line">    <span class="keyword">if</span>(!add.endsWith(<span class="string">".txt"</span>))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"文件后缀名错误"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有抛出FileNotFind异常是因为他是IOException异常的子类,通过throw的方式，异常后的代码不在执行</p>
+<h4 id="try-catch"><a href="#try-catch" class="headerlink" title="try     catch"></a>try     catch</h4><p>try catch后续代码都会执行。可以修改以上的代码块，使用try catch方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        fun(<span class="string">"dasdsa.ds"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (IOException e)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">"后续"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"呆呆的撒"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(String add)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!add.endsWith(<span class="string">".txt"</span>))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IOException();</span><br><span class="line">    System.out.println(<span class="string">"后缀名一致"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>finally代码块无论有没有异常，都会执行的代码块</p>
+<h4 id="异常的处理-1"><a href="#异常的处理-1" class="headerlink" title="异常的处理"></a>异常的处理</h4><ol>
+<li>分步别try边catch</li>
+<li>可以这样一次try多次catch</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)  &#123;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        fun(&quot;dasdsa.ds&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    catch(IOException)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    catch(FileNotFoundException)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3 多异常一次捕获，一次处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)  &#123;</span><br><span class="line">    try &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    catch(Exception e)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><p>自己写的异常类必须继承Exception 一个无参的光谱早方法一个带有父类信息的构造方法</p>
+<h3 id="Java的thread类"><a href="#Java的thread类" class="headerlink" title="Java的thread类"></a>Java的thread类</h3><h1 id="妈的多线程的一章全没了-gt-o-lt"><a href="#妈的多线程的一章全没了-gt-o-lt" class="headerlink" title="妈的多线程的一章全没了 &gt;o&lt;"></a>妈的多线程的一章全没了 &gt;o&lt;</h1><h3 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h3><p>java IO包类<br>file 文件<br>directiry 文件夹/路径<br>path 路径</p>
+<p>构造函数<br>File(String a);//a为绝对路径或者相对路径<br>File(String parent, String zi);//父路径与子路径</p>
+<p>.getAbsolutePath();//获取绝对路径<br>getPath();//获取相对路径<br>.getName();//获得文件、文件夹名称。<br>.length();//文件的大小.</p>
+<p>.exist();//判断路径是否存在</p>
+<p>.isFile();//判断是否是文件<br>.isDirectory()l//判断是否是文件夹</p>
+<p>.creatNewFile();//创建一个新文件<br>.delete();//删除文件或文件夹<br>.madir();//创建路径</p>
+<h3 id="FileFileter"><a href="#FileFileter" class="headerlink" title="FileFileter"></a>FileFileter</h3><p>FileFilter接口用于过滤File对象<br>只有一个抽象方法 boolean accept(File ovj);<br>用法<br>实现该接口的accept方法，调用路径的的listFiles(参数为实现类对象);这样就过滤了。<br>方法返回true 则放入数组中。</p>
+<p><img src="/image/FileFilter%E5%8E%9F%E7%90%86.png" alt="FileFilter原理.png"></p>
+<h3 id="I-O"><a href="#I-O" class="headerlink" title="I\O"></a>I\O</h3><p>文件字节输出流</p>
+<ol>
+<li><p>创建FileOutputSvrean对象</p>
+</li>
+<li><p>调用对象的write方法</p>
+</li>
+<li><p>调用close释放资源</p>
+<p>.write(byte[]);会写入byte类型的所对应的字符。如果第一个数字是正数，会对应ASCII码输入对应字符，如果第一个是负数，会将两个正数对应GBK汉字输入。</p>
+</li>
+</ol>
+<h5 id="在文件后面追加写数据"><a href="#在文件后面追加写数据" class="headerlink" title="在文件后面追加写数据"></a>在文件后面追加写数据</h5><p>​    创建FileOutputSvrean时，使用两个参数的构造方法，FileOutputStream(String a,bollean flag);如果flag为true会在原文加后面追加文件，否则会覆盖重写文件</p>
+<h4 id="字节输入流"><a href="#字节输入流" class="headerlink" title="字节输入流"></a>字节输入流</h4><p>​    InputStream抽象类，定义了所有的输出流的抽象方法</p>
+<h5 id="FileInputStream"><a href="#FileInputStream" class="headerlink" title="FileInputStream"></a>FileInputStream</h5><p>​    构造方法，参数和上面一样，参数为文件的路径</p>
+<h4 id="字符输入流-Read"><a href="#字符输入流-Read" class="headerlink" title="字符输入流 Read"></a>字符输入流 Read</h4><p>​    抽象类，read()一次读取一个字符，close释放资源方法。一个一个字符的读取</p>
+<h5 id="FileRead"><a href="#FileRead" class="headerlink" title="FileRead"></a>FileRead</h5><ol>
+<li>创建FileRead对象</li>
+<li>使用read方法读取文件 返回值为-1，则read失败</li>
+<li>close</li>
+</ol>
+<h5 id="字符输出流"><a href="#字符输出流" class="headerlink" title="字符输出流"></a>字符输出流</h5><ol>
+<li><p>创建FileWriter对象，构造方法写入目的地址</p>
+</li>
+<li><p>使用write方法写道内存的缓冲区中</p>
+</li>
+<li><p>使用flush把内存缓冲区的数据，刷新到文件中</p>
+</li>
+<li><p>close</p>
+<p>flush会刷新流对象的内容到文件，流对象继续使用。close之后流对象会释放</p>
+</li>
+</ol>
+<p>和字节输入输出流一样  使用第二个参数的构造函数会续写文件。\r\n换行</p>
+<h3 id="IO异常"><a href="#IO异常" class="headerlink" title="IO异常"></a>IO异常</h3><p>​    JDK7之后再try后面加一个括号，写上流对象，在try执行完毕，会释放流对象。不再写finally释放流对象</p>
+<p>​    JDK9之后可以不用在括号内创建对象，只需要在括号内写上外边定义的对象，类似代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(<span class="string">"a.txt"</span>);</span><br><span class="line">    FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"b.txt"</span>);</span><br><span class="line">    <span class="keyword">try</span>(fileInputStream ; fileOutputStream)&#123;</span><br><span class="line">        <span class="keyword">int</span> ln=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((ln=fileInputStream.read())!=-<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fileOutputStream.write(ln);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (IOException e)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="字节缓冲输出流"><a href="#字节缓冲输出流" class="headerlink" title="字节缓冲输出流"></a>字节缓冲输出流</h4><p>BufferedOutputStream(OutputStream a);会给a创建一个缓冲区。</p>
+<p>使用步骤</p>
+<ol>
+<li>创建输出 FileOutputStream对象</li>
+<li>通过1创建的对象创建缓冲流对象</li>
+<li>使用2的write方法写道缓冲区中</li>
+<li>使用flush写道文件中</li>
+<li>close </li>
+</ol>
+<p>字节缓存输入流与输出流类似，只是没有flush.close的时候只需要关闭缓冲流即可，无需关闭原始流。</p>
+<h3 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h3><p>序列化：ObjectOutputStream把对象写入到文件中    writeObject,</p>
+<p>反序列化：ObjectInputStream(返回object类)    readObject</p>
+<p>进行序列化和反序列化的对象必须实现Serializable接口</p>
+<p>如果类的内容变化，则会抛出异常，序列化与反序列化不一致，解决方式是在类中声明一个变量 private static final serialVersionUID        </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/28/javaSE%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-“神经网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -601,6 +3955,8 @@ cells[i] 的值为 0 或 1
 1 &lt;= N &lt;= 10^9</code></pre><p>​    题解:  很明显总共有二的八次方256种状态，那么状态肯定存在循环。可以使用一个map来记录这些状态。找到合适的记录状态的方法，例如磁体我们可以采用int 对 int 的map，键为次数，值为位数+二的位数次方</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prisonAfterNDays(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cells, <span class="keyword">int</span> N) &#123;</span><br><span class="line">	 <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; intMap;</span><br><span class="line">	 <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp(<span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line">	 <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">while</span> (i &lt;= N) &#123;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">			 tmp[i] = (cells[i - <span class="number">1</span>] == cells[i + <span class="number">1</span>]);</span><br><span class="line">		 &#125;</span><br><span class="line">		 tmp[<span class="number">0</span>] = <span class="number">0</span>; tmp[<span class="number">7</span>] = <span class="number">0</span>;</span><br><span class="line">		 swap(tmp, cells);</span><br><span class="line"></span><br><span class="line">		 <span class="comment">// judge</span></span><br><span class="line">		 <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">		 <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) val = val * <span class="number">2</span> + cells[i];</span><br><span class="line">		 <span class="keyword">if</span> (intMap.find(val) == intMap.end()) &#123;</span><br><span class="line">			 intMap[val] = i;</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span> &#123;</span><br><span class="line">			 <span class="comment">// 出现重复,计算res</span></span><br><span class="line">			 <span class="keyword">int</span> cycle_len = i - intMap[val];</span><br><span class="line">			 i = i + (N - i) / cycle_len*cycle_len;</span><br><span class="line">		 &#125;</span><br><span class="line">		 i++;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 <span class="keyword">return</span> cells;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+
+
 <h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="124-二叉树中的最大路径和"><a href="#124-二叉树中的最大路径和" class="headerlink" title="124. 二叉树中的最大路径和"></a><a href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/" target="_blank" rel="noopener">124. 二叉树中的最大路径和</a></h2><p>给定一个非空二叉树，返回其最大路径和。</p>
 <p>本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。该路径至少包含一个节点，且不一定经过根节点。</p>
 <p>示例 1:</p>
@@ -691,12 +4047,34 @@ p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。</
 </li>
 <li><p>图内的找点法、一列一列的找。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">while (board[i][j] != &apos;.&apos;)</span><br><span class="line">		  &#123;</span><br><span class="line">			  if (++j &gt;= 9)</span><br><span class="line">			  &#123;</span><br><span class="line">				  i++;</span><br><span class="line">				  j = 0;</span><br><span class="line">			  &#125;</span><br><span class="line">			  if (i &gt;= 9)</span><br><span class="line">			  &#123;</span><br><span class="line">				  return true;</span><br><span class="line">			  &#125;</span><br><span class="line">		  &#125;</span><br></pre></td></tr></table></figure>
-
-
-
+</li>
+<li><p>在C++（补码环境下）a&amp;(-a)可以得到a的最低非零位</p>
 </li>
 </ol>
+<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><h2 id="优先队列–priority-queue"><a href="#优先队列–priority-queue" class="headerlink" title="优先队列–priority_queue"></a>优先队列–<strong>priority_queue</strong></h2><p>​    使用优先队列必须包含头文件#include<queue> </p>
+<pre><code>定义：priority_queue&lt;Type, Container, Functional&gt;</code></pre><p>Type 就是数据类型，Container 就是容器类型（Container必须是用数组实现的容器，比如vector,deque等等，但不能用 list。STL里面默认用的是vector），Functional 就是比较的方式，当需要用自定义的数据类型时才需要传入这三个参数，使用基本数据类型时，只需要传入数据类型，默认是大顶堆</p>
+<blockquote>
+<p>//升序队列 priority_queue &lt;int,vector<int>,greater<int> &gt; q; </p>
+<p>//降序队列 priority_queue &lt;int,vector<int>,less<int> &gt;q;</p>
+</blockquote>
+<p>当然当元素为一个pair时我们可以根据第一个和第二个元素的性质来设置优先队列，方法如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> D = pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">comp</span>&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(D x, D y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x.second.size() &lt; y.second.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;,<span class="built_in">vector</span>&lt;pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt;&gt;,comp&gt;d;</span><br><span class="line"><span class="comment">//这样就可以按照第二个元素升序的顺序出队列</span></span><br></pre></td></tr></table></figure>
 
+
+
+<p>和队列相同的操作</p>
+<blockquote>
+<ul>
+<li>top 访问队头元素</li>
+<li>empty 队列是否为空</li>
+<li>size 返回队列内元素个数</li>
+<li>push 插入元素到队尾 (并排序)</li>
+<li>emplace 原地构造一个元素并插入队列</li>
+<li>pop 弹出队头元素</li>
+<li>swap 交换内容</li>
+</ul>
+</blockquote>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h2>
       
 
       
@@ -1517,11 +4895,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法、刷题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1533,11 +4915,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
+                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性分类</a>
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
             
             <div class="clearfix"></div>
